@@ -165,3 +165,25 @@ table.dataTable.display tbody tr.selected > .sorting_3 {
 /* evaluate_btn_col */
 .evaluate_btn_col > .btn,.evaluate_btn_col:hover > span{display:none}
 .evaluate_btn_col > span, .evaluate_btn_col:hover > .btn{display:block}
+
+/* sidebar_nicescroll */
+#boxscroll{
+	overflow-y: scroll;
+}
+.nav-sidebar {
+	li.active > a {
+		width: 187px;
+	}
+	.dropdown {
+		border-bottom:1px solid #649dd6;
+		&:after {
+			content: "";
+			display: block;
+			border-bottom: 1px solid #316aa3
+		}
+	}
+	.dropdown-menu {
+		border-top:1px solid #649dd6;
+		box-shadow: -2px 2px 2px #316aa3;
+	}
+}

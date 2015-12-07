@@ -48,13 +48,20 @@ gridviewScroll = ->
 		railsize: 16
 		barsize: 16
 
-
+sidebar_scroll_height = ->
+	$boxscroll = $("#boxscroll")
+	$win_height = $(window).height()
+	$top_area_height = $(".sidebar__logo").height() + $(".dropdown").height()
+	$boxscroll.height($win_height - $top_area_height)
 
 $ ->
 	asideW = $('aside').width()
 	$winW = $(window).width()
 	$winH = $(window).height()
 	$('.bootstrap-validator').validator()
+
+	# 共用側欄選單捲軸
+	sidebar_scroll_height()
 
 	# tabsRowfixW = ->
 	#   $fixW = $winW - asideW
@@ -104,6 +111,9 @@ $ ->
 		# timer = setTimeout((->
 		# 	location.reload()
 		# ), 300)
+
+		# 共用側欄選單捲軸
+		sidebar_scroll_height()
 		
 	$('.trigger').click ->
 		$('.layout-fixed').toggleClass 'aside-collapsed'
@@ -159,6 +169,20 @@ $ ->
 		$(this).tooltip
 			container: 'body',
 			placement: 'top'
+
+	# 共用側欄選單捲軸
+	$('#boxscroll').niceScroll
+		touchbehavior: true
+		cursoropacitymin: 0.3
+		cursoropacitymax: 0.8
+		cursorwidth: '3px'
+		cursorcolor: 'white'
+		cursorborder: '0 solid tranparent'
+		railpadding:
+			top: 0
+			right: 9
+			left: 0
+			bottom: 0
 
 #turn to inline mode
 $.fn.editable.defaults.mode = 'popup'
