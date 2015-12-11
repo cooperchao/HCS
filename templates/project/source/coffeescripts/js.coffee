@@ -184,6 +184,21 @@ $ ->
 			left: 0
 			bottom: 0
 
+	# 耗材管理 > 耗材申請 / 新增項目
+	$(".supplies_rows_del").hide()
+	$(".supplies_add_item").click ->
+		$item_rows = $(".supplies_rows").find(".row:eq(0)").clone()
+		$(".supplies_rows").find(".col-md-12").append($item_rows)
+		if $(".supplies_rows .row").length > 1
+			$(".supplies_rows .row").not(":eq(0)").find(".supplies_rows_del").show()
+		
+		lrHeight()
+
+	# 耗材管理 > 耗材申請 / 移除項目
+	$("body").on "click", ".supplies_rows_del", ->
+		$(this).parents(".row:eq(0)").remove()
+		lrHeight()
+
 #turn to inline mode
 $.fn.editable.defaults.mode = 'popup'
 
