@@ -12,7 +12,7 @@ hcs_calendar = {
 			},
 			allDaySlot: false,               // 全天任務
 			defaultView: "agendaWeek",       // 停留頁籤
-			defaultDate: "2015-06-01",       // 預設日期
+			// defaultDate: "2015-06-01",       // 預設日期
 			eventLimit: true,                // 更多筆數
 			firstDay: 1,                     // 起始週期
 			titleFormat: {
@@ -709,4 +709,11 @@ $(function(){
 			hcs_calendar.loc_reload();
 		}
 	});
+});
+
+// Window load
+$(window).load(function(){
+	if($(".fc-today-button").prop("disabled")) {
+		hcs_calendar.todayTH();
+	}
 });
