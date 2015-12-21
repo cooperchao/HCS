@@ -1148,7 +1148,7 @@ a.bgc01:visited{color:#4d4d4d}
 	#filterBox2 ul,
 	#filterBox4 ul{margin:0 auto}
 	#filterBox2 ul li,
-	#filterBox4 ul li{float:left;width:60px;margin:0 2px;text-align:center}
+	#filterBox4 ul li{float:left;width:60px;overflow:hidden;margin:0 2px;text-align:center;white-space:nowrap;text-overflow:ellipsis}   
 	.listDot{width:16px;height:16px;margin:2px auto;border-radius:50%}
 	#btn-af-close,
 	#btn-cf-close{bottom:14px;right:32px;width:30px;height:26px;line-height:26px}
