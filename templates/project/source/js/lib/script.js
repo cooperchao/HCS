@@ -308,7 +308,25 @@ hcs_calendar = {
 					"content": fancyContent
 				});
 			},
-			events: data_events
+			// events: data_events
+			events: function(start, end, timezone, callback) {
+				$.ajax({
+					url: "http://175.98.112.14:8000/api/calendar_out/list",
+					async: "false",
+					type: "post",
+					data: {
+						"start": moment(start._d).format("YYYY-MM-DD"),
+						"end": moment(end._d).format("YYYY-MM-DD")
+					},
+					success: function(data_events){
+						console.log(data_events);
+						callback(data_events);
+					},
+					error:function(xhr, ajaxOptions, thrownError){ 
+						console.log("error");
+					}
+				});
+			}
 		}
 		if(input_boolean!= undefined) {
 			calendar_init.eventLimit  = input_boolean;
