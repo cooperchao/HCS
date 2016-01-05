@@ -933,7 +933,7 @@ $(function(){
 	// 單次假日設定 - 泡泡儲存鈕
 	$("#btn_holiday_dialog_days").click(function(){
 		var $dialog            = $("#holiday_dialog_days"),
-			$daytype           = $dialog.find("input[type=radio]:checked").val(),
+			$daytype           = $dialog.find("input[type=radio]:checked").parent().index(),
 			$checked_holiday   = $dialog.find("input[type=radio]:eq(1)").prop("checked"),
 			$holiday_names     = $dialog.find("input[name=holiday_names]").val(),
 			$holiday_day_array = [];
@@ -942,7 +942,7 @@ $(function(){
 		$checked_holiday ? $click_today.addClass("n_holiday").attr("title", $holiday_names) : $click_today.removeClass("n_holiday").attr("title", "");
 
 		// 該欄位樣式為當月，則依序回傳所選週期資料[日期, 類別, 名稱]
-		$holiday_day_array.push($click_today.attr("data"), $daytype, $checked_holiday ? $holiday_names : "");
+		$holiday_day_array.push($click_today.attr("data"), $daytype === 0 ? "weekday" : "holiday" , $checked_holiday ? $holiday_names : "");
 
 		// 關閉 dialog 並設置為除能
 		$dialog.modal('hide');
