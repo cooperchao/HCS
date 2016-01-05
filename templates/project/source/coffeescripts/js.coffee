@@ -252,7 +252,53 @@ $(document).ready ->
 	# 			'sPrevious': '上頁'
 	# 			'sNext': '下頁'
 	# 			'sLast': '尾頁'
-				
+
+
+	# cp
+	# $('.datatables_list').DataTable
+	# 	'bLengthChange': false
+	# 	'bInfo': false
+	# 	'order': [[ 3, "desc" ]]
+	# 	'oLanguage':
+	# 		'sProcessing': '處理中...'
+	# 		'sLengthMenu': '顯示 _MENU_ 項結果'
+	# 		'sZeroRecords': '沒有匹配結果'
+	# 		'sInfo': '共 _TOTAL_ 筆資料。'
+	# 		'sInfoEmpty': '顯示第 0 至 0 項結果，共 0 項'
+	# 		'sInfoFiltered': '(從 _MAX_ 項結果過濾)'
+	# 		'sSearch': '搜索: '
+	# 		'oPaginate':
+	# 			'sFirst': '首頁'
+	# 			'sPrevious': '上頁'
+	# 			'sNext': '下頁'
+	# 			'sLast': '尾頁'
+	# 	'ajax': (data, callback, settings) ->
+	# 		"type": "post"
+	# 		"url": "http://175.98.112.14:8000/api/task_record/serach_by_name_time_type_area"
+	# 		"data":
+	# 			"case_val": ""
+	# 			"start_date": ""
+	# 			"finish_date": ""
+	# 			"serv_type": ""
+	# 			"area_num": ""
+	# 		"success": ->
+	# 			console.log("yy")
+	# 		"error": ->
+	# 			console.log("nn")
+
+			# "columns": [
+			# 	{"data": "unit_id"}
+			# 	{"data": "task_id"}
+			# 	{"data": "case_name"}
+			# 	{"data": "case_account"}
+			# 	{"data": "case_id"}
+			# 	{"data": "case_number"}
+			# 	{"data": "area"}
+			# 	{"data": "war_name"}
+			# 	{"data": "war_account"}
+			# 	{"data": "war_id"}
+			# ]
+			# return
 
 $(window).load ->
 	$cost1     = $('#tableCost1')

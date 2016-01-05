@@ -187,3 +187,11 @@ table.dataTable.display tbody tr.selected > .sorting_3 {
 		box-shadow: -2px 2px 2px #316aa3;
 	}
 }
+
+/* 2015-12-31 新增表頭logo強制更新高度用 */
+.cont_head_logo + .tab-page-wrapper-space{
+	height: 122px;
+}
+.tab-page-wrapper-space + .tab-page-wrapper-space .tab-page-wrapper {
+	top: 122px;
+}

@@ -48,6 +48,7 @@ body {
 	.tab-page-wrapper {
 		padding-right: $content-padding;
 		padding-left: $content-padding;
+		top: 52px;
 		left: $aside-wd;
 		right: 0;
 	}
@@ -325,4 +326,43 @@ $logo-radius: 10px;
 
 .aside-collapsed {
 
+}
+
+
+/* added cont logo & footer */
+.cont_head_logo {
+	position: fixed;
+	top: 0;
+	left: $aside-wd;
+	right: 0;
+	z-index: 99;
+	height: 52px;
+	padding: 0 40px;
+	text-align: right;
+	background-color: white;
+}
+
+.copyright {
+	padding: 10px 0;
+	text-align: center;
+	.logo_shuttle {
+		min-height: 52px;
+		text-indent: -9999px;
+		background: url("../images/logo_shuttle.svg") no-repeat 50% 50%;
+	}
+	i {
+		display: inline-block;
+		width: 16px;
+		height: 16px;
+		background: url("../images/icon_footer.svg") no-repeat 0 -1px;
+		&.icon-phone {
+			background-position: 0 -17px;
+		}
+		&.icon-fax {
+			background-position: 0 -31px;
+		}
+		&.icon-mail {
+			background-position: 0 -46px
+		}
+	}
 }

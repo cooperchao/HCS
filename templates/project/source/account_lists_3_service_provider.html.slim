@@ -8,5 +8,7 @@ aside
 // main-content
 section.main
 	.container-fluid
+		== render "layout/cont_head_logo"
 		== render :partial => "layout/page_tab" , :locals => {:f => "menu3"}
 		== render "page/account_lists/3_service_provider.html.erb"
+	== render "layout/footer"

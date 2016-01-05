@@ -735,3 +735,103 @@ $(window).load(function(){
 		hcs_calendar.todayTH();
 	}
 });
+
+
+// $(document).ready(function() {
+    // $('#example').DataTable( {
+        // "processing": true,
+        // "serverSide": true,
+        
+    // } );
+// } );
+
+
+// 串接datatable ajax用
+$(function(){
+
+	// iiii = 1;
+
+	$(".datatables_list").DataTable({
+		'bLengthChange': false,
+		'bInfo': false,
+		'order': [[ 3, "desc" ]],
+		'oLanguage': {
+			'sProcessing': '處理中...',
+			'sLengthMenu': '顯示 _MENU_ 項結果',
+			'sZeroRecords': '沒有匹配結果',
+			'sInfo': '共 _TOTAL_ 筆資料。',
+			'sInfoEmpty': '顯示第 0 至 0 項結果，共 0 項',
+			'sInfoFiltered': '(從 _MAX_ 項結果過濾)',
+			'sSearch': '搜索: ',
+			'oPaginate': {
+				'sFirst': '首頁',
+				'sPrevious': '上頁',
+				'sNext': '下頁',
+				'sLast': '尾頁',
+			},
+		},
+		// "processing": true,
+		// "serverSide": true,
+
+		// "deferRender": true,    // 延載 
+
+		// "deferLoading": 15,     // 預載筆數
+		// "bLengthChange": false, // 筆數切換
+		"iDisplayLength": 2,    // 筆數	
+
+
+		"ajax": {
+			"type": "post",
+			"url": "http://175.98.112.14:8000/api/task_record/serach_by_name_time_type_area",
+			"async": "false",
+			"data": {
+				"case_val": "",
+				"start_date": "",
+				"finish_date": "",
+				"serv_type": "",
+				"area_num": ""
+			},
+			"dataSrc": function ( data ) {
+				// var obj={};
+				// obj.draw=iiii++;
+				// obj.recordsTotal=15;
+				// obj.recordsFiltered=15;
+				// obj.data=data;
+				// console.log("data~~~~~~~~~~~~~~~",obj);
+				// return obj;
+			
+				console.log(data);
+				return data;
+			},
+		},
+		"columns": [
+			{"data": 'unit_id'},
+			{"data": 'task_id'},
+			{"data": 'id'},
+			{"data": 'case_name'},
+			{"data": 'start'},
+			{"data": 'wai_name'},
+			{"data": 'service_item[].item_name'},
+			{"data": 'miss_note'},
+			{"data": 'average_note'},
+			{"data": 'note'}
+		],
+
+		// "columns": [
+		// 	{"data": 'data.unit_id'},
+		// 	{"data": 'data.task_id'},
+		// 	{"data": 'data.id'},
+		// 	{"data": 'data.case_name'},
+		// 	{"data": 'data.start'},
+		// 	{"data": 'data.wai_name'},
+		// 	{"data": 'data.service_item[].item_name'},
+		// 	{"data": 'data.miss_note'},
+		// 	{"data": 'data.average_note'},
+		// 	{"data": 'data.note'}
+		// ],
+
+
+	
+	});
+
+});
