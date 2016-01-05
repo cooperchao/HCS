@@ -1,62 +1,71 @@
-<div class="row top-buffer">
-	<div class="col-md-6 text-left">
-		<ol class="breadcrumb">
-			<li>
-				<a href="#">系統設定</a>
-			</li>
-			<li class="active">假日設定</li>
-		</ol>
-	</div>
+<style>
+	.nextYear{float:right}
+	.top-buffer{margin-top:15px}
+	.rc-Calendar-header{padding:1em 0}
 
-	<div class="col-md-6 text-right">
-		<input class="btn btn-default" type="submit" value="儲存">
-	</div>
-</div>
-<hr>
-<div class="alert alert-warning alert-dismissible" role="alert">
-	<button type="button" class="close" data-dismiss="alert"><span class="sr-only">Close</span></button>
-	<strong>點選日期</strong> 以設定 / 取消國定假日。
-</div>
+	/* #3d85cc - 100*/
+	/* #649dd6 - 80%*/
+	div.rc-Month {margin: 0 0 50px 50px} 
+	div.rc-Week-number{color:#3d85cc}
+	div.rc-Month--current .rc-Month-header{color:#3d85cc}
+	div.n_holiday{color:white;background-color:#77a9db}
+	div.rc-Day--current{color:white;background-color:#39ce8c}
+	div.rc-Day:hover{color:white;background-color:#3d85cc}
+	div.rc-Day:hover.rc-Day--outside{color:#eee;background-color:white} 
+	
+</style>
 <div class="row top-buffer">
-	<div class="col-md-12">
-		<h4>新增假日</h4>
-		<hr>
-		<div class="form-inline col-md-12">
-			<label>選擇日期</label>
-			<input type="text" class="form-control datepicker" placeholder="">
-			<span> 星期四 </span>
-			<input type="text" class="form-control" placeholder="請輸入假日名稱...">
-			<button class="btn btn-default">新增</button>
+	<label for="" class="control-label">本年度周期性假日設定</label>
+	<div id="filter_weeks_holiday">
+		<div class="form-inline">
+			<label class="checkbox-inline"><input type="checkbox" value="0">日</label>
+			<label class="checkbox-inline"><input type="checkbox" value="1">一</label>
+			<label class="checkbox-inline"><input type="checkbox" value="2">二</label>
+			<label class="checkbox-inline"><input type="checkbox" value="3">三</label>
+			<label class="checkbox-inline"><input type="checkbox" value="4">四</label>
+			<label class="checkbox-inline"><input type="checkbox" value="5">五</label>
+			<label class="checkbox-inline"><input type="checkbox" value="6">六</label>
+			<select id="holiday_type" class="form-control">
+				<option value="weekday">平日</option>
+				<option value="holiday">假日</option>
+			</select>
+			<button type="button" id="btn_filter_weeks_holiday" class="btn btn-primary">設定</button>
+		</div>
+	</div>
+	<hr>
+</div>
+<div class="row">
+	<div id="app"></div>
+</div>
+
+<!-- holiday_dialog_days -->
+<div id="holiday_dialog_days" class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">
+					<span aria-hidden="true">&times;</span>
+					<span class="sr-only">Close</span>
+				</button>
+				<h4 class="modal-title">單次假日設定</h4>
+			</div>
+			<div class="modal-body">
+				<div class="form-group">
+					<h5><span></span> - 要設定為?</h5>
+				</div>
+				<div class="form-group form-inline">
+					<label><input type="radio" name="holiday_days" checked>平日</label>
+					<label>
+						<input type="radio" name="holiday_days">假日
+						<input type="text" name="holiday_names" class="form-control">
+					</label>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+				<button type="button" class="btn btn-primary" id="btn_holiday_dialog_days">設定</button>
+			</div>
 		</div>
 	</div>
 </div>
-<div class="row top-buffer">
-	<div class="col-md-12">
-		<h4>假日清單</h4>
-		<hr>
-		<table class="table align-middle-table custom-table-01 reset-list-style">
-			<thead>
-				<tr>
-					<th width="30%">日期</th>
-					<th width="30%">星期</th>
-					<th width="35%">假日名稱</th>
-					<th width="5%" class="text-center">刪除</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>2015-01-01</td>
-					<td>星期四</td>
-					<td contenteditable="true"><a href="javascript:;" data-type="text" class="editable_textarea">元旦</a></td>
-					<td class="text-center"><a href="#" class="text-danger"><i class="fa fa-trash fa-3x"></i></a></td>
-				</tr>
-				<tr>
-					<td>2015-05-01</td>
-					<td>星期五</td>
-					<td contenteditable="true"><a href="javascript:;" data-type="text" class="editable_textarea">勞動節(勞工適用)</a></td>
-					<td class="text-center"><a href="#" class="text-danger"><i class="fa fa-trash fa-3x"></i></a></td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
-</div>
+<!-- holiday_dialog_days//-->

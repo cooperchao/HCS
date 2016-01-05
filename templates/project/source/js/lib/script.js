@@ -835,3 +835,139 @@ $(function(){
 	});
 
 });
+
+
+// 設定國定假日用
+$(function(){
+
+	// 匯入已設定假日
+	var holiday_import = {
+		datas : [
+			[ "2016-01-01", "holiday" , "春節"],
+			[ "2016-06-08", "holiday" , "國定假日"],
+			[ "2016-07-12", "holiday" , "0712假日"],
+			[ "2016-06-22", "weekday" , "工作日"],
+			[ "2016-08-22", "holiday" , "01假日"],
+		],
+		datas_import : function (import_datas){
+
+			$.each(import_datas, function( key ) {
+				
+				var _date = 0, _type = 1, _name = 2;
+
+				switch (import_datas[key][_type]) {
+
+					case "holiday":
+						$(".rc-Day[data^="+ import_datas[key][_date] + "]").addClass("n_holiday").prop("title", import_datas[key][_name]);
+						break;
+
+					default:
+						break;
+				}
+			});
+		}
+	};
+
+	// 將非當年份日期新增反灰樣式
+	function re_added_class(input_year){
+		$("div[data^="+ input_year + "]").addClass("rc-Day--outside");
+	};
+
+	// 本年度周期性假日設定
+	$("#btn_filter_weeks_holiday").click(function() {
+
+	 	var $daytype     = $("#holiday_type").find("option:selected").val(),
+	 		$weekdays    = $(".rc-Week-days"),
+			$chose_weeks = $("#filter_weeks_holiday").find("input[type='checkbox']:checked"),
+			$weeks_array = [];
+
+		$weekdays.each(function(index) {
+
+			$chose_weeks.each(function() {
+
+				// 選取所有日期欄 (排除非當年度日期欄)
+				var $checked_col = $weekdays.eq(index).find(".rc-Day").eq($(this).val()).not(".rc-Day--outside");
+
+				// 依日期類別新增、移除當日樣式
+				$daytype == "holiday" ? $checked_col.addClass("n_holiday") : $checked_col.removeClass("n_holiday");
+
+				// 該欄位樣式為當月，則依序回傳所選週期資料[日期, 類別, 名稱]
+				var $checked_weeks_array = [$checked_col.attr("data"), $daytype, ""];
+				$checked_col.attr("data") != undefined ? $weeks_array.push($checked_weeks_array) : null;
+				
+			});
+		});
+
+		// 取得假日資料
+		console.log($weeks_array);
+
+	});
+
+	// 單次假日設定
+	$(".rc-Day").click(function(){
+		
+		var $dialog  = $("#holiday_dialog_days"),
+			$d_radio = $dialog.find("input[type=radio]"),
+			$d_input = $dialog.find("input[name=holiday_names]"),
+			$d_title = $dialog.find(".modal-body h5>span"),
+			$this    = $(this),
+			$title   = $this.attr("title");
+
+		// dialog 小標題動態日期
+		$d_title.text($this.attr("data"));
+
+		// 假日名稱輸入欄預設值
+		$d_input.val($title);
+
+		// 依該欄位假日類別，更改 dialog radio 值
+		$this.hasClass("n_holiday") ? $d_radio.eq(1).prop("checked", true) : $d_radio.eq(0).prop("checked", true);
+
+		// 該欄位樣式為當月，即補上 dialog attribute
+		if ($this.hasClass("rc-Day--outside") == false) {
+			$this.attr({"data-toggle":"modal", "data-target":"#holiday_dialog_days"});}
+
+		// 給 dialog 儲存鈕指定樣式用
+		$click_today = $this;
+	});
+
+	// 單次假日設定 - 泡泡儲存鈕
+	$("#btn_holiday_dialog_days").click(function(){
+		var $dialog            = $("#holiday_dialog_days"),
+			$daytype           = $dialog.find("input[type=radio]:checked").val(),
+			$checked_holiday   = $dialog.find("input[type=radio]:eq(1)").prop("checked"),
+			$holiday_names     = $dialog.find("input[name=holiday_names]").val(),
+			$holiday_day_array = [];
+
+		// 依欄位假日類別，更改樣式及tooltip
+		$checked_holiday ? $click_today.addClass("n_holiday").attr("title", $holiday_names) : $click_today.removeClass("n_holiday").attr("title", "");
+
+		// 該欄位樣式為當月，則依序回傳所選週期資料[日期, 類別, 名稱]
+		$holiday_day_array.push($click_today.attr("data"), $daytype, $checked_holiday ? $holiday_names : "");
+
+		// 關閉 dialog 並設置為除能
+		$dialog.modal('hide');
+		$(".rc-Day").removeAttr("data-toggle", "data-target");
+
+		// 取得假日資料
+		console.log($holiday_day_array);
+	});
+
+	// 載入完成
+	$(window).load(function(){
+		// re_added_class("2017");
+		holiday_import.datas_import(holiday_import.datas);
+	});
+
+	// 點擊上一年，覆蓋非當年度但顯示樣式
+	// $(".prevYear").click(function(){
+	// 	re_added_class( parseInt($(".rc-Calendar-header").text()) - 2 );
+	// });
+
+	// 點擊下一年，覆蓋非當年度但顯示樣式
+	// $(".nextYear").click(function(){
+	// 	re_added_class( parseInt($(".rc-Calendar-header").text()) + 2 );
+	// });
+
+	// 回傳預設日期
+	// console.log(PagingCalendar.getInitialState("2015-01-01"));
+});
