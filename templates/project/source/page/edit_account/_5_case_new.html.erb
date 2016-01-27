@@ -681,6 +681,8 @@
 				<h4 class="modal-title">操作紀錄</h4>
 			</div>
 			<div class="modal-body">
+
+				<!-- 個案身份_顯示5欄 -->
 				<table class="table align-middle-table custom-table-01 reset-list-style">
 					<thead>
 						<tr>
@@ -703,6 +705,29 @@
 						<% end %>
 					</tbody>
 				</table>
+				<!-- 個案身份_顯示5欄//-->
+
+				<!-- 其它身份_顯示3欄 -->
+				<table class="table align-middle-table custom-table-01 reset-list-style">
+					<thead>
+						<tr>
+							<th>設定時間</th>
+							<th>狀態(變更前)</th>
+							<th>狀態(變更後)</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% 2.times do %>
+						<tr>
+							<td class="text-center">2015/08/08</td>
+							<td class="text-center">啟用</td>
+							<td class="text-center">停用</td>
+						</tr>
+						<% end %>
+					</tbody>
+				</table>
+				<!-- 其它身份_顯示3欄//-->
+
 			</div>
 			<!-- <div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">關閉</button>
