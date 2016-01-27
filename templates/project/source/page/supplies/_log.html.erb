@@ -35,7 +35,7 @@
 						<div class="col-md-12">
 							<div class="col-md-14">
 								<select class="form-control">
-									<option>請選擇</option>
+									<option>全部項目</option>
 									<option>中衛檢驗手套(無粉/PVC) - M</option>
 									<option>中衛檢驗手套(無粉/PVC) - L</option>
 									<option>不織布平面口罩</option>
@@ -53,12 +53,27 @@
 				</div>
 				<div class="col-md-2">
 					<select class="form-control">
-						<option>請選擇</option>
+						<option>全部用途</option>
 						<option>自用</option>
 						<option>送人</option>
 					</select>
 				</div>
 			</div>
+
+			<div class="form-group">
+				<div class="col-md-2">
+					<p class="form-control-static">申請狀態</p>
+				</div>
+				<div class="col-md-2">
+					<select class="form-control">
+						<option>全部狀態</option>
+						<option>已核定</option>
+						<option>未核定</option>
+						<option>部份核定</option>
+					</select>
+				</div>
+			</div>
+
 		</div>
 		<div class="col-md-1">
 			<button class="btn btn-default">
@@ -77,22 +92,14 @@
 	<table class="table align-middle-table custom-table-01 reset-list-style">
 		<thead>
 			<tr>
-				<th rowspan="2">序號</th>
-				<th rowspan="2">申請人員</th>
-				<th rowspan="2">身份別</th>
-				<th colspan="7">申請項目數量</th>
-				<th rowspan="2">用途</th>
-				<th rowspan="2">申請日期</th>
-				<th rowspan="2">申請結果</th>
-			</tr>
-			<tr>
-				<th>中衛檢驗手套(無粉/PVC) - M</th>
-				<th>中衛檢驗手套(無粉/PVC) - L</th>
-				<th>不織布平面口罩</th>
-				<th>單色乳膠手套8.5</th>
-				<th>雙色乳膠手套7.5</th>
-				<th>雙色乳膠手套8</th>
-				<th>雙色乳膠手套8.5</th>
+				<th>序號</th>
+				<th>申請人員</th>
+				<th>身份別</th>
+				<th>申請項目</th>
+				<th>申請數量</th>
+				<th>用途</th>
+				<th>申請日期</th>
+				<th class="text-center">申請狀態</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -100,76 +107,74 @@
 				<td>1</td>
 				<td>王小明</td>
 				<td>居服員</td>
-				<td>100</td>
-				<td></td>
-				<td>20</td>
-				<td></td>
-				<td></td>
-				<td>20</td>
-				<td></td>
+				<td>
+					<ul>
+						<li>中衛檢驗手套 (無粉/PVC) - M</li>
+						<li class="text-danger">中衛檢驗手套 (無粉/PVC) - L</li>
+						<li>不織布平面口罩</li>
+						<li class="text-danger">單色乳膠手套 8.5</li>
+						<li>雙色乳膠手套 8</li>
+					</ul>
+				</td>
+				<td>
+					<ul>
+						<li>100</li>
+						<li class="text-danger">數量不足</li>
+						<li>20</li>
+						<li class="text-danger">項目不存在</li>
+						<li>20</li>
+					</ul>
+				</td>
 				<td>自用</td>
 				<td>2015-05-20</td>
-				<td>成功</td>
+				<td class="text-center">成功</td>
 			</tr>
 			<tr>
 				<td>2</td>
 				<td>王小明</td>
 				<td>居服員</td>
-				<td></td>
-				<td>100</td>
-				<td></td>
-				<td>20</td>
-				<td></td>
-				<td>20</td>
-				<td></td>
+				<td>
+					<ul>
+						<li>中衛檢驗手套 (無粉/PVC) - M</li>
+						<li>不織布平面口罩</li>
+						<li>雙色乳膠手套 8</li>
+					</ul>
+				</td>
+				<td>
+					<ul>
+						<li>100</li>
+						<li>20</li>
+						<li>20</li>
+					</ul>
+				</td>
 				<td>自用</td>
 				<td>2015-05-20</td>
-				<td>駁回,重複申請次數過多，故不核可申請</td>
+				<td class="text-center">駁回，重複申請次數過多，故不核可申請</td>
 			</tr>
 			<tr>
 				<td>3</td>
 				<td>王小明</td>
 				<td>居服員</td>
-				<td>100</td>
-				<td></td>
-				<td>20</td>
-				<td></td>
-				<td>100</td>
-				<td>20</td>
-				<td></td>
+				<td>
+					<ul>
+						<li>中衛檢驗手套 (無粉/PVC) - M</li>
+						<li>不織布平面口罩</li>
+						<li>雙色乳膠手套 8</li>
+					</ul>
+				</td>
+				<td>
+					<ul>
+						<li>100</li>
+						<li>20</li>
+						<li>20</li>
+					</ul>
+				</td>
 				<td>自用</td>
 				<td>2015-05-20</td>
-				<td>成功</td>
-			</tr>
-			<tr>
-				<td>4</td>
-				<td>王小明</td>
-				<td>居服員</td>
-				<td>100</td>
-				<td></td>
-				<td>20</td>
-				<td></td>
-				<td></td>
-				<td>20</td>
-				<td></td>
-				<td>自用</td>
-				<td>2015-05-20</td>
-				<td>成功</td>
-			</tr>
-			<tr>
-				<td>5</td>
-				<td>王小明</td>
-				<td>居服員</td>
-				<td></td>
-				<td>100</td>
-				<td>20</td>
-				<td>20</td>
-				<td></td>
-				<td>20</td>
-				<td></td>
-				<td>自用</td>
-				<td>2015-05-20</td>
-				<td>駁回, {原因}</td>
+				<td class="text-center">
+					<button class="btn btn-default">駁回</button>
+					<button class="btn btn-primary">核準</button>
+				</td>
 			</tr>
 		</tbody>
 	</table>
