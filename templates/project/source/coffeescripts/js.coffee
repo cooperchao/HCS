@@ -172,7 +172,9 @@ $ ->
 
 	# 共用側欄選單捲軸
 	$('#boxscroll').niceScroll
-		touchbehavior: true
+		# 需關閉否則會產生連結點不到bug
+		# touchbehavior: true
+		touchbehavior: false
 		cursoropacitymin: 0.3
 		cursoropacitymax: 0.8
 		cursorwidth: '3px'
