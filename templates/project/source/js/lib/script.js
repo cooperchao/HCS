@@ -750,7 +750,6 @@ $(window).load(function(){
 $(function(){
 
 	// iiii = 1;
-
 	$(".datatables_list").DataTable({
 		'bLengthChange': false,
 		'bInfo': false,
@@ -770,19 +769,23 @@ $(function(){
 				'sLast': '尾頁',
 			},
 		},
-		// "processing": true,
-		// "serverSide": true,
+		"processing": true,
+		"serverSide": true,
 
 		// "deferRender": true,    // 延載 
 
-		// "deferLoading": 15,     // 預載筆數
+		// "deferLoading": 10,     // 預載筆數
 		// "bLengthChange": false, // 筆數切換
-		"iDisplayLength": 2,    // 筆數	
+
+		// "sPaginationType": "full_numbers", // 完整頁數
+		// "iDisplayLength": 10,   // 筆數	
 
 
 		"ajax": {
 			"type": "post",
-			"url": "http://175.98.112.14:8000/api/task_record/serach_by_name_time_type_area",
+			// "url": "http://175.98.112.14:8000/api/task_record/serach_by_name_time_type_area",
+			"url": "http://localhost:1337/api/capi/capi",
+			"dataType": "jsonp",
 			"async": "false",
 			"data": {
 				"case_val": "",
@@ -799,22 +802,43 @@ $(function(){
 				// obj.data=data;
 				// console.log("data~~~~~~~~~~~~~~~",obj);
 				// return obj;
-			
 				console.log(data);
 				return data;
 			},
 		},
+		"data": function(){
+			var info = $('#datatables_list').DataTable().page.info();
+			console.log(info);
+			// $('#datatables_list').DataTable().ajax.url(
+			// 	"${contextPath}/admin/getNextPageData/" + (info.page + 1) + "/" + 10
+			// );
+		},
+		// "columns": [
+		// 	{"data": 'unit_id'},
+		// 	{"data": 'task_id'},
+		// 	{"data": 'id'},
+		// 	{"data": 'case_name'},
+		// 	{"data": 'start'},
+		// 	{"data": 'wai_name'},
+		// 	{"data": 'service_item[].item_name'},
+		// 	{"data": 'miss_note'},
+		// 	{"data": 'average_note'},
+		// 	{"data": 'note'}
+		// ],
+		// "fnInitComplete": function(oSettings, json) {
+		// 	alert('DataTables has finished its initialisation.');
+		// },
 		"columns": [
-			{"data": 'unit_id'},
-			{"data": 'task_id'},
-			{"data": 'id'},
-			{"data": 'case_name'},
-			{"data": 'start'},
-			{"data": 'wai_name'},
-			{"data": 'service_item[].item_name'},
-			{"data": 'miss_note'},
-			{"data": 'average_note'},
-			{"data": 'note'}
+			{"data": 'd0'},
+			{"data": 'd1'},
+			{"data": 'd2'},
+			{"data": 'd3'},
+			{"data": 'd4'},
+			{"data": 'd5'},
+			{"data": 'd6[5]'},
+			{"data": 'd7'},
+			{"data": 'd8'},
+			{"data": 'd10'}
 		],
 
 		// "columns": [
