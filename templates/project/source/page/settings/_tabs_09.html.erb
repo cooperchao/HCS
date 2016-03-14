@@ -16,7 +16,7 @@
 <div class="row">
 	<form class="form-horizontal col-md-8 col-md-offset-2" role="form">
 		<div class="row">
-			<h4>評鑑設定</h4>
+			<h4>單次評鑑設定</h4>
 			<hr>
 			<div class="form-group">
 				<div class="col-md-12">
@@ -25,7 +25,25 @@
 			</div>
 			<div class="form-group">
 				<div class="col-md-12">
-					<label class="control-label form-inline">服務完成後 <input type="text" class="form-control"> 天</label>
+					<label class="control-label form-inline">
+						<span>服務完成後</span>
+						<input type="text" class="form-control">
+						<span>天內有效</span>
+					</label>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-md-12">
+					<label class="control-label">評鑑提醒起始時間計算  *(不可小於單次評鑑有效期限)</label>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-md-12">
+					<label class="control-label form-inline">
+						<span>服務完成後</span>
+						<input type="text" class="form-control">
+						<span>天內提醒</span>
+					</label>
 				</div>
 			</div>
 		</div>
@@ -40,26 +58,56 @@
 			<div class="form-group">
 				<div class="col-md-12">
 					<label class="control-label form-inline">
-						家訪 <input type="text" class="form-control"> 月 / 次 &nbsp;&nbsp;
-						電訪 <input type="text" class="form-control"> 月 / 次
+						<span>家訪每</span>
+						<input type="text" class="form-control">
+						<span>月 / 1次</span>
+					</label>
+				</div>
+				<div class="col-md-12">
+					<label class="control-label form-inline">
+						<span>電訪每</span>
+						<input type="text" class="form-control">
+						<span>月 / 1次</span>
+					</label>
+				</div>
+			</div>
+			<div class="form-group top-buffer">
+				<div class="col-md-12">
+					<label class="control-label">訪問提醒起始時間計算</label>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-md-12">
+					<label class="control-label form-inline">
+						<span>下次家訪前</span>
+						<input type="text" class="form-control">
+						<span>天</span>
+					</label>
+				</div>
+				<div class="col-md-12">
+					<label class="control-label form-inline">
+						<span>下次電訪前</span>
+						<input type="text" class="form-control">
+						<span>天</span>
 					</label>
 				</div>
 			</div>
 		</div>
 		<div class="row top-buffer">
-			<h4>提醒設定</h4>
+			<h4>年度服務滿意度調查設定</h4>
 			<hr>
 			<div class="form-group">
 				<div class="col-md-12">
-					<label class="control-label">提醒起始時間計算</label>
+					<label class="control-label">填寫日期限制</label>
 				</div>
 			</div>
 			<div class="form-group">
 				<div class="col-md-12">
-					<label class="control-label form-inline">下次家訪前 <input type="text" class="form-control"> 天</label>
-				</div>
-				<div class="col-md-12">
-					<label class="control-label form-inline">下次電訪前 <input type="text" class="form-control"> 天</label>
+					<label class="control-label form-inline">
+						<span>次年度</span>
+						<input type="text" class="form-control datepicker">
+						<span>之前</span>
+					</label>
 				</div>
 			</div>
 		</div>

@@ -1,116 +1,177 @@
 <div class="row top-buffer">
-    <div class="col-md-6 text-left">
-        <ol class="breadcrumb">
-            <li>
-                <a href="#">系統設定</a>
-            </li>
-            <li class="active">繳費方式</li>
-        </ol>
-    </div>
-    <div class="col-md-6 text-right">
-        <input class="btn btn-default" type="button" value="取消">
-        <input class="btn btn-default" type="submit" value="儲存">
-    </div>
+	<div class="col-md-6 text-left">
+		<ol class="breadcrumb">
+			<li>
+				<a href="#">系統設定</a>
+			</li>
+			<li class="active">繳費方式</li>
+		</ol>
+	</div>
+	<div class="col-md-6 text-right">
+		<input class="btn btn-default" type="button" value="取消">
+		<input class="btn btn-default" type="submit" value="儲存">
+	</div>
 </div>
 <hr>
 <div class="row">
-    <form class="col-md-8 col-md-offset-2">
-        <ul class="list-unstyled">
-            <li class="setting_item setting_item-log">
-                <div class="col-md-1">
-                </div> 
-                <div class="col-md-8">
-                    <label for="" class="form-group">收費週期</label>
-                </div>
-                <div class="col-md-3">
-                    <label for="" class="form-group"></label>
-                </div>
-            </li>
-            <li class="setting_item setting_item-log">
-                <div class="col-md-1">
-                </div> 
-                <div class="col-md-8">
-                    <label class="form-group">
-                        <input type="radio"></input> 前月 1 日至前月最後一日
-                    </label>
-                </div>
-                <div class="col-md-3">
-                    <label for="" class="form-group"></label>
-                </div>
-            </li>
-            <li class="setting_item setting_item-log">
-                <div class="col-md-1">
-                </div>
-                <div class="col-md-8">
-                    <label class="form-group form-inline">
-                        <input type="radio"></input> 每月
-                        <input type="text" class="form-control"> 日前結算 ( 例如 : 設定每月 1 日前結算，意謂前月的 30、31 日或 28 日結算 )
-                    </label>
-                </div>
-                <div class="col-md-3">
-                    <label class="form-group"></label>
-                </div>
-            </li>
-            <li class="setting_item setting_item-log">
-                <div class="col-md-1">
-                </div> 
-                <div class="col-md-8">
-                    <label class="form-group">收費訊息發送時間</label>
-                </div>
-                <div class="col-md-3">
-                    <label for="" class="form-group"></label>
-                </div>
-            </li>
-            <li class="setting_item setting_item-log">
-                <div class="col-md-1">
-                </div> 
-                <div class="col-md-8">
-                    <label class="form-group form-inline"> 每月 <input type="text" class="form-control"> 日發送</label>
-                </div>
-                <div class="col-md-3">
-                    <label for="" class="form-group"></label>
-                </div>
-            </li>
-            <li class="setting_item setting_item-log">
-                <div class="col-md-1">
-                </div> 
-                <div class="col-md-8">
-                    <label for="" class="form-group">繳費方式</label>
-                </div>
-                <div class="col-md-3">
-                    <label for="" class="form-group">順位</label>
-                </div>
-            </li>
-            <% for i in 1..2 do %>
-            <li class="setting_item setting_item-log">
-                <div class="col-md-1">
-                    <a href="javascript:;"><i class="fa fa-2x fa-minus-circle text-danger"></i></a>
-                </div> 
-                <div class="col-md-8">
-                    <input type="text" class="form-control" placeholder="系統帶預設值">
-                </div>
-                <div class="col-md-3">
-                    <input type="text" class="form-control" placeholder="<%= i %>">
-                </div>
-            </li>
-            <% end %>
-            <li class="setting_item setting_item-log">
-                <div class="col-md-1">
-                </div> 
-                <div class="col-md-8">
-                    <a href="javascript:;" class="text-success">＋ 新增項目</a>
-                </div>
-            </li>
-            <li class="setting_item setting_item-log has-success">
-                <div class="col-md-1">
-                </div> 
-                <div class="col-md-8">
-                    <input type="text" class="form-control" placeholder="輕輸入項目名稱">
-                </div>
-                <div class="col-md-3">
-                    <button class="btn btn-success btn-block">新增</button>
-                </div>
-            </li>
-        </ul>
-    </form>
+	<form class="col-md-8 col-md-offset-2">
+
+		<h4>結算設定</h4>
+		<hr>
+		<ul class="list-unstyled">
+			<li class="setting_item setting_item-log">
+				<div class="row">
+					<div class="col-md-11 col-md-offset-1">
+						<label>帳單結算日</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-11 col-md-offset-1 form-inline">
+						<label class="form-inline">
+							每月 <input class="form-control" type="input" value="1"> 號
+						</label>
+					</div>
+				</div>
+			</li>
+			<li class="setting_item setting_item-log">
+				<div class="row">
+					<div class="col-md-11 col-md-offset-1">
+						<label>未完任務操作</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-11 col-md-offset-1">
+						<div class="col-md-3">
+							<div class="row">
+								<button type="button" class="btn btn-default btn-block">開放未完任務操作</button>
+							</div>
+						</div>
+						<div class="col-md-9">
+							<span class="text-primary">提供主管可重新開放已結算之任務(上個月)，供督導員進行補打卡或相關操作之功能(僅針對尚未完成之任務)</span>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li class="setting_item setting_item-log">
+				<div class="row">
+					<div class="col-md-11 col-md-offset-1">
+						<label>手動系統結算</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-11 col-md-offset-1">
+						<div class="col-md-3">
+							<div class="row">
+								<button type="button" class="btn btn-default btn-block">立刻結算</button>
+							</div>
+						</div>
+						<div class="col-md-9">
+							<span class="text-primary">提供主管可重新開放已結算之任務(上個月)，供督導員進行補打卡或相關操作之功能(僅針對尚未完成之任務)</span>
+						</div>
+					</div>
+				</div>
+			</li>
+		</ul>
+
+
+		<h4>收費設定</h4>
+		<hr>
+		<ul class="list-unstyled">
+			<li class="setting_item setting_item-log">
+				<div class="col-md-11 col-md-offset-1">
+					<label>收費金額</label>
+				</div>
+			</li>
+			<li class="setting_item setting_item-log form-group">
+				<div class="col-md-11 col-md-offset-1 form-inline">
+					<label>
+						<span>一般用戶自費金額設定</span>
+						<input type="text" class="form-control">
+						<span>元 / 時</span>
+					</label>
+				</div>
+			</li>
+			<li class="setting_item setting_item-log">
+				<div class="col-md-11 col-md-offset-1">
+					<label>收費週期</label>
+				</div>
+			</li>
+			<li class="setting_item setting_item-log form-group">
+				<div class="col-md-11 col-md-offset-1 form-inline">
+					<label>
+						<input type="radio" name="radio1">
+						<span>前月 1 日至前月最後一日</span>
+					</label>
+				</div>
+			</li>
+			<li class="setting_item setting_item-log form-group">
+				<div class="col-md-11 col-md-offset-1 form-inline">
+					<label>
+						<input type="radio" name="radio1">
+						<span>每月</span>
+						<input type="text" class="form-control">
+						<span>日 ~ 次月</span>
+						<input type="text" class="form-control">
+						<span>日</span>
+					</label>
+				</div>
+			</li>
+
+			<li class="setting_item setting_item-log">
+				<div class="col-md-11 col-md-offset-1">
+					<label class="form-group">收費訊息發送時間</label>
+				</div>
+			</li>
+
+			<li class="setting_item setting_item-log">
+				<div class="col-md-11 col-md-offset-1 form-inline">
+					<label>
+						<span>帳單結算日後</span>
+						<input type="text" class="form-control">
+						<span>日發送</span>
+					</label>
+				</div>
+			</li>
+			<li class="setting_item setting_item-log">
+				<div class="col-md-1">
+				</div> 
+				<div class="col-md-8">
+					<label class="form-group">繳費方式</label>
+				</div>
+				<div class="col-md-3">
+					<label class="form-group">順位</label>
+				</div>
+			</li>
+			<% for i in 1..2 do %>
+			<li class="setting_item setting_item-log">
+				<div class="col-md-1">
+					<a href="javascript:;"><i class="fa fa-2x fa-minus-circle text-danger"></i></a>
+				</div> 
+				<div class="col-md-8">
+					<input type="text" class="form-control" placeholder="系統帶預設值">
+				</div>
+				<div class="col-md-3">
+					<input type="text" class="form-control" placeholder="<%= i %>">
+				</div>
+			</li>
+			<% end %>
+			<li class="setting_item setting_item-log">
+				<div class="col-md-1">
+				</div> 
+				<div class="col-md-8">
+					<a href="javascript:;" class="text-success">＋ 新增項目</a>
+				</div>
+			</li>
+			<li class="setting_item setting_item-log has-success">
+				<div class="col-md-1">
+				</div> 
+				<div class="col-md-8">
+					<input type="text" class="form-control" placeholder="輕輸入項目名稱">
+				</div>
+				<div class="col-md-3">
+					<button class="btn btn-success btn-block">新增</button>
+				</div>
+			</li>
+		</ul>
+	</form>
 </div>
