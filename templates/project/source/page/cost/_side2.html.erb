@@ -1,78 +1,164 @@
-<div class="tab-page-wrapper-space">
-	<div class="tab-page-wrapper bg-secondary"></div>
+<div class="row">
+	<div class="alert alert-info text-center top-buffer" role="alert">目前沒有待處理項目...</div>
 </div>
-<div class="row top-buffer form-horizontal well clearfix">
-	<form class="form-inline" role="form">
-		<div class="form-group col-md-12">時間區間
-			<input type="text" class="form-control datepicker" placeholder="">~
-			<input type="text" class="form-control datepicker" placeholder="">
-			<select class="form-control">
-				<option>全部地區</option>
-				<option>松山</option>
-				<option>信義</option>
-				<option>大安</option>
-				<option>文山</option>
-			</select>
-			<button class="btn btn-default">查詢</button>
-			<button class="btn btn-primary pull-right">
-				<i class="fa fa-fw fa-table"></i>匯出 excel</button>
-		</div>
-	</form>
-</div>
-<hr>
+
 <div class="row top-buffer">
-	<table class="table align-middle-table custom-table-01 reset-list-style">
+	<h4>收費項目</h4>
+	<hr>
+	<p>下列個案收費，於結帳日期後，完成收款確認。</p>
+	<table class="table align-middle-table custom-table-01 reset-list-style top-buffer">
 		<tr class="GridviewScrollHeader">
-			<th>序號</th>
 			<th>案號</th>
 			<th>姓名</th>
 			<th>區別</th>
 			<th>居服員</th>
-			<th>日期</th>
+			<th>結帳日期</th>
 			<th>用途</th>
-			<th>政府完全補助時數</th>
-			<th>國定假日期間服務單價</th>
-			<th>國定假日期間服務時數</th>
-			<th>服務未遇費用</th>
-			<th>部分自費單價</th>
-			<th>部分自費時數</th>
-			<th>全自費單價</th>
-			<th>全自費時數</th>
-			<th>總服務時數</th>
-			<th>流水號</th>
 			<th>總繳款金額</th>
 			<th>繳款方式</th>
-			<th>收款日期</th>
-			<th>經手人</th>
-			<th>收費狀態</th>
-			<th>備註</th>
+			<th>處理狀態</th>
 		</tr>
-		<% 110.times do %>
 		<tr class="GridviewScrollItem">
-			<td>1</td>
 			<td>淡001</td>
-			<td>林爺爺</td>
+			<td>爺爺001</td>
 			<td>淡水</td>
 			<td>王小明</td>
-			<td>104.02.18</td>
-			<td>104年2月份 &nbsp;居家照顧服務服務費</td>
-			<td>0</td>
-			<td>60</td>
-			<td>0</td>
-			<td>30</td>
-			<td>60</td>
-			<td>14</td>
-			<td>210</td>
-			<td>0</td>
-			<td>14</td>
-			<td>F10401001</td>
+			<td>105.03.28</td>
+			<td><a href="javascript:;" data-toggle="modal" data-target="#cost_dialog">104年2月份居家照顧服務費</a></td>
 			<td>840</td>
-			<td>交由督導員</td>
-			<td><a href="javascript:;" data-type="combodate" class="editable_timepicker">2015-03-01</a></td>
-			<td><a href="javascript:;" data-type="text" class="editable">王小明</a></td>
-			<td><a href="javascript:;" data-type="select" class="editable_select">未完成</a></td>
-			<td contenteditable="true"><a href="javascript:;" data-type="textarea" class="editable_textarea">無</a></td>
+			<td>居服員到府收款</td>
+			<td>未處理</td>
 		</tr>
-		<% end %>
+		<tr class="GridviewScrollItem">
+			<td>淡002</td>
+			<td>爺爺002</td>
+			<td>淡水</td>
+			<td>王小明</td>
+			<td>105.03.28</td>
+			<td><a href="javascript:;" data-toggle="modal" data-target="#cost_dialog">104年2月份居家照顧服務費</a></td>
+			<td>840</td>
+			<td>郵局劃撥</td>
+			<td>未完成</td>
+		</tr>
+		<tr class="GridviewScrollItem">
+			<td>淡003</td>
+			<td>爺爺003</td>
+			<td>淡水</td>
+			<td>王小明</td>
+			<td>105.03.28</td>
+			<td><a href="javascript:;" data-toggle="modal" data-target="#cost_dialog">104年2月份居家照顧服務費</a></td>
+			<td>840</td>
+			<td>ATM繳款</td>
+			<td>未完成</td>
+		</tr>
 	</table>
 </div>
+<!-- 收費設定與明細dialog -->
+<div id="cost_dialog" class="modal fade">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"></button>
+				<h4 class="modal-title">收費設定與明細</h4>
+			</div>
+			<div class="modal-body">
+
+				<!-- row1 -->
+				<table class="table align-middle-table custom-table-01 reset-list-style text-center">
+					<thead>
+						<tr>
+							<th width="18%" class="text-center">案號</th>
+							<th width="16%" class="text-center">姓名</th>
+							<th width="16%" class="text-center">區別</th>
+							<th width="16%" class="text-center">居服員</th>
+							<th width="16%" class="text-center">日期</th>
+							<th width="18%" class="text-center">用途</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>淡001</td>
+							<td>林爺爺</td>
+							<td>淡水</td>
+							<td>王小明</td>
+							<td>104.02.18</td>
+							<td>104年2月份居家照顧服務服務費</td>
+						</tr>
+					</tbody>
+				</table>
+				<!-- row1//-->
+
+				<!-- row2 -->
+				<table class="table align-middle-table custom-table-01 reset-list-style">
+					<thead>
+						<tr>
+							<th width="11%" class="text-center white-space-n">政府完全補助時數</th>
+							<th width="11%" class="text-center white-space-n">國定假日期間服務單價</th>
+							<th width="11%" class="text-center white-space-n">國定假日期間服務時數</th>
+							<th width="11%" class="text-center white-space-n">服務未遇費用</th>
+							<th width="12%" class="text-center white-space-n">部分自費單價</th>
+							<th width="11%" class="text-center white-space-n">部分自費時數</th>
+							<th width="11%" class="text-center white-space-n">全自費單價</th>
+							<th width="11%" class="text-center white-space-n">全自費時數</th>
+							<th width="11%" class="text-center white-space-n">總服務時數</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>0</td>
+							<td>60</td>
+							<td>0</td>
+							<td>30</td>
+							<td>60</td>
+							<td>14</td>
+							<td>210</td>
+							<td>0</td>
+							<td>14</td>
+						</tr>
+					</tbody>
+				</table>
+				<!-- row2//-->
+
+				<!-- row3 -->
+				<table class="table align-middle-table custom-table-01 reset-list-style text-center">
+					<thead>
+						<tr>
+							<th width="50%" class="text-center">流水號</th>
+							<th width="50%" class="text-center">總繳款金額</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>F10401001</td>
+							<td>840</td>
+						</tr>
+					</tbody>
+				</table>
+				<!-- row3//-->
+				
+				<div class="row top-buffer">
+					<div class="col-md-10 text-right form-inline">
+						<label>繳款方式</label>
+						<select id="d_cost_payment" class="form-control">
+							<option value="居服員到府收款" data-payment="cash">居服員到府收款</option>
+							<option value="ATM繳款">ATM繳款</option>
+							<option value="郵局劃撥">郵局劃撥</option>
+						</select>
+						<select id="d_cost_staff" class="form-control">
+							<option value="指定居服員">指定居服員</option>
+							<option value="居服員A">居服員A</option>
+							<option value="居服員B">居服員B</option>
+							<option value="居服員C">居服員C</option>
+						</select>
+						<input id="d_cost_date" type="text" class="form-control datepicker" style="display:none">
+					</div>
+					<div class="col-md-2">
+						<button type="button" class="btn btn-primary">確定</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 收費設定與明細dialog//-->

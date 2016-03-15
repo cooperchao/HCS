@@ -9,5 +9,6 @@ aside
 section.main
 	.container-fluid999
 		== render "layout/cont_head_logo"
+		== render :partial => "layout/cost_side2" , :locals => {:f => "menu1"}
 		== render "page/cost/side2_task_unfinished.html.erb"
 	== render "layout/footer"

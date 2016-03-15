@@ -201,6 +201,19 @@ $ ->
 		$(this).parents(".row:eq(0)").remove()
 		lrHeight()
 
+	# 費用管理 > 費用收取 / 待處理 dialog 內容 select function
+	$("#d_cost_payment").on "change", ->
+		optionSelected = $("option:selected", this)
+		valueSelected = optionSelected.data("payment")
+		switch valueSelected
+			when 'cash'
+				$('#d_cost_staff').show()
+				$('#d_cost_date').hide()
+			else
+				$('#d_cost_staff').hide()
+				$('#d_cost_date').show()
+				break
+
 #turn to inline mode
 $.fn.editable.defaults.mode = 'popup'
 
