@@ -31,19 +31,58 @@
 		<h4>服務行程</h4>
 		<ul>
 			<li class="setting_item">
-				<div class="col-md-8">5/22 10：05 {個案姓名} (督導員：{督導員姓名})(居服員：{居服員姓名})</div>
+				<div class="col-md-8">{MM-DD hh:mm} - {個案姓名} (居服員：{居服員姓名}) <span class="text-danger">(簽派人：{簽派人姓名})</span></div>
 				<div class="col-md-4 text-right">2015-04-20 10：00</div>
 			</li>
 			<li class="setting_item">
-				<div class="col-md-8">5/22 11：35 王奶奶 (督導員：李大仁)(居服員：陳小明)</div>
+				<div class="col-md-8">{MM-DD hh:mm} - {個案姓名} (居服員：{居服員姓名})</div>
 				<div class="col-md-4 text-right">2015-04-20 10：00</div>
 			</li>
 			<li class="setting_item">
-				<div class="col-md-8">5/22 11：35 {會議標題}</div>
+				<div class="col-md-8">行程取消－{MM-DD hh:mm} {個案姓名} (居服員：{居服員姓名}) <span class="text-danger">(簽派人：{簽派人姓名})</span></div>
 				<div class="col-md-4 text-right">2015-04-20 10：00</div>
 			</li>
 			<li class="setting_item">
-				<div class="col-md-8">4/20 11：35 服務取消－張奶奶 (居：張小明) - {個案姓名} (督導員：{督導員姓名})(居服員姓名})</div>
+				<div class="col-md-8">行程取消－{MM-DD hh:mm} {個案姓名} (居服員：{居服員姓名})</div>
+				<div class="col-md-4 text-right">2015-04-20 10：00</div>
+			</li>
+			<li class="setting_item">
+				<div class="col-md-8">行程調整 - {調整後時間MM-DD hh:mm}~{hh:mm} - {個案姓名}(居服員：{居服員姓名}) <span class="text-danger">( 簽派人：{簽派人姓名} )</span></div>
+				<div class="col-md-4 text-right">2015-04-20 10：00</div>
+			</li>
+			<li class="setting_item">
+				<div class="col-md-8">行程調整 - {調整後時間MM-DD hh:mm}~{hh:mm} - {個案姓名}(居服員：{居服員姓名})</div>
+				<div class="col-md-4 text-right">2015-04-20 10：00</div>
+			</li>
+			<li class="setting_item">
+				<div class="col-md-8">服務未遇 - {MM-DD hh:mm}} {個案姓名} 督導員：{督導員姓名}）( 居服員：{居服員姓名} )</div>
+				<div class="col-md-4 text-right">2015-04-20 10：00</div>
+			</li>
+			<li class="setting_item">
+				<div class="col-md-8">取消服務未遇 - {MM-DD hh:mm} {個案姓名} ( 居服員：{居服員姓名} ) <span class="text-danger">( 簽派人：{簽派人姓名} )</span></div>	<div class="col-md-4 text-right">2015-04-20 10：00</div>
+			</li>
+			<li class="setting_item">
+				<div class="col-md-8">取消服務未遇 - {MM-DD hh:mm} {個案姓名} ( 居服員：{居服員姓名} )</div>
+				<div class="col-md-4 text-right">2015-04-20 10：00</div>
+			</li>
+			<li class="setting_item">
+				<div class="col-md-8">{MM-DD hh:mm} - {會議標題}</div>
+				<div class="col-md-4 text-right">2015-04-20 10：00</div>
+			</li>
+			<li class="setting_item">
+				<div class="col-md-8">會議職訓取消 - {MM-DD hh:mm} - {會議標題} <span class="text-danger">( 簽派人：{簽派人姓名} )</span></div>
+				<div class="col-md-4 text-right">2015-04-20 10：00</div>
+			</li>
+			<li class="setting_item">
+				<div class="col-md-8">會議職訓取消 - {MM-DD hh:mm} - {會議標題}</div>
+				<div class="col-md-4 text-right">2015-04-20 10：00</div>
+			</li>
+			<li class="setting_item">
+				<div class="col-md-8">會議職訓調整 - {調整後時間MM-DD hh:mm} - {會議標題} <span class="text-danger">( 簽派人：{簽派人姓名} )</span></div>
+				<div class="col-md-4 text-right">2015-04-20 10：00</div>
+			</li>
+			<li class="setting_item">
+				<div class="col-md-8">會議職訓調整 - {調整後時間MM-DD hh:mm} - {會議標題}</div>
 				<div class="col-md-4 text-right">2015-04-20 10：00</div>
 			</li>
 		</ul>
@@ -51,33 +90,74 @@
 		<ul>
 			<li class="setting_item">
 				<div class="col-md-8">
-					<div>{申請者身分}{申請者姓名} 提出耗材申請</div>
-					<div>{耗材項目 x 數量}</div>
-					<div>{耗材項目 x 數量}</div>
+					{申請者身分}{申請者姓名} 提出耗材申請<br>
+					{耗材項目 x 數量}<br>
+					{耗材項目 x 數量}
 				</div>
 				<div class="col-md-4 text-right">2015-05-22 14：30</div>
 			</li>
 			<li class="setting_item">
 				<div class="col-md-8">
-					<div>居服員 李柏偉 提出耗材申請</div>
-					<div>口罩 x 1</div>
-					<div>手套 x 20 <span class="text-danger">(數量不足)</span></div>
-					<div>毛巾 x 10</div>
+					居服員 李柏偉 提出耗材申請<br>
+					口罩 x 1<br>
+					手套 x 20<br>
+					毛巾 x 10
 				</div>
+				<div class="col-md-4 text-right">2015-05-22 14：30</div>
+			</li>
+			<li class="setting_item">
+				<div class="col-md-8">
+					<span class="text-danger">
+						部分核准-{YYYY-MM-DD}{申請者身分}{申請者姓名} 的耗材申請審核已通過<br>
+						但:{耗材名稱} 數量不足，{耗材名稱}項目不存在，{耗材名稱}項目名稱已變更
+					</span>
+				</div>
+				<div class="col-md-4 text-right">2015-05-22 14：30</div>
+			</li>
+			<li class="setting_item">
+				<div class="col-md-8">{YYYY-MM-DD} {申請者身分}{申請者姓名} 的耗材申請審核已通過</div>
+				<div class="col-md-4 text-right">2015-05-22 14：30</div>
+			</li>
+			<li class="setting_item">
+				<div class="col-md-8">{YYYY-MM-DD}  {申請者身分}{申請者姓名} 的耗材申請審核已被駁回 - {理由}</div>
+				<div class="col-md-4 text-right">2015-05-22 14：30</div>
+			</li>
+			<li class="setting_item">
+				<div class="col-md-8">2015-04-28 居服員 李柏偉 的耗材申請審核已通過</div>
+				<div class="col-md-4 text-right">2015-05-22 14：30</div>
+			</li>
+			<li class="setting_item">
+				<div class="col-md-8">2015-04-28 居服員 李柏偉 的耗材申請審核已被駁回 - 庫存不足</div>
 				<div class="col-md-4 text-right">2015-05-22 14：30</div>
 			</li>
 		</ul>
 		<h4 class="top-buffer">家訪電訪</h4>
 		<ul>
 			<li class="setting_item">
-				<div class="col-md-8">2015 上半年服務滿意度調查</div>
+				<div class="col-md-8">例行家訪提醒 - {個案姓名}</div>
+				<div class="col-md-4 text-right">2015-04-20 10：00</div>
+			</li>
+			<li class="setting_item">
+				<div class="col-md-8">例行電訪提醒 - {個案姓名}</div>
+				<div class="col-md-4 text-right">2015-04-20 10：00</div>
+			</li>
+			<li class="setting_item">
+				<div class="col-md-8">例行家訪提醒 - {個案姓名}</div>
 				<div class="col-md-4 text-right">2015-04-20 10：00</div>
 			</li>
 		</ul>
-		<h4 class="top-buffer">繳費提醒</h4>
+		<h4 class="top-buffer">費用收取</h4>
 		<ul>
 			<li class="setting_item">
-				<div class="col-md-8">您尚有一筆費用未繳納 - 104年2月份居家照顧服務費</div>
+				<div class="col-md-8"><a href="#" class="text-danger">已繳款：{YYYY} 年 {MM} 月居家照顧服務費 ({個案姓名})({收費方式})( 經手人：{被指派之居服員，或主管，或行政})</a></div>
+				<div class="col-md-4 text-right">2015-04-20 10：00</div>
+			</li>
+			<li class="setting_item">
+				<div class="col-md-8"><a href="#" class="text-danger">待處理：{YYYY} 年 {MM} 月居家照顧服務費 ({個案姓名}) 尚未指定收款人，請儘速完成指派。</a></div>
+				<div class="col-md-4 text-right">2015-04-20 10：00</div>
+			</li>
+			<li class="setting_item">
+				<div class="col-md-8">已繳款：2015 年 10 月居家照顧服務費 ( 林爺爺 ) ( 現金繳款 ) ( 經手人 : 李大仁 )</div>
 				<div class="col-md-4 text-right">2015-04-20 10：00</div>
 			</li>
 		</ul>
