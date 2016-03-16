@@ -138,13 +138,43 @@
 			.row
 				.text-center.center-block.top-buffer 完全符合
 			hr
-			- 5.times do
+			- 2.times do
 				.row
 					.col-md-1
 						input type="radio" value=""
 					.col-md-11
-						p
-							strong 松山區 / 黃 X 山
+						.row
+							.col-md-9
+								strong 
+									| 松山區 / 黃 X 山
+							.col-md-3
+								strong 
+									| 當月時數 / 上限 : 86.5 / 180
+						.row
+							.col-md-9
+								p.help-block 07:00~08:00
+								p.help-block 07:00~08:00
+							.col-md-3
+								p.help-block 已被預約
+						.row
+							.col-md-9
+								p.help-block 07:00~08:00
+							.col-md-3
+								p.help-block 可供派遺
+				hr
+			- 3.times do
+				.row
+					.col-md-1
+						input type="radio" value=""
+					.col-md-11
+						.row
+							.col-md-9
+								strong 松山區 / 黃 X 山
+							.col-md-3
+								strong
+									| 當月時數 / 上限 : 
+									span.text-danger 192 
+									| / 180
 						.row
 							.col-md-9
 								p.help-block 07:00~08:00
