@@ -6,7 +6,7 @@
 		<li class="active">新增帳號</li>
 	</ol>
 </div>
-<form class="row top-buffer">
+<form class="row top-buffer bootstrap-validator">
 	<div class="text-right">
 		<input class="btn btn-default" type="button" value="取消">
 		<input class="btn btn-success" type="submit" value="新增">
@@ -30,48 +30,78 @@
 		<div class="form-group form-inline">
 			<label for="" class="col-md-2 control-label">帳號 Email</label>
 			<div class="col-md-10">
-				<input type="email" class="form-control" placeholder="">
+				<input type="email" class="form-control" placeholder="" required>
+				<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+				<span class="help-block with-errors"></span>
 			</div>
 		</div>
 		<div class="form-group form-inline">
 			<label for="" class="col-md-2 control-label">密碼</label>
 			<div class="col-md-10">
-				<input type="password" class="form-control" placeholder="">
+				<input type="password" class="form-control" placeholder="" required>
+				<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+				<span class="help-block with-errors"></span>
 			</div>
 		</div>
 		<div class="form-group form-inline">
 			<label for="" class="col-md-2 control-label">姓名</label>
 			<div class="col-md-10">
-				<input type="text" class="form-control" placeholder="">
+				<input type="text" class="form-control" placeholder="" required>
+				<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+				<span class="help-block with-errors"></span>
 			</div>
 		</div>
 		<div class="form-group form-inline">
-			<label for="" class="col-md-2 control-label">手機電話</label>
+			<label class="col-md-2 control-label">聯絡電話一</label>
 			<div class="col-md-10">
-				<input type="tel" class="form-control" placeholder="">
-				<span>範例 : 0987-654321</span>
+				<input type="tel" class="form-control" placeholder="" pattern="^[0]{1}[- #0-9]+" data-minlength="8" maxlength="20" data-error="格式錯誤: 數字第一碼為0，且電話號碼不得少於8碼">
+				<span>範例 : 0987-654321 或 02 -98765432#123，分機前面請加"#"</span>
+				<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+				<span class="help-block with-errors"></span>
 			</div>
 		</div>
 		<div class="form-group form-inline">
-			<label for="" class="col-md-2 control-label">市內電話</label>
+			<label class="col-md-2 control-label">聯絡電話二</label>
 			<div class="col-md-10">
-				<input type="tel" class="form-control" placeholder="">
-				<span>範例 : 02 -98765432#123，分機前面請加"#"</span>
+				<input type="tel" class="form-control" placeholder="" pattern="^[0]{1}[- #0-9]+" data-minlength="8" maxlength="20" data-error="格式錯誤: 數字第一碼為0，且電話號碼不得少於8碼">
+				<span>範例 : 0987-654321 或 02 -98765432#123，分機前面請加"#"</span>
+				<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+				<span class="help-block with-errors"></span>
+			</div>
+		</div>
+		<div class="form-group form-inline">
+			<label class="control-label col-md-2">出生年月日</label>
+			<div class="col-md-10">
+				<input type="text" class="form-control datepicker" placeholder="" required>
+				<span>民國年 + 1911 = 西元年</span>
+				<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+				<span class="help-block with-errors"></span>
+			</div>
+		</div>
+		<div class="form-group form-inline">
+			<label class="control-label col-md-2">年齡</label>
+			<div class="col-md-10">
+				<input type="text" class="form-control" placeholder="系統計算" disabled>
+			</div>
+		</div>
+		<div class="form-group form-inline">
+			<label class="col-md-2 control-label">性別</label>
+			<div class="col-md-10">
+				<label class="radio-inline"><input type="radio" value="" name="SexRadios" checked="">男性</label>
+				<label class="radio-inline"><input type="radio" value="" name="SexRadios">女性</label>
 			</div>
 		</div>
 		<div class="form-group form-inline">
 			<label class="col-md-2 control-label">隸屬主管</label>
 			<div class="col-md-10">
-				<div class="checkbox">
-					<label>
-						<input type="checkbox" value=""> 全選</label>
-				</div>
-				<br>
-				<% 3.times do %>
-				<label class="checkbox-inline">
-					<input type="checkbox" value="">張某某</label>
-				<% end %>
-				<input type="tel" class="form-control" placeholder="">
+				<select class="form-control">
+					<option value="">請選擇</option>
+					<option value="">張某某</option>
+					<option value="">陳某某</option>
+					<option value="">簡某某</option>
+					<option value="">宋某某</option>
+					<option value="">林某某</option>
+				</select>
 			</div>
 		</div>
 		<div class="form-group form-inline">
@@ -92,49 +122,20 @@
 			</div>
 		</div>
 		<div class="form-group form-inline">
-			<label class="col-md-2 control-label">服務個案</label>
-			<div class="col-md-10">
-				<div class="checkbox">
-					<label>
-						<input type="checkbox" value=""> 全選</label>
-				</div>
-				<br>
-				<% 4.times do %>
-				<% 5.times do %>
-				<label class="checkbox-inline">
-					<input type="checkbox" value="">張某某</label>
-				<% end %>
-				<br>
-				<% end %>
-			</div>
-		</div>
-		<div class="form-group form-inline">
 			<label class="col-md-2 control-label">身分別(一)</label>
 			<div class="col-md-10">
-				<select class="form-control">
-					<option value=""></option>
-					<option value="">一般民眾</option>
-					<option value="">原住民</option>
-					<option value="">低收入戶</option>
-					<option value="">其他</option>
-				</select>
+				<label class="radio-inline"><input type="radio" name="radio1" checked>一般民眾</label>
+				<label class="radio-inline"><input type="radio" name="radio1">原住民</label>
+				<label class="radio-inline"><input type="radio" name="radio1">低收入戶</label>
+				<label class="radio-inline"><input type="radio" name="radio1">其他
+					<input type="text" class="form-control"></label>
 			</div>
 		</div>
 		<div class="form-group form-inline">
 			<label class="col-md-2 control-label">身分別(二)</label>
 			<div class="col-md-10">
-				<select class="form-control">
-					<option value=""></option>
-					<option value="">中高齡</option>
-					<option value="">非中高齡</option>
-				</select>
-			</div>
-		</div>
-		<div class="form-group form-inline">
-			<label class="col-md-2 control-label">性別</label>
-			<div class="col-md-10">
-				<label class="radio-inline"><input type="radio" value="" name="SexRadios" checked="">男性</label>
-				<label class="radio-inline"><input type="radio" value="" name="SexRadios">女性</label>
+				<label class="radio-inline"><input type="radio" name="radio2">中高齡</label>
+				<label class="radio-inline"><input type="radio" name="radio2">非中高齡</label>
 			</div>
 		</div>
 	</div>

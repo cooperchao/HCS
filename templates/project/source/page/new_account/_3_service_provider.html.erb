@@ -30,35 +30,41 @@
 		<div class="form-group form-inline">
 			<label class="col-md-2 control-label">帳號 Email</label>
 			<div class="col-md-10">
-				<input type="email" class="form-control" placeholder="">
-			</div>
-		</div>
-		<div class="form-group form-inline">
-			<label class="col-md-2 control-label">密碼</label>
-			<div class="col-md-10">
-				<input type="password" class="form-control" placeholder="">
-			</div>
-		</div>
-		<div class="form-group form-inline">
-			<label class="col-md-2 control-label">姓名</label>
-			<div class="col-md-10">
-				<input type="text" class="form-control" placeholder="">
-			</div>
-		</div>
-		<div class="form-group form-inline">
-			<label class="col-md-2 control-label">手機電話</label>
-			<div class="col-md-10">
-				<input type="tel" class="form-control" placeholder="" pattern="^[0]{1}[9]{1}[0-9]{8}$" data-minlength="10" maxlength="10" data-error="請輸入正確電話號碼格式" required>
-				<span>範例 : 0987-654321</span>
+				<input type="email" class="form-control" placeholder="" required>
 				<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
 				<span class="help-block with-errors"></span>
 			</div>
 		</div>
 		<div class="form-group form-inline">
-			<label class="col-md-2 control-label">市內電話</label>
+			<label class="col-md-2 control-label">密碼</label>
 			<div class="col-md-10">
-				<input type="tel" class="form-control" placeholder="" pattern="^[0-9]{4,16}$" maxlength="16" data-error="請輸入正確電話號碼格式" required>
-				<span>範例 : 02 -98765432#123，分機前面請加"#"</span>
+				<input type="password" class="form-control" placeholder="" required>
+				<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+				<span class="help-block with-errors"></span>
+			</div>
+		</div>
+		<div class="form-group form-inline">
+			<label class="col-md-2 control-label">姓名</label>
+			<div class="col-md-10">
+				<input type="text" class="form-control" placeholder="" required>
+				<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+				<span class="help-block with-errors"></span>
+			</div>
+		</div>
+		<div class="form-group form-inline">
+			<label class="col-md-2 control-label">聯絡電話一</label>
+			<div class="col-md-10">
+				<input type="tel" class="form-control" placeholder="" pattern="^[0]{1}[- #0-9]+" data-minlength="8" maxlength="20" data-error="格式錯誤: 數字第一碼為0，且電話號碼不得少於8碼" required>
+				<span>範例 : 0987-654321 或 02 -98765432#123，分機前面請加"#"</span>
+				<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+				<span class="help-block with-errors"></span>
+			</div>
+		</div>
+		<div class="form-group form-inline">
+			<label class="col-md-2 control-label">聯絡電話二</label>
+			<div class="col-md-10">
+				<input type="tel" class="form-control" placeholder="" pattern="^[0]{1}[- #0-9]+" data-minlength="8" maxlength="20" data-error="格式錯誤: 數字第一碼為0，且電話號碼不得少於8碼" required>
+				<span>範例 : 0987-654321 或 02 -98765432#123，分機前面請加"#"</span>
 				<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
 				<span class="help-block with-errors"></span>
 			</div>
@@ -71,8 +77,8 @@
 				<label class="form-control-static">關係</label>
 				<input type="text" class="form-control" placeholder="" required>
 				<label class="form-control-static">電話</label>
-				<input type="tel" class="form-control" placeholder="" pattern="^[0]{1}[9]{1}[0-9]{8}$" data-minlength="10" maxlength="10" data-error="請輸入正確電話號碼格式" required>
-				<span>範例 : 0987-654321</span>
+				<input type="tel" class="form-control" placeholder="" pattern="^[0]{1}[- #0-9]+" data-minlength="8" maxlength="20" data-error="格式錯誤: 數字第一碼為0，且電話號碼不得少於8碼" required>
+				<span>範例 : 0987-654321 或 02 -98765432#123，分機前面請加"#"</span>
 				<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
 				<span class="help-block with-errors"></span>
 			</div>
@@ -80,19 +86,24 @@
 		<div class="form-group form-inline">
 			<label class="control-label col-md-2">出生年月日</label>
 			<div class="col-md-10">
-				<input type="text" class="form-control datepicker" placeholder="">
+				<input type="text" class="form-control datepicker" placeholder="" required>
+				<span>民國年 + 1911 = 西元年</span>
+				<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+				<span class="help-block with-errors"></span>
 			</div>
 		</div>
 		<div class="form-group form-inline">
 			<label class="control-label col-md-2">年齡</label>
 			<div class="col-md-10">
-				<label class="form-control-static">99</label>
+				<input type="text" class="form-control" placeholder="系統計算" disabled>
 			</div>
 		</div>
 		<div class="form-group form-inline">
 			<label class="control-label col-md-2">身份證字號</label>
 			<div class="col-md-10">
-				<input type="text" class="form-control" placeholder="">
+				<input type="text" class="form-control" placeholder="" pattern="^[A-z]{1}[1-2]{1}[0-9]{8}$" data-error="請填入正確的身分證字號" required>
+				<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+				<span class="help-block with-errors"></span>
 			</div>
 		</div>
 		<div class="form-group form-inline">
@@ -123,11 +134,11 @@
 		<div class="form-group form-inline">
 			<label class="col-md-2 control-label">婚姻狀況</label>
 			<div class="col-md-10">
-				<label class="radio-inline"><input type="radio" value="" name="" checked="">已婚</label>
-				<label class="radio-inline"><input type="radio" value="" name="">未婚</label>
-				<label class="radio-inline"><input type="radio" value="" name="">喪偶</label>
+				<label class="radio-inline"><input type="radio" value="" name="" checked="">未婚</label>
+				<label class="radio-inline"><input type="radio" value="" name="">已婚</label>
 				<label class="radio-inline"><input type="radio" value="" name="">離婚</label>
 				<label class="radio-inline"><input type="radio" value="" name="">分居</label>
+				<label class="radio-inline"><input type="radio" value="" name="">喪偶</label>
 				<label class="radio-inline"><input type="radio" value="" name="">其他</label>
 			</div>
 		</div>
@@ -144,8 +155,7 @@
 				<label class="radio-inline"><input type="radio" value="" name="EduRadios">高中</label>
 				<label class="radio-inline"><input type="radio" value="" name="EduRadios">大專</label>
 				<label class="radio-inline"><input type="radio" value="" name="EduRadios">研究所以上</label>
-				<label class="radio-inline"><input type="radio" value="" name="EduRadios">其他</label>
-				<input type="text" class="form-control" placeholder="">
+				<label class="radio-inline"><input type="radio" value="" name="EduRadios">其他 <input type="text" class="form-control" placeholder=""></label>
 			</div>
 		</div>
 		<div class="form-group form-inline">
@@ -190,15 +200,19 @@
 		<div class="form-group form-inline">
 			<label class="col-md-2 control-label">身高</label>
 			<div class="col-md-10">
-				<input type="text" class="form-control" placeholder="">
+				<input type="text" class="form-control" placeholder="" required>
 				<label class="form-control-static">公分</label>
+				<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+				<span class="help-block with-errors"></span>
 			</div>
 		</div>
 		<div class="form-group form-inline">
 			<label class="col-md-2 control-label">體重</label>
 			<div class="col-md-10">
-				<input type="text" class="form-control" placeholder="">
+				<input type="text" class="form-control" placeholder="" required>
 				<label class="form-control-static">公斤</label>
+				<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+				<span class="help-block with-errors"></span>
 			</div>
 		</div>
 		<div class="form-group form-inline">
@@ -206,8 +220,10 @@
 			<div class="col-md-10">
 				<label class="radio-inline"><input type="radio" value="" name="DLicenseRadios" checked="">無</label>
 				<label class="radio-inline"><input type="radio" value="" name="DLicenseRadios">有</label>
-				<input type="text" class="form-control" placeholder="">
+				<input type="text" class="form-control" placeholder="" required>
 				<label class="form-control-static">車</label>
+				<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+				<span class="help-block with-errors"></span>
 			</div>
 		</div>
 		<div class="form-group form-inline">
@@ -221,9 +237,9 @@
 			<label class="col-md-2 control-label">身份別（一）</label>
 			<div class="col-md-10">
 				<label class="radio-inline"><input type="radio" value="" name="IDRadios" checked="">非原住民</label>
-				<label class="radio-inline"><input type="radio" value="" name="IDRadios">原住民</label>
-				<input type="text" class="form-control" placeholder="">
-				<label class="form-control-static">族</label>
+				<label class="radio-inline"><input type="radio" value="" name="IDRadios">原住民 <input type="text" class="form-control" placeholder=""> 族</label>
+				<label class="radio-inline"><input type="radio" value="" name="IDRadios">低收入戶</label>
+				<label class="radio-inline"><input type="radio" value="" name="IDRadios">其他 <input type="text" class="form-control" placeholder=""></label>
 			</div>
 		</div>
 		<div class="form-group form-inline">
@@ -259,13 +275,17 @@
 		<div class="form-group form-inline">
 			<label class="col-md-2 control-label">到職日期</label>
 			<div class="col-md-10">
-				<input type="text" class="form-control datepicker" placeholder="">
+				<input type="text" class="form-control datepicker" placeholder="" required>
+				<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+				<span class="help-block with-errors"></span>
 			</div>
 		</div>
 		<div class="form-group form-inline">
 			<label class="col-md-2 control-label">開始服務日期</label>
 			<div class="col-md-10">
-				<input type="text" class="form-control datepicker" placeholder="">
+				<input type="text" class="form-control datepicker" placeholder="" required>
+				<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+				<span class="help-block with-errors"></span>
 			</div>
 		</div>
 		<div class="form-group form-inline">
