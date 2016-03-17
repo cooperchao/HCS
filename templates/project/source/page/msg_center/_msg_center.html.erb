@@ -1,14 +1,18 @@
 <div class="row top-buffer">
-	<div class="col-md-2 text-left">
+	<div class="col-md-6 text-left form-inline">
+		<label>訊息類別</label>
 		<select class="form-control">
 			<option>全部訊息</option>
 			<option>服務行程</option>
 			<option>耗材申請</option>
-			<option>家訪電訪</option>
-			<option>繳費提醒</option>
+			<option>費用收取</option>
+		</select>
+		<label>訊息來源</label>
+		<select class="form-control">
+			<option>全部</option>
+			<option selected>所屬相關</option>
 		</select>
 	</div>
-	<div class="col-md-4"></div>
 	<div class="col-md-6 text-right">
 		<label class="control-label">顯示區間</label>
 		<label class="radio-inline">
@@ -28,7 +32,7 @@
 <hr>
 <div class="row">
 	<div class="form-group col-md-12">
-		<h4>服務行程</h4>
+		<h4>服務行程<label class="msg-label"><input type="checkbox">只顯示重要訊息</label></h4>
 		<ul>
 			<li class="setting_item">
 				<div class="col-md-8">{MM-DD hh:mm} - {個案姓名} (居服員：{居服員姓名}) <span class="text-danger">(簽派人：{簽派人姓名})</span></div>
@@ -105,31 +109,6 @@
 				</div>
 				<div class="col-md-4 text-right">2015-05-22 14：30</div>
 			</li>
-			<li class="setting_item">
-				<div class="col-md-8">
-					<span class="text-danger">
-						部分核准-{YYYY-MM-DD}{申請者身分}{申請者姓名} 的耗材申請審核已通過<br>
-						但:{耗材名稱} 數量不足，{耗材名稱}項目不存在，{耗材名稱}項目名稱已變更
-					</span>
-				</div>
-				<div class="col-md-4 text-right">2015-05-22 14：30</div>
-			</li>
-			<li class="setting_item">
-				<div class="col-md-8">{YYYY-MM-DD} {申請者身分}{申請者姓名} 的耗材申請審核已通過</div>
-				<div class="col-md-4 text-right">2015-05-22 14：30</div>
-			</li>
-			<li class="setting_item">
-				<div class="col-md-8">{YYYY-MM-DD}  {申請者身分}{申請者姓名} 的耗材申請審核已被駁回 - {理由}</div>
-				<div class="col-md-4 text-right">2015-05-22 14：30</div>
-			</li>
-			<li class="setting_item">
-				<div class="col-md-8">2015-04-28 居服員 李柏偉 的耗材申請審核已通過</div>
-				<div class="col-md-4 text-right">2015-05-22 14：30</div>
-			</li>
-			<li class="setting_item">
-				<div class="col-md-8">2015-04-28 居服員 李柏偉 的耗材申請審核已被駁回 - 庫存不足</div>
-				<div class="col-md-4 text-right">2015-05-22 14：30</div>
-			</li>
 		</ul>
 		<h4 class="top-buffer">家訪電訪</h4>
 		<ul>
@@ -149,15 +128,19 @@
 		<h4 class="top-buffer">費用收取</h4>
 		<ul>
 			<li class="setting_item">
-				<div class="col-md-8"><a href="#" class="text-danger">已繳款：{YYYY} 年 {MM} 月居家照顧服務費 ({個案姓名})({收費方式})( 經手人：{被指派之居服員，或主管，或行政})</a></div>
+				<div class="col-md-8">收費確認：2015 年 10 月居家照顧服務費 ( 林爺爺 ) ( 收款 : 李大仁 )</div>
 				<div class="col-md-4 text-right">2015-04-20 10：00</div>
 			</li>
 			<li class="setting_item">
-				<div class="col-md-8"><a href="#" class="text-danger">待處理：{YYYY} 年 {MM} 月居家照顧服務費 ({個案姓名}) 尚未指定收款人，請儘速完成指派。</a></div>
+				<div class="col-md-8">等待處理：2015 年 10 月居家照顧服務費 ( 林爺爺 ) ( 收款 : 李大仁 )</div>
 				<div class="col-md-4 text-right">2015-04-20 10：00</div>
 			</li>
 			<li class="setting_item">
-				<div class="col-md-8">已繳款：2015 年 10 月居家照顧服務費 ( 林爺爺 ) ( 現金繳款 ) ( 經手人 : 李大仁 )</div>
+				<div class="col-md-8"><a href="#" class="text-danger">收費確認：YYYY} 年 {MM} 月居家照顧服務費 (  {個案姓名} ) ( {收費方式} ) ( 經手人：{被指派之居服員，或主管，或行政} )</a></div>
+				<div class="col-md-4 text-right">2015-04-20 10：00</div>
+			</li>
+			<li class="setting_item">
+				<div class="col-md-8"><a href="#" class="text-danger">等待處理：{YYYY} 年 {MM} 月居家照顧服務費 (  {個案姓名} ) 尚未指定收款人，請儘速完成指派。</a></div>
 				<div class="col-md-4 text-right">2015-04-20 10：00</div>
 			</li>
 		</ul>
