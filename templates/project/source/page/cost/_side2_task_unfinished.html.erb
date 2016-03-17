@@ -24,7 +24,22 @@
 	</table>
 </div>
 <div class="row top-buffer">
-	<h4>收費項目</h4>
+	<div class="row form-inline">
+		<div class="col-md-6">
+			<h4 class="pull-left">收費項目</h4>
+			<label>顯示區間</label>
+			<select class="form-control">
+				<option value="全部">全部</option>
+				<option value="最近三個月" selected>最近三個月</option>
+				<option value="最近六個月">最近六個月</option>
+				<option value="最近一年">最近一年</option>
+			</select>
+		</div>
+		<div class="col-md-6 text-right">
+			<input type="text" class="form-control" placeholder="請輸入長照案號, 個案或居服員姓名">
+			<button type="button" class="btn btn-default">查詢</button>
+		</div>
+	</div>
 	<hr>
 	<p>下列個案收費，於結帳日期後，完成收款確認。</p>
 	<table class="table align-middle-table custom-table-01 reset-list-style top-buffer">
