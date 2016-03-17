@@ -201,8 +201,21 @@ table.dataTable.display tbody tr.selected > .sorting_3 {
 	white-space: normal;
 }
 
-/* 2016-03-17 訊息中心標題label */
-.msg-label {
-	margin-left: 10px;
-	font-weight: normal;
-}
+/* 2016-03-17 */
+
+	/* 訊息中心標題label */
+	.msg-label {
+		margin-left: 10px;
+		font-weight: normal;
+	}
+
+	/* calendar total table */
+	#c_total_tb {
+		margin-top:-160px;
+		visibility: hidden;
+	}
+	#c_total_tb.cur{
+		visibility: visible;
+		margin-top:40px;
+		height: auto;
+	}

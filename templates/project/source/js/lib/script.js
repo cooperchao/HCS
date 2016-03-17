@@ -706,6 +706,9 @@ $(function(){
 				hcs_calendar.default_setting(false, true);
 				hcs_calendar.filterUser(_objContWrap1, _objContList1);
 				$exportExcel.show();
+
+				// total_table
+				$("#c_total_tb").addClass("cur");
 			}
 		// 週
 		} else {
@@ -722,6 +725,10 @@ $(function(){
 			$('#calendar').fullCalendar('destroy');
 			hcs_calendar.default_setting(true);
 			$exportExcel.hide();
+
+			// total_table
+			$("#c_total_tb").removeClass("cur");
+
 		// 週
 		} else {
 			hcs_calendar.loc_reload();
@@ -734,6 +741,7 @@ $(window).load(function(){
 	if($(".fc-today-button").prop("disabled")) {
 		hcs_calendar.todayTH();
 	}
+	
 });
 
 
