@@ -811,7 +811,7 @@ $(function(){
 				// console.log("data~~~~~~~~~~~~~~~",obj);
 				// return obj;
 				console.log(data);
-				return data;
+				return data.data;
 			},
 		},
 		"data": function(){
@@ -836,6 +836,7 @@ $(function(){
 		// "fnInitComplete": function(oSettings, json) {
 		// 	alert('DataTables has finished its initialisation.');
 		// },
+
 		"columns": [
 			{"data": 'd0'},
 			{"data": 'd1'},

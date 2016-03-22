@@ -219,3 +219,20 @@ table.dataTable.display tbody tr.selected > .sorting_3 {
 		margin-top:40px;
 		height: auto;
 	}
+
+/* 2016-03-22 */
+
+	/* datatable dataTables_processing */
+	.dataTables_processing {
+		position: absolute;
+		left: calc(50% - 150px);
+		top: calc(50% - 50px);
+		width: 300px;
+		height: 100px;
+		border-radius: 6px;
+		border: 1px solid rgba(0,0,0,0.2);
+		box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+		line-height: 100px;
+		text-align: center;
+		background-color: #fff;
+	}
