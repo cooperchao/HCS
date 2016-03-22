@@ -236,3 +236,10 @@ table.dataTable.display tbody tr.selected > .sorting_3 {
 		text-align: center;
 		background-color: #fff;
 	}
+
+	/* head_logo & tab-page-wrapper */
+	.p-a-z-0,
+	.fc-toolbar .fc-state-active,
+	.fc-toolbar .ui-state-active {
+		z-index: 0;
+	}
