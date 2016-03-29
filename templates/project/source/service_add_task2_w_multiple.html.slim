@@ -1,0 +1,13 @@
+//main
+aside
+	.sidebar-wrapper
+		// sidebar
+		.sidebar
+			== render :partial => "layout/sidebar" , :locals => {:s => "mainnav4"}
+			
+// main-content
+section.main
+	.container-fluid
+		== render "layout/cont_head_logo"
+		== render "page/service/add_task2_w_multiple"
+	== render "layout/footer"

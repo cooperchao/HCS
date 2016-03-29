@@ -1,0 +1,360 @@
+.tab-page-wrapper-space
+	.tab-page-wrapper.bg-secondary
+		a.btn.btn-default.btn-sm> href="javascript:;"
+			i.fa.fa-angle-left
+			| &nbsp;返回
+		/* 編輯狀態時出現以下按鈕 提供刪除功能 */
+		a.btn.btn-default.btn-sm< href="javascript:;"
+			i.fa.fa-trash-o
+			| &nbsp;刪除
+		/* 新增狀態時無以上按鈕*/
+		a.btn.btn-default.btn-sm.pull-right href="javascript:;"
+			| 派發任務&nbsp;
+			i.fa.fa-angle-right
+.tab-page-wrapper-space
+	.tab-page-wrapper.bg-info
+		ol.breadcrumb
+			li
+				a href="#"  任務列表
+			li.active 派發週期多人任務 / 松山李華妹
+.row.add-task
+	.col-md-6
+		.add-task-left-col.js_col-l
+			form.form-horizontal
+				h3
+					small 任務資訊
+				table
+					tr
+						td
+							img.img-circle.img-thumbnail.text-middle alt="90" src="http://placehold.it/90"
+						td
+							span.task-card-item-title.text-middle 李華妹
+				hr
+				h3
+					small 任務設定
+				.form-group
+					label.col-md-3.control-label contenteditable="true"  任務日期
+					.col-md-4
+						input.form-control.datepicker placeholder="" type="text"
+				.form-group
+					label.col-md-3.control-label 時數區間
+					.col-md-4
+						select.form-control
+							option 全天
+				.form-group
+					label.col-md-3.control-label 服務時數
+					.col-md-4
+						select.form-control
+							option 4
+					.col-md-2.control-label 小時
+				.row.text-right
+					.col-md-9.col-md-offset-3
+						button.btn.btn-primary.btn-lg
+							| 查詢
+							i.fa.fa-search.fa-fw
+				hr
+				.form-group
+					label.col-md-3.control-label 開始時間
+					.col-md-4
+						.input-group.inline-block.timepicker
+							input.form-control type="text"
+							span.input-group-addon
+								span.fa.fa-clock-o
+				.form-group
+					label.col-md-3.control-label 結束時間
+					.col-md-1.control-label 12:35
+				.form-group
+					label.col-md-3.control-label 任務週期
+					.col-md-9
+						label.radio-inline
+							input type="radio" value=""
+							| 當日
+						label.radio-inline
+							input type="radio" value=""
+							| 連續至結案
+						label.radio-inline
+							input type="radio" value=""
+							| 隔週連續至結案
+				.form-group
+					label.col-md-3.control-label 費用收取
+					.col-md-9
+						label.radio-inline
+							input type="radio" value=""
+							| 自費
+						label.radio-inline
+							input type="radio" value=""
+							| 補助
+				.form-group
+					label.col-md-3.control-label 行政計次
+					.col-md-9
+						label.radio-inline
+							input type="radio" value=""
+							| 計次
+						label.radio-inline
+							input type="radio" value=""
+							| 不計次
+				.form-group
+					label.col-md-3.control-label 車程計次
+					.col-md-9
+						label.radio-inline
+							input type="radio" value=""
+							| 計次
+						label.radio-inline
+							input type="radio" value=""
+							| 不計次
+				.form-group
+					label.col-md-3.control-label 服務項目
+					.col-md-9
+						label.control-label
+							| 多人任務
+						.checkbox
+							label.checkbox-inline
+								input type="checkbox"
+								| 電話問安
+							label.checkbox-inline
+								input type="checkbox"
+								| 到家採訪
+							label.checkbox-inline
+								input type="checkbox"
+								| 送餐服務
+						.checkbox
+							label.checkbox-inline
+								input type="checkbox"
+								| 買菜煮飯打掃
+							label.checkbox-inline
+								input type="checkbox"
+								| 洗澡
+							label.checkbox-inline
+								input type="checkbox"
+								| 整理家務
+						.checkbox
+							label.checkbox-inline
+								input type="checkbox"
+								| 帶出門看醫生
+							label.checkbox-inline
+								input type="checkbox"
+								| 陪聊天散步
+							label.checkbox-inline
+								input type="checkbox"
+								| 到宅沐浴車
+	.col-md-6
+		.add-task-right-col.js_col-r
+
+			h3.fomr-group
+				.col-md-6
+					small 符合時間條件居服員列表
+				.col-md-6.text-right
+					small 2015-04-17(五)
+			.clearfix
+			hr
+			.row
+				.col-md-2.text-right
+					label 可服務區域
+				.col-md-3
+					select.form-control
+						option 全部地區
+				.col-md-2.text-right
+					label 可服務時間
+				.col-md-3
+					select.form-control
+						option 全天
+						option 上午
+						option 下午
+				.col-md-2
+					button.btn.btn-default 篩選
+			.row.top-buffer
+				.col-md-12.text-right
+					a href="#" data-toggle="modal" data-target="#advanced_search" 進階搜尋
+			hr
+			.row
+				h3.col-md-12
+					small
+						| 您選擇了
+						span.text-info &nbsp;0&nbsp;
+						| 人，服務時數
+						span.text-info &nbsp;0&nbsp;
+						| 共計小時
+			hr
+
+			.row
+				.col-md-12
+					.text-center.center-block.bg-info 完全符合
+			hr
+			- 2.times do
+				.row
+					.col-md-1
+						input type="checkbox" value=""
+					.col-md-11
+						.row
+							.col-md-9
+								strong 
+									| 松山區 / 黃 X 山
+							.col-md-3
+								strong 
+									| 當月時數 86.5 / 基本 130
+						.row
+							.col-md-9
+								p.help-block 07:00~08:00
+								p.help-block 07:00~08:00
+							.col-md-3
+								p.help-block 已被預約
+						.row
+							.col-md-9
+								p.help-block 07:00~08:00
+							.col-md-3
+								p.help-block 可供派遺
+				hr
+			.row
+				.col-md-1
+					input type="checkbox" value=""
+				.col-md-11
+					.row
+						.col-md-9
+							strong 松山區 / 黃 X 山
+						.col-md-3
+							strong
+								| 已達基本時數 : 
+								span.text-warning 145 
+								| / 上限 180
+					.row
+						.col-md-9
+							p.help-block 07:00~08:00
+							p.help-block 07:00~08:00
+						.col-md-3
+							p.help-block 已被預約
+					.row
+						.col-md-9
+							p.help-block 07:00~08:00
+						.col-md-3
+							p.help-block 可供派遺
+			hr
+			- 3.times do
+				.row
+					.col-md-1
+						input type="checkbox" value=""
+					.col-md-11
+						.row
+							.col-md-9
+								strong 松山區 / 黃 X 山
+							.col-md-3
+								strong
+									| 超過上限 : 
+									span.text-danger 195 
+									| / 180
+						.row
+							.col-md-9
+								p.help-block 07:00~08:00
+								p.help-block 07:00~08:00
+							.col-md-3
+								p.help-block 已被預約
+						.row
+							.col-md-9
+								p.help-block 07:00~08:00
+							.col-md-3
+								p.help-block 可供派遺
+				hr
+
+#advanced_search.modal.fade
+	.modal-dialog
+		.modal-content
+	  		.modal-header
+				button.close data-dismiss="modal" type="button"
+				h4.modal-title 進階搜尋
+
+	  		.modal-body
+				.row.form-group
+					.col-md-12
+						p 請輸入您要搜尋的關鍵字, 多個關鍵字可以使用空白字元隔開。
+				.row.form-group
+					.col-md-3
+						label 關鍵字搜尋
+					.col-md-9
+						input.form-control type="text"
+				.row.form-group
+					.col-md-3
+						label 可服務區域
+					.col-md-9
+						select.form-control
+							option 全部地區
+							option 松山
+							option 信義
+							option 大安
+							option 文山
+				.row.form-group
+					.col-md-3
+						label 可服務時間
+					.col-md-9
+						select.form-control
+							option 全天
+							option 上午
+							option 下午
+				.row.form-group
+					.col-md-3
+						label 性別
+					.col-md-9
+						label.checkbox-inline
+							input type="checkbox" 男性
+						label.checkbox-inline
+							input type="checkbox" 女性
+				.row.form-group
+					.col-md-3
+						label 年齡範圍
+					.col-md-9.form-inline
+						input.form-control type="text"
+						| &nbsp;歲到&nbsp;
+						input.form-control type="text"
+						| &nbsp;歲
+				.row.form-group
+					.col-md-3
+						label 身高範圍
+					.col-md-9.form-inline
+						input.form-control type="text"
+						| &nbsp;公分到&nbsp;
+						input.form-control type="text"
+						| &nbsp;公分
+				.row.form-group
+					.col-md-3
+						label 體重範圍
+					.col-md-9.form-inline
+						input.form-control type="text"
+						| &nbsp;公斤到&nbsp;
+						input.form-control type="text"
+						| &nbsp;公斤
+				.row.form-group
+					.col-md-3
+						label 宗教信仰
+					.col-md-9
+						label.checkbox-inline
+							input type="checkbox" 道教
+						label.checkbox-inline
+							input type="checkbox" 佛教
+						label.checkbox-inline
+							input type="checkbox" 基督教
+						label.checkbox-inline
+							input type="checkbox" 天主教
+						label.checkbox-inline
+							input type="checkbox" 一貫道
+						label.checkbox-inline
+							input type="checkbox" 回教
+						label.checkbox-inline
+							input type="checkbox" 其他
+							input.form-control.pull-right type="text"
+				.row.form-group
+					.col-md-3
+						label 投入狀況
+					.col-md-9
+						label.checkbox-inline
+							input type="checkbox" 兼職
+						label.checkbox-inline
+							input type="checkbox" 全職
+				.row.form-group
+					.col-md-3
+						label 身障手冊
+					.col-md-9
+						label.checkbox-inline
+							input type="checkbox" 無
+						label.checkbox-inline
+							input type="checkbox" 有
+
+	  		.modal-footer
+				button.btn.btn-primary type="button" 進階搜尋
