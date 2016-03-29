@@ -14,7 +14,7 @@
 </div>
 <hr>
 <div class="row">
-    <div class="form-group col-md-10 col-md-offset-1">
+    <div class="col-md-5">
         <ul class="list-unstyled">
             <li class="setting_item setting_item-log">
                 <div class="col-md-1">
@@ -58,69 +58,84 @@
                 </div>
             </li>
           </ul>
-          <h4>服務類別<!-- 系統帶入 --></h4>
-          <hr>
-          <ul class="list-unstyled">
+          
+    </div>
+
+    <div class="col-md-7">
+        <ul class="list-unstyled">
             <li class="setting_item setting_item-log">
                 <div class="col-md-1">
                     <label class="form-group"></label>
                 </div>
-                <div class="col-md-4">
-                    <label class="form-group">服務項目</label>
-                </div>
-                <div class="col-md-4">
-                    <label class="form-group">說明文字</label>
-                </div>
-                <div class="col-md-2">
-                    <label class="form-group"></label>
+                <div class="col-md-10 form-inline">
+                    <label>服務項目</label>
+                    <select class="form-control">
+                        <option>家務及日常生活照顧服務</option>
+                        <option>身體照顧服務</option>
+                    </select>
                 </div>
                 <div class="col-md-1">
                     <label class="form-group">順位</label>
                 </div>
             </li>
-            <% for i in 1..2 do %>
-            <li class="setting_item setting_item-log text-right">
-                <div class="col-md-1">
-                    <a href="javascript:;"><i class="fa fa-2x fa-minus-circle text-danger"></i></a>
+            <% for i in 1..2 do %>        
+            <li class="setting_item setting_item-log">
+                <div class="row form-group">
+                    <div class="col-md-1 text-right">
+                        <a href="javascript:;"> <i class="fa fa-2x fa-minus-circle text-danger"></i>
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" placeholder="系統帶預設值"></div>
+                    <div class="col-md-6">
+                        <label class="checkbox-inline">
+                            <input type="checkbox">
+                            單人任務
+                        </label>
+                        <label class="checkbox-inline">
+                            <input type="checkbox">
+                            多人任務
+                        </label>
+                    </div>
+                    <div class="col-md-1">
+                        <input type="text" class="form-control" placeholder="<%= i %>">
+                    </div>
                 </div>
-                <div class="col-md-4">
-                    <input type="text" class="form-control" placeholder="系統帶預設值">
+                <div class="row form-group">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <textarea class="form-control" rows="3"></textarea>
+                    </div>
+                    <div class="col-md-1"></div>
                 </div>
-                <div class="col-md-4">
-                    <textarea class="form-control" rows="1"></textarea>
-                </div>
-                <div class="col-md-2">
-                    <input type="file" href="javascript:;" class="form-control">
-                </div>
-                <div class="col-md-1">
-                    <input type="text" class="form-control" placeholder="<%= i %>">
+                <div class="row form-group">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <input type="file">
+                    </div>
+                    <div class="col-md-1"></div>
                 </div>
             </li>
-            <% end %>
+            <% end %>        
             <li class="setting_item setting_item-log">
-                <div class="col-md-1">
-                </div>
+                <div class="col-md-1"></div>
                 <div class="col-md-8">
                     <a href="javascript:;" class="text-success">＋ 新增項目</a>
                 </div>
             </li>
             <li class="setting_item setting_item-log has-success">
-                <div class="col-md-1">
-                </div>
-                <div class="col-md-4">
-                    <input type="text" class="form-control" placeholder="請輸入項目名稱">
-                </div>
-                <div class="col-md-4">
-                    <select class="form-control">
-                        <option></option>
-                        <option>家務及日常生活照顧服務</option>
-                        <option>身體照顧服務</option>
-                    </select>
-                </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-8">
+                    <input type="text" class="form-control" placeholder="請輸入項目名稱"></div>
                 <div class="col-md-3">
                     <button class="btn btn-success btn-block" id="">新增</button>
                 </div>
             </li>
         </ul>
+
     </div>
+
 </div>
+
+
+
