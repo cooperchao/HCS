@@ -105,8 +105,6 @@
 				.form-group
 					label.col-md-3.control-label 服務項目
 					.col-md-9
-						label.control-label
-							| 多人任務
 						.checkbox
 							label.checkbox-inline
 								input type="checkbox"
@@ -150,16 +148,9 @@
 			.row
 				.col-md-2.text-right
 					label 可服務區域
-				.col-md-3
+				.col-md-8
 					select.form-control
 						option 全部地區
-				.col-md-2.text-right
-					label 可服務時間
-				.col-md-3
-					select.form-control
-						option 全天
-						option 上午
-						option 下午
 				.col-md-2
 					button.btn.btn-default 篩選
 			.row.top-buffer
@@ -254,107 +245,4 @@
 								p.help-block 可供派遺
 				hr
 
-#advanced_search.modal.fade
-	.modal-dialog
-		.modal-content
-	  		.modal-header
-				button.close data-dismiss="modal" type="button"
-				h4.modal-title 進階搜尋
-
-	  		.modal-body
-				.row.form-group
-					.col-md-12
-						p 請輸入您要搜尋的關鍵字, 多個關鍵字可以使用空白字元隔開。
-				.row.form-group
-					.col-md-3
-						label 關鍵字搜尋
-					.col-md-9
-						input.form-control type="text"
-				.row.form-group
-					.col-md-3
-						label 可服務區域
-					.col-md-9
-						select.form-control
-							option 全部地區
-							option 松山
-							option 信義
-							option 大安
-							option 文山
-				.row.form-group
-					.col-md-3
-						label 可服務時間
-					.col-md-9
-						select.form-control
-							option 全天
-							option 上午
-							option 下午
-				.row.form-group
-					.col-md-3
-						label 性別
-					.col-md-9
-						label.checkbox-inline
-							input type="checkbox" 男性
-						label.checkbox-inline
-							input type="checkbox" 女性
-				.row.form-group
-					.col-md-3
-						label 年齡範圍
-					.col-md-9.form-inline
-						input.form-control type="text"
-						| &nbsp;歲到&nbsp;
-						input.form-control type="text"
-						| &nbsp;歲
-				.row.form-group
-					.col-md-3
-						label 身高範圍
-					.col-md-9.form-inline
-						input.form-control type="text"
-						| &nbsp;公分到&nbsp;
-						input.form-control type="text"
-						| &nbsp;公分
-				.row.form-group
-					.col-md-3
-						label 體重範圍
-					.col-md-9.form-inline
-						input.form-control type="text"
-						| &nbsp;公斤到&nbsp;
-						input.form-control type="text"
-						| &nbsp;公斤
-				.row.form-group
-					.col-md-3
-						label 宗教信仰
-					.col-md-9
-						label.checkbox-inline
-							input type="checkbox" 道教
-						label.checkbox-inline
-							input type="checkbox" 佛教
-						label.checkbox-inline
-							input type="checkbox" 基督教
-						label.checkbox-inline
-							input type="checkbox" 天主教
-						label.checkbox-inline
-							input type="checkbox" 一貫道
-						label.checkbox-inline
-							input type="checkbox" 回教
-						label.checkbox-inline
-							input type="checkbox" 其他
-							input.form-control.pull-right type="text"
-				.row.form-group
-					.col-md-3
-						label 投入狀況
-					.col-md-9
-						label.checkbox-inline
-							input type="checkbox" 兼職
-						label.checkbox-inline
-							input type="checkbox" 全職
-				.row.form-group
-					.col-md-3
-						label 身障手冊
-					.col-md-9
-						label.checkbox-inline
-							input type="checkbox" 無
-						label.checkbox-inline
-							input type="checkbox" 有
-
-	  		.modal-footer
-				button.btn.btn-primary type="button" 進階搜尋
+== render "../../layout/advanced_search"
