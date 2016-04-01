@@ -35,40 +35,49 @@ hcs_calendar = {
 			},
 			eventClick: function(event,element){
 
-				var $start        = event.start.format("YYYY-MM-DD HH:mm"),
-					$end          = event.end.format("YYYY-MM-DD HH:mm"),
-					$body         = $("body"),
-					$miss         = $(".miss"),
-					$punch        = $(".punch"),
-					$nonarrival   = $(".nonarrival"),
-					_titleTask    = "任務",
-					_topicTask    = "任務名稱",
-					_timeStart    = "開始時間",
-					_timeEnd      = "結束時間",
-					_timeCycle    = "任務週期",
-					_taskItme     = "任務項目",
-					_attendant    = "服務人員",
-					_supervisor   = "督導人員",
-					_note         = "其它備註",
-					_editEvent    = "修改事件",
-					_miss         = "服務未遇",
-					_done         = "確定",
-					_punch        = "補打卡",
-					_nonarrival   = "服務員未到",
-					_titleMeeting = "會議/職訓",
-					_topicEvent   = "事件主題",
-					_eventIssue   = "事件議題",
-					_location     = "事件地點",
-					_join         = "參與人員",
-					_lone_care    = "長照案號",
-					_case_phone   = "個案電話",
-					_eme_name     = "緊急聯絡",
-					_eme_phone    = "聯絡電話",
-					_miss_status  = "事件狀態",
-					_miss_pay     = "自付金額",
-					_miss_subsidy = "補助金額",
-					_miss_note    = "未遇備註",
-					_continue     = "繼續服務";
+				var $start            = event.start.format("YYYY-MM-DD HH:mm"),
+					$end              = event.end.format("YYYY-MM-DD HH:mm"),
+					$body             = $("body"),
+					$miss             = $(".miss"),
+					$punch            = $(".punch"),
+					$nonarrival       = $(".nonarrival"),
+					_titleTask        = "任務",
+					_topicTask        = "任務名稱",
+					_timeStart        = "開始時間",
+					_timeEnd          = "結束時間",
+					_timeCycle        = "任務週期",
+					_taskItme         = "任務項目",
+					_attendant        = "服務人員",
+					_supervisor       = "督導人員",
+					_note             = "其它備註",
+					_editEvent        = "修改事件",
+					_miss             = "服務未遇",
+					_done             = "確定",
+					_punch            = "補打卡",
+					_nonarrival       = "服務員未到",
+					_titleMeeting     = "會議/職訓",
+					_topicEvent       = "事件主題",
+					_eventIssue       = "事件議題",
+					_location         = "事件地點",
+					_join             = "參與人員",
+					_lone_care        = "長照案號",
+					_case_phone       = "電話",
+					_eme_name         = "緊急聯絡",
+					_eme_phone        = "聯絡電話",
+					_miss_status      = "事件狀態",
+					_miss_pay         = "自付金額",
+					_miss_subsidy     = "補助金額",
+					_miss_note        = "未遇備註",
+					_continue         = "繼續服務",
+					_gps_err          = "GPS定位異常",
+					_wai_arrive       = "到達",
+					_wai_leave        = "離開",
+					_cost_type        = "費用類別",
+					_admin_pp         = "行政計次",
+					_drive_pp         = "車程計次",
+					_checkin_distance = "打卡距離",
+					_checkin_note     = "增加打卡距離備註",
+					_checkin_df_text  = "正常";
 				
 				if (event.className[0] == 'eventTask'){
 
@@ -79,6 +88,7 @@ hcs_calendar = {
 						task_continue : _continue,
 						task_punch    : _punch,
 						wai_yet       : _nonarrival,
+						gps_err       : _gps_err,
 					};
 
 					task_state = '';
@@ -88,40 +98,122 @@ hcs_calendar = {
 						}
 					}
 
+					// 電話欄位
+					var cp_item = "";
+					for (var i in event.case_phone) {
+						cp_item += event.case_phone[i];
+						if((i * 1) + 1 != event.case_phone.length) cp_item += "<br>";
+					}
+
+					// 緊急聯絡人
+					var eme_item = "";
+					for (var j in event.eme) {
+						eme_item += event.eme[j].name + " <sapn class='text-info'>("+ event.eme[j].cognate +")</sapn> " + event.eme[j].phone;
+						if((j * 1) + 1 != event.eme.length) eme_item += "<br>";	
+					}
+
+					// 居服人員
+					var wai_item = "";
+					for (var k in event.wai) {
+						wai_item += event.wai[k].name + "<sapn class='text-info'> " + _wai_arrive + " </sapn>" +  event.wai[k].arrive + "<sapn class='text-info'> " + _wai_leave + " </sapn>" + event.wai[k].leave;
+						if((k * 1) + 1 != event.wai.length) wai_item += "<br>";
+					}
+
+					// 打卡距離
+					var checkin_distance_txt = "";
+					for (var d in event.checkin) {
+						checkin_distance_txt += '<a href="'+ event.checkin[0].maps +'" class="text-danger" target="_blank">'+ event.checkin[0].distance +'</a>';
+						if ( event.checkin[0].maps == '') checkin_distance_txt = '<span>' + _checkin_df_text + '</span>';
+					}
+
 					var fancyContent = (
 						'<div class="modal-header">' +
 							'<h4 class="modal-title">'+ _titleTask + task_state +'</h4>' +
 						'</div>' +
 
 						'<div class="modal-body">'+
+							// 任務名稱
 							'<div class="row">'+
 								'<label class="col-md-2">'+ _topicTask +'</label>' +
 								'<div class="col-md-10">'+ event.case_name +'</div>' +
 							'</div>' +
+
+							// 電話 
+							'<div class="row form-group">'+
+								'<label class="col-md-2">'+ _case_phone +'</label>' +
+								'<div class="col-md-10">'+ cp_item +'</div>' +
+							'</div>' +
+
+							// 緊急聯絡
+							'<div class="row form-group">'+
+								'<label class="col-md-2">'+ _eme_name +'</label>' +
+								'<div class="col-md-10">'+ eme_item +'</div>' +
+							'</div>' +
+
+							// 費用類別
+							'<div class="row">'+
+								'<label class="col-md-2">'+ _cost_type +'</label>' +
+								'<div class="col-md-10">'+ event.cost_type +'</div>' +
+							'</div>' +
+
+							// 行政計次
+							'<div class="row">'+
+								'<label class="col-md-2">'+ _admin_pp +'</label>' +
+								'<div class="col-md-10">'+ event.admin_pp +'</div>' +
+							'</div>' +
+
+							// 車程計次
+							'<div class="row">'+
+								'<label class="col-md-2">'+ _drive_pp +'</label>' +
+								'<div class="col-md-10">'+ event.drive_pp +'</div>' +
+							'</div>' +
+
+							// 開始時間
 							'<div class="row">'+
 								'<label class="col-md-2">'+ _timeStart +'</label>' +
 								'<div class="col-md-10">'+ $start +'</div>' +
 							'</div>' +
+
+							// 結束時間 
 							'<div class="row">'+
 								'<label class="col-md-2">'+ _timeEnd +'</label>' +
 								'<div class="col-md-10">'+ $end +'</div>' +
 							'</div>' +
+
+							// 任務週期
 							'<div class="row">'+
 								'<label class="col-md-2">'+ _timeCycle +'</label>' +
 								'<div class="col-md-10">'+ event.taskCycle +'</div>' +
 							'</div>' +
+
+							// 任務項目
 							'<div class="row">'+
 								'<label class="col-md-2">'+ _taskItme +'</label>' +
 								'<div class="col-md-10">'+ event.taskItem +'</div>' +
 							'</div>' +
-							'<div class="row">'+
+
+							// 服務人員
+							'<div class="row form-group">'+
 								'<label class="col-md-2">'+ _attendant +'</label>' +
-								'<div class="col-md-10">'+ event.wai_name +'</div>' +
+								'<div class="col-md-10">'+ wai_item +'</div>' +
 							'</div>' +
+
+							// 打卡距離
+							'<div class="row">'+
+								'<label class="col-md-2">'+ _checkin_distance +'</label>' +
+								'<div class="col-md-10 form-group">'+
+									checkin_distance_txt +
+									'<input type="text" class="form-control" placeholder="'+ _checkin_note +'">' +
+								'</div>' +
+							'</div>' +
+
+							// 督導人員
 							'<div class="row">'+
 								'<label class="col-md-2">'+ _supervisor +'</label>' +
 								'<div class="col-md-10">'+ event.war_name +'</div>' +
 							'</div>' +
+
+							// 其它備註
 							'<div class="row">'+
 								'<label class="col-md-2">'+ _note +'</label>' +
 								'<div class="col-md-10">' +
@@ -179,48 +271,67 @@ hcs_calendar = {
 									'<h4 class="modal-title">'+ _miss +'</h4>' +
 								'</div>' +
 								'<div class="modal-body">' +
+									// 長照案號
 									'<div class="row">'+
 										'<label class="col-md-2">'+ _lone_care +'</label>' +
 										'<div class="col-md-10">'+ event.lone_care +'</div>' +
 									'</div>' +
+
+									// 任務名稱
 									'<div class="row">'+
 										'<label class="col-md-2">'+ _topicTask +'</label>' +
 										'<div class="col-md-10">'+ event.case_name +'</div>' +
 									'</div>' +
-									'<div class="row">'+
+									
+									// 電話 
+									'<div class="row form-group">'+
 										'<label class="col-md-2">'+ _case_phone +'</label>' +
-										'<div class="col-md-10">'+ event.case_phone +'</div>' +
+										'<div class="col-md-10">'+ cp_item +'</div>' +
 									'</div>' +
-									'<div class="row">'+
+
+									// 緊急聯絡
+									'<div class="row form-group">'+
 										'<label class="col-md-2">'+ _eme_name +'</label>' +
 										'<div class="col-md-10">'+ event.eme_name +'</div>' +
 									'</div>' +
+
+									// 聯絡電話
 									'<div class="row">'+
 										'<label class="col-md-2">'+ _eme_phone +'</label>' +
 										'<div class="col-md-10">'+ event.eme_phone +'</div>' +
 									'</div>' +
+
+									// 服務人員
 									'<div class="row">'+
 										'<label class="col-md-2">'+ _attendant +'</label>' +
 										'<div class="col-md-10">'+ event.wai_name +'</div>' +
 									'</div>' +
+
+									// 事件狀態
 									'<div class="row">'+
 										'<label class="col-md-2">'+ _miss_status +'</label>' +
 										'<div class="col-md-10">'+
 											'<select class="miss_status"></select>' +
 										'</div>' +
 									'</div>' +
+
+									// 自付金額
 									'<div class="row">'+
 										'<label class="col-md-2">'+ _miss_pay +'</label>' +
 										'<div class="col-md-10">'+
 											'<input type="text" value="' + event.miss_pay +'">' +
 										'</div>' +
 									'</div>' +
+
+									// 補助金額
 									'<div class="row">'+
 										'<label class="col-md-2">'+ _miss_subsidy +'</label>' +
 										'<div class="col-md-10">'+
 											'<input type="text" value="' + event.miss_subsidy +'">' +
 										'</div>' +
 									'</div>' +
+
+									// 未遇備註
 									'<div class="row">'+
 										'<label class="col-md-2">'+ _miss_note +'</label>' +
 										'<div class="col-md-10">'+
@@ -308,25 +419,25 @@ hcs_calendar = {
 					"content": fancyContent
 				});
 			},
-			// events: data_events
-			events: function(start, end, timezone, callback) {
-				$.ajax({
-					url: "http://175.98.112.14:8000/api/calendar_out/list",
-					async: "false",
-					type: "post",
-					data: {
-						"start": moment(start._d).format("YYYY-MM-DD"),
-						"end": moment(end._d).format("YYYY-MM-DD")
-					},
-					success: function(data_events){
-						console.log(data_events);
-						callback(data_events);
-					},
-					error:function(xhr, ajaxOptions, thrownError){ 
-						console.log("error");
-					}
-				});
-			}
+			events: data_events
+			// events: function(start, end, timezone, callback) {
+			// 	$.ajax({
+			// 		url: "http://175.98.112.14:8000/api/calendar_out/list",
+			// 		async: "false",
+			// 		type: "post",
+			// 		data: {
+			// 			"start": moment(start._d).format("YYYY-MM-DD"),
+			// 			"end": moment(end._d).format("YYYY-MM-DD")
+			// 		},
+			// 		success: function(data_events){
+			// 			console.log(data_events);
+			// 			callback(data_events);
+			// 		},
+			// 		error:function(xhr, ajaxOptions, thrownError){ 
+			// 			console.log("error");
+			// 		}
+			// 	});
+			// }
 		}
 		if(input_boolean!= undefined) {
 			calendar_init.eventLimit  = input_boolean;

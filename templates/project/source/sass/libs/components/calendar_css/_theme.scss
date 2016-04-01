@@ -385,19 +385,23 @@ button.fc-month-button{padding: 0 12px}
 .task_miss,
 .task_continue,
 .task_punch,
-.wai_yet{background-repeat: no-repeat; background-position: right top}
+.wai_yet,
+.gps_err{background-repeat: no-repeat; background-position: right top}
 
 .task_miss{background-image:url("../img/status_a1.png")}
 .task_continue{background-image:url("../img/status_b1.png")}
 .task_punch{background-image:url("../img/status_c1.png")}
-.wai_yet{background-image:url("../img/status_d1.png")}
+.wai_yet,
+.gps_err{background-image:url("../img/status_d1.png")}
 
 .task_miss_title,
 .task_continue_title,
 .task_punch_title,
-.wai_yet_title{float:right;padding-left:22px;background-repeat: no-repeat; background-position: 0 38%}
+.wai_yet_title,
+.gps_err_title{float:right;padding-left:22px;background-repeat: no-repeat; background-position: 0 38%}
 
 .task_miss_title{background-image:url("../img/status_a2.png")}
 .task_continue_title{background-image:url("../img/status_b2.png")}
 .task_punch_title{background-image:url("../img/status_c2.png")}
-.wai_yet_title{background-image:url("../img/status_d2.png")}
+.wai_yet_title,
+.gps_err_title{background-image:url("../img/status_d2.png")}
