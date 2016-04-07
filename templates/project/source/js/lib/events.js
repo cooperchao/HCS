@@ -42,6 +42,7 @@ data_events =
 			}
 		],
 		war_name: '督導員',
+		e_sign: '',
 		task_note: '內容文字',
 		miss_pay: '',
 		miss_subsidy: '',
@@ -98,6 +99,7 @@ data_events =
 			}
 		],
 		war_name: '督導員',
+		e_sign: 'http://www.ezhoca.com/img/logo_shuttle.svg',
 		task_note: '內容文字',
 		miss_status: ['個案不受服務','個案不在家','未遇到個案'],
 		miss_pay: '',
@@ -145,6 +147,7 @@ data_events =
 			}
 		],
 		war_name: '督導員',
+		e_sign: 'http://www.ezhoca.com/img/logo_shuttle.svg',
 		task_note: '內容文字',
 		miss_status: ['個案不受服務','個案不在家','未遇到個案'],
 		miss_pay: '',
@@ -197,6 +200,7 @@ data_events =
 			}
 		],
 		war_name: '督導員',
+		e_sign: '',
 		task_note: '內容文字',
 		miss_status: ['個案不受服務','個案不在家','未遇到個案'],
 		miss_pay: '',
@@ -244,6 +248,7 @@ data_events =
 			}
 		],
 		war_name: '督導員',
+		e_sign: 'http://www.ezhoca.com/img/logo_shuttle.svg',
 		task_note: '內容文字',
 		miss_status: ['個案不受服務','個案不在家','未遇到個案'],
 		miss_pay: '',
@@ -291,6 +296,7 @@ data_events =
 			}
 		],
 		war_name: '督導員',
+		e_sign: 'http://www.ezhoca.com/img/logo_shuttle.svg',
 		task_note: '內容文字',
 		miss_status: ['個案不受服務','個案不在家','未遇到個案'],
 		miss_pay: '',
@@ -338,6 +344,7 @@ data_events =
 			}
 		],
 		war_name: '督導員',
+		e_sign: 'http://www.ezhoca.com/img/logo_shuttle.svg',
 		task_note: '內容文字',
 		miss_status: ['個案不受服務','個案不在家','未遇到個案'],
 		miss_pay: '',
@@ -385,6 +392,7 @@ data_events =
 			}
 		],
 		war_name: '督導員',
+		e_sign: '',
 		task_note: '內容文字',
 		miss_status: ['個案不受服務','個案不在家','未遇到個案'],
 		miss_pay: '',
@@ -432,6 +440,7 @@ data_events =
 			}
 		],
 		war_name: '督導員',
+		e_sign: 'http://www.ezhoca.com/img/logo_shuttle.svg',
 		task_note: '內容文字',
 		miss_status: ['個案不受服務','個案不在家','未遇到個案'],
 		miss_pay: '',
@@ -479,6 +488,7 @@ data_events =
 			}
 		],
 		war_name: '督導員',
+		e_sign: 'http://www.ezhoca.com/img/logo_shuttle.svg',
 		task_note: '內容文字',
 		miss_status: ['個案不受服務','個案不在家','未遇到個案'],
 		miss_pay: '',
@@ -526,6 +536,7 @@ data_events =
 			}
 		],
 		war_name: '督導員',
+		e_sign: '',
 		task_note: '內容文字',
 		miss_status: ['個案不受服務','個案不在家','未遇到個案'],
 		miss_pay: '',
@@ -573,6 +584,7 @@ data_events =
 			}
 		],
 		war_name: '督導員',
+		e_sign: 'http://www.ezhoca.com/img/logo_shuttle.svg',
 		task_note: '內容文字',
 		miss_status: ['個案不受服務','個案不在家','未遇到個案'],
 		miss_pay: '',
@@ -620,6 +632,7 @@ data_events =
 			}
 		],
 		war_name: '督導員',
+		e_sign: '',
 		task_note: '內容文字',
 		miss_status: ['個案不受服務','個案不在家','未遇到個案'],
 		miss_pay: '',
@@ -667,6 +680,7 @@ data_events =
 			}
 		],
 		war_name: '督導員',
+		e_sign: 'http://www.ezhoca.com/img/logo_shuttle.svg',
 		task_note: '內容文字',
 		miss_status: ['個案不受服務','個案不在家','未遇到個案'],
 		miss_pay: '',
@@ -714,6 +728,7 @@ data_events =
 			}
 		],
 		war_name: '督導員',
+		e_sign: 'http://www.ezhoca.com/img/logo_shuttle.svg',
 		task_note: '內容文字',
 		miss_status: ['個案不受服務','個案不在家','未遇到個案'],
 		miss_pay: '',
@@ -766,6 +781,7 @@ data_events =
 			}
 		],
 		war_name: '督導員',
+		e_sign: '',
 		task_note: '內容文字',
 		miss_status: ['個案不受服務','個案不在家','未遇到個案'],
 		miss_pay: '',
@@ -813,6 +829,7 @@ data_events =
 			}
 		],
 		war_name: '督導員',
+		e_sign: '',
 		task_note: '內容文字',
 		miss_status: ['個案不受服務','個案不在家','未遇到個案'],
 		miss_pay: '',
@@ -860,6 +877,7 @@ data_events =
 			}
 		],
 		war_name: '督導員',
+		e_sign: '',
 		task_note: '內容文字',
 		miss_status: ['個案不受服務','個案不在家','未遇到個案'],
 		miss_pay: '',
@@ -907,6 +925,7 @@ data_events =
 			}
 		],
 		war_name: '督導員',
+		e_sign: 'http://www.ezhoca.com/img/logo_shuttle.svg',
 		task_note: '內容文字',
 		miss_status: ['個案不受服務','個案不在家','未遇到個案'],
 		miss_pay: '',
@@ -954,6 +973,7 @@ data_events =
 			}
 		],
 		war_name: '督導員',
+		e_sign: '',
 		task_note: '內容文字',
 		miss_status: ['個案不受服務','個案不在家','個案改期'],
 		miss_subsidy: '100',
@@ -1000,6 +1020,7 @@ data_events =
 			}
 		],
 		war_name: '督導員',
+		e_sign: 'http://www.ezhoca.com/img/logo_shuttle.svg',
 		task_note: '內容文字',
 		miss_status: ['個案不受服務','個案不在家','未遇到個案'],
 		miss_pay: '',

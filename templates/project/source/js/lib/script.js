@@ -35,6 +35,7 @@ hcs_calendar = {
 			},
 			eventClick: function(event,element){
 
+
 				var $start            = event.start.format("YYYY-MM-DD HH:mm"),
 					$end              = event.end.format("YYYY-MM-DD HH:mm"),
 					$body             = $("body"),
@@ -50,10 +51,10 @@ hcs_calendar = {
 					_attendant        = "服務人員",
 					_supervisor       = "督導人員",
 					_note             = "其它備註",
-					_editEvent        = "修改事件",
+					_editEvent        = "修改任務",
 					_miss             = "服務未遇",
 					_done             = "確定",
-					_punch            = "補打卡",
+					_punch            = "特殊處理",
 					_nonarrival       = "服務員未到",
 					_titleMeeting     = "會議/職訓",
 					_topicEvent       = "事件主題",
@@ -77,7 +78,12 @@ hcs_calendar = {
 					_drive_pp         = "車程計次",
 					_checkin_distance = "打卡距離",
 					_checkin_note     = "增加打卡距離備註",
-					_checkin_df_text  = "正常";
+					_checkin_df_text  = "正常",
+					_e_sign           = "電子簽名",
+					_e_sign_state_y   = "檢視",
+					_e_sign_state_n   = "無電子簽名",
+					_save             = "儲存",
+					_case_detail      = "顯示更多資訊...";
 				
 				if (event.className[0] == 'eventTask'){
 
@@ -126,6 +132,20 @@ hcs_calendar = {
 						if ( event.checkin[0].maps == '') checkin_distance_txt = '<span>' + _checkin_df_text + '</span>';
 					}
 
+					// 電子簽名
+					var e_sing_link = "";
+					if ( event.e_sign != "" ) {
+						e_sing_link = '<a href="'+ event.e_sign +'" class="text-info" target="_blank">'+ _e_sign_state_y +'</a>'
+					} else {
+						e_sing_link = '<span class="text-danger">'+ _e_sign_state_n +'</span>'
+					}
+
+					// 顯示更多資訊按鈕
+					$(document).on("click",".case_detail_btn", function(){
+						$(".case_detail_btn").empty("");
+						$(".case_detail").removeClass("hidden");
+					});
+
 					var fancyContent = (
 						'<div class="modal-header">' +
 							'<h4 class="modal-title">'+ _titleTask + task_state +'</h4>' +
@@ -135,35 +155,38 @@ hcs_calendar = {
 							// 任務名稱
 							'<div class="row">'+
 								'<label class="col-md-2">'+ _topicTask +'</label>' +
-								'<div class="col-md-10">'+ event.case_name +'</div>' +
+								'<div class="col-md-10">' +
+									event.case_name +
+									'<a href="javascript:;" class="text-info col-md-offset-1 case_detail_btn">'+ _case_detail + '</a>' +
+								'</div>' +
 							'</div>' +
 
 							// 電話 
-							'<div class="row form-group">'+
+							'<div class="row form-group case_detail hidden">'+
 								'<label class="col-md-2">'+ _case_phone +'</label>' +
 								'<div class="col-md-10">'+ cp_item +'</div>' +
 							'</div>' +
 
 							// 緊急聯絡
-							'<div class="row form-group">'+
+							'<div class="row form-group case_detail hidden">'+
 								'<label class="col-md-2">'+ _eme_name +'</label>' +
 								'<div class="col-md-10">'+ eme_item +'</div>' +
 							'</div>' +
 
 							// 費用類別
-							'<div class="row">'+
+							'<div class="row case_detail hidden">'+
 								'<label class="col-md-2">'+ _cost_type +'</label>' +
 								'<div class="col-md-10">'+ event.cost_type +'</div>' +
 							'</div>' +
 
 							// 行政計次
-							'<div class="row">'+
+							'<div class="row case_detail hidden">'+
 								'<label class="col-md-2">'+ _admin_pp +'</label>' +
 								'<div class="col-md-10">'+ event.admin_pp +'</div>' +
 							'</div>' +
 
 							// 車程計次
-							'<div class="row">'+
+							'<div class="row case_detail hidden">'+
 								'<label class="col-md-2">'+ _drive_pp +'</label>' +
 								'<div class="col-md-10">'+ event.drive_pp +'</div>' +
 							'</div>' +
@@ -199,11 +222,18 @@ hcs_calendar = {
 							'</div>' +
 
 							// 打卡距離
-							'<div class="row">'+
+							'<div class="row form-group">'+
 								'<label class="col-md-2">'+ _checkin_distance +'</label>' +
-								'<div class="col-md-10 form-group">'+
-									checkin_distance_txt +
-									'<input type="text" class="form-control" placeholder="'+ _checkin_note +'">' +
+								'<div class="row col-md-10">'+
+									'<div class="col-md-2">'+
+										checkin_distance_txt +
+									'</div>'+
+									'<div class="col-md-8">'+
+										'<input type="text" class="form-control" placeholder="'+ _checkin_note +'">' +
+									'</div>'+
+									'<div class="col-md-2">'+
+										'<a href="#" class="btn btn-primary">'+ _save +'</a>' +
+									'</div>' +
 								'</div>' +
 							'</div>' +
 
@@ -213,30 +243,32 @@ hcs_calendar = {
 								'<div class="col-md-10">'+ event.war_name +'</div>' +
 							'</div>' +
 
+							// 電子簽名
+							'<div class="row case_detail hidden">'+
+								'<label class="col-md-2">'+ _e_sign +'</label>' +
+								'<div class="col-md-10">'+ e_sing_link +'</div>' +
+							'</div>' +
+
 							// 其它備註
 							'<div class="row">'+
 								'<label class="col-md-2">'+ _note +'</label>' +
-								'<div class="col-md-10">' +
-									'<textarea class="form-control" rows="3">'+ event.task_note +'</textarea>' +
+								'<div class="row col-md-10">' +
+									'<div class="col-md-10">'+
+										'<textarea class="form-control" rows="3">'+ event.task_note +'</textarea>' +
+									'</div>'+
+									'<div class="col-md-2">'+
+										'<a href="#" class="btn btn-primary">'+ _save +'</a>' +
+									'</div>' +
 								'</div>' +
 							'</div>' +
 						'</div>'+
 						'<div class="modal-footer">'+
 							'<div class="row">' +
-								'<div class="col-md-2 text-left">' +
+								'<div class="col-md-12">' +
 									'<a href="#" class="btn btn-default">'+ _editEvent +'</a>' +
-								'</div>' +
-								'<div class="col-md-2 text-left">' +
 									'<a href="#" class="btn btn-default miss">'+ _miss +'</a>' +
-								'</div>' +
-								'<div class="col-md-2 text-left">' +
 									'<a href="#" class="btn btn-default punch">'+ _punch +'</a>' +
-								'</div>' +
-								'<div class="col-md-2 text-left">' +
 									'<a href="#" class="btn btn-default nonarrival">'+ _nonarrival +'</a>' +
-								'</div>' +
-								'<div class="col-md-4 text-right">' +
-									'<a href="#" class="btn btn-primary">'+ _done +'</a>' +
 								'</div>' +
 							'</div>' +
 						'</div>');
