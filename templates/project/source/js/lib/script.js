@@ -990,7 +990,11 @@ $(function(){
 			{"data": 'd6[5]'},
 			{"data": 'd7'},
 			{"data": 'd8'},
-			{"data": 'd10'}
+			{"data": 'd9'},
+			{"data": 'd10'},
+			{"data": 'd11'},
+			{"data": 'd12'},
+			{"data": 'd13'},
 		],
 
 		// "columns": [
