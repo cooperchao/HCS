@@ -250,3 +250,36 @@ table.dataTable.display tbody tr.selected > .sorting_3 {
 	.vertical-m {
 		vertical-align: middle;
 	}
+
+/* 2016-04-12 */
+	#questions_sortable .placeholder,
+	#questions_sortable .ui-state-highlight {
+		border-style: dashed;
+	}
+
+	#questions_sortable .tile,
+	#questions_sortable .ui-state-highlight {
+		border-color: #eee;
+		background-color: #f9f9f9;
+	}
+
+	#questions_sortable .ui-sortable-helper {
+		transform:rotate(3deg);
+	}
+
+	#questions_sortable .tile {
+		// height: 100px;
+	}
+
+	#questions_sortable .ui-state-highlight {
+		// height: 40px;
+		margin: 10px 0;
+	}
+
+	#questions_sortable .qs-child-item i.fa-bars {
+		cursor: move;
+	}
+	/* editable popup 樣式 */
+	#questions_sortable .popover-content {
+		padding: 9px 25px;
+	}

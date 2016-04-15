@@ -1,0 +1,350 @@
+<div class="row top-buffer">
+	<div class="col-md-6 text-left">
+		<ol class="breadcrumb">
+			<li>
+				<a href="#">系統設定</a>
+			</li>
+			<li>
+				<a href="#">評鑑訪問</a>
+			</li>
+			<li class="active">新增問卷</li>
+		</ol>
+	</div>
+	<div class="col-md-6 text-right">
+		<input class="btn btn-default" type="button" value="取消">
+		<input class="btn btn-default" type="submit" value="儲存">
+	</div>
+</div>
+<hr>
+<div class="row">
+	<form class="form-horizontal col-md-8 col-md-offset-2 bootstrap-validator" role="form">
+		<div class="row">
+			<h4>問卷設定</h4>
+			<hr>
+			<div class="form-group">
+				<div class="col-md-6">
+					<label class="control-label">標題</label>
+					<input type="text" class="form-control">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="col-md-1">
+					<label class="control-label">適用範圍</label>
+				</div>
+				<div class="col-md-11">
+					<div class="form-group">
+						<label class="radio-inline">
+							<input type="radio" name="radio1"> 滿意度調查
+						</label>
+						<label class="radio-inline">
+							<input type="radio" name="radio1"> 家訪電訪
+						</label>
+					</div>
+					<div class="form-group">
+						<label class="checkbox-inline">
+							<input type="checkbox"> 設為預設值
+						</label>
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="col-md-12 form-inline">
+					<label>問卷內容</label>
+					<select id="add-qs-type" class="form-control">
+						<option value="qs-type-1">簡答</option>
+						<option value="qs-type-2">段落</option>
+						<option value="qs-type-3">單選</option>
+						<option value="qs-type-4">核取方塊</option>
+						<option value="qs-type-5">日期</option>
+						<option value="qs-type-6">時間</option>
+						<option value="qs-type-7">標題說明</option>
+					</select>
+					<a href="#" id="btn-add-qs-type" class="btn btn-primary">新增問題</a>
+				</div>
+			</div>
+			<hr>
+
+			<!-- 問卷題型，複製用 -->
+			<div id="questions_example" class="hidden">
+
+				<!-- q1 簡答 -->
+				<div data-type="qs-type-1">
+					<div class="form-group qs-type">
+						<div class="col-md-11">
+							<div class="form-group">
+								<div class="col-md-6">
+									問題 - <span class="text-muted">簡答</span>
+									<a href="#" class="qs-type-del">(刪除)</a>
+								</div>
+								<div class="col-md-6 text-right">
+									<label class="checkbox-inline">
+										<input type="checkbox" class="qs-required">必填</input>
+									</label>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-md-12">
+									<textarea class="form-control" rows="1"></textarea>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-1">
+							<i class="fa fa-bars fa-2x text-muted handle"></i>
+						</div>
+					</div>
+				</div>
+				<!-- q1//-->
+
+				<!-- q2 段落 -->
+				<div data-type="qs-type-2">
+					<div class="form-group qs-type">
+						<div class="col-md-11">
+							<div class="form-group">
+								<div class="col-md-6">
+									問題 - <span class="text-muted">段落</span>
+									<a href="#" class="qs-type-del">(刪除)</a>
+								</div>
+								<div class="col-md-6 text-right">
+									<label class="checkbox-inline">
+										<input type="checkbox" class="qs-required">必填</input>
+									</label>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-md-12">
+									<textarea class="form-control" rows="1"></textarea>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-1">
+							<i class="fa fa-bars fa-2x text-muted handle"></i>
+						</div>
+					</div>
+				</div>
+				<!-- q2//-->
+
+				<!-- q3 單選 -->
+				<div data-type="qs-type-3">
+					<div class="form-group qs-type">
+						<div class="col-md-11">
+							<div class="form-group">
+								<div class="col-md-6">
+									問題 - <span class="text-muted">單選</span>
+									<a href="#" class="qs-type-del">(刪除)</a>
+								</div>
+								<div class="col-md-6 text-right">
+									<label class="checkbox-inline">
+										<input type="checkbox" class="qs-required">必填</input>
+									</label>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-md-12">
+									<textarea class="form-control" rows="1"></textarea>
+								</div>
+							</div>
+
+							<div class="form-group questions_sortable_child">
+								<div class="col-md-12">
+									<div class="row form-group qs-child-item">
+										<i class="col-md-1 fa fa-bars fa-2x text-muted"></i>
+										<div class="col-md-10">
+											<div class="input-group">
+												<span class="input-group-addon">
+													<input type="radio" class="qs-component">
+												</span>
+												<input type="text" class="form-control" placeholder="選項文字">
+											</div>
+										</div>
+									</div>
+
+									<div class="row form-group qs-child-item">
+										<i class="col-md-1 fa fa-bars fa-2x text-muted"></i>
+										<div class="col-md-10">
+											<div class="input-group">
+												<span class="input-group-addon">
+													<input type="radio" class="qs-component">
+												</span>
+												<input type="text" class="form-control" placeholder="選項文字">
+											</div>
+										</div>
+									</div>
+
+									<div class="col-md-offset-1">
+										<label>
+											新增
+											<a href="#" class="qs-added-radio-item">選項</a>
+											或
+											<a href="#" class="qs-added-child-text">說明</a>
+											(文字輸入框)
+										</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-1">
+							<i class="fa fa-bars fa-2x text-muted handle"></i>
+						</div>
+					</div>
+				</div>
+				<!-- q3//-->
+
+				<!-- q4 核取方塊 -->
+				<div data-type="qs-type-4">
+					<div class="form-group qs-type">
+						<div class="col-md-11">
+							<div class="form-group">
+								<div class="col-md-6">
+									問題 - <span class="text-muted">核取方塊</span>
+									<a href="#" class="qs-type-del">(刪除)</a>
+								</div>
+								<div class="col-md-6 text-right">
+									<label class="checkbox-inline">
+										<input type="checkbox" class="qs-required">必填</input>
+									</label>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-md-12">
+									<textarea class="form-control" rows="1"></textarea>
+								</div>
+							</div>
+
+							<div class="form-group questions_sortable_child">
+								<div class="col-md-12">
+									<div class="row form-group qs-child-item">
+										<i class="col-md-1 fa fa-bars fa-2x text-muted"></i>
+										<div class="col-md-10">
+											<div class="input-group">
+												<span class="input-group-addon">
+													<input type="checkbox" class="qs-component">
+												</span>
+												<input type="text" class="form-control" placeholder="選項文字">
+											</div>
+										</div>
+									</div>
+
+									<div class="row form-group qs-child-item">
+										<i class="col-md-1 fa fa-bars fa-2x text-muted"></i>
+										<div class="col-md-10">
+											<div class="input-group">
+												<span class="input-group-addon">
+													<input type="checkbox" class="qs-component">
+												</span>
+												<input type="text" class="form-control" placeholder="選項文字">
+											</div>
+										</div>
+									</div>
+
+									<div class="col-md-offset-1">
+										<label>
+											新增
+											<a href="#" class="qs-added-checkbox-item">選項</a>
+											或
+											<a href="#" class="qs-added-child-text">說明</a>
+											(文字輸入框)
+										</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-1">
+							<i class="fa fa-bars fa-2x text-muted handle"></i>
+						</div>
+					</div>
+				</div>
+				<!-- q4//-->
+
+				<!-- q5 日期 -->
+				<div data-type="qs-type-5">
+					<div class="form-group qs-type">
+						<div class="col-md-11">
+							<div class="form-group">
+								<div class="col-md-6">
+									問題 - <span class="text-muted">日期</span>
+									<a href="#" class="qs-type-del">(刪除)</a>
+								</div>
+								<div class="col-md-6 text-right">
+									<label class="checkbox-inline">
+										<input type="checkbox" class="qs-required">必填</input>
+									</label>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-md-12">
+									<input type="text" class="form-control datepicker">
+								</div>
+							</div>
+						</div>
+						<div class="col-md-1">
+							<i class="fa fa-bars fa-2x text-muted handle"></i>
+						</div>
+					</div>
+				</div>
+				<!-- q5//-->
+
+				<!-- q6 時間 -->
+				<div data-type="qs-type-6">
+					<div class="form-group qs-type">
+						<div class="col-md-11">
+							<div class="form-group">
+								<div class="col-md-6">
+									問題 - <span class="text-muted">時間</span>
+									<a href="#" class="qs-type-del">(刪除)</a>
+								</div>
+								<div class="col-md-6 text-right">
+									<label class="checkbox-inline">
+										<input type="checkbox" class="qs-required">必填</input>
+									</label>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-md-12">
+									<input type="text" class="form-control timepicker">
+								</div>
+							</div>
+						</div>
+						<div class="col-md-1">
+							<i class="fa fa-bars fa-2x text-muted handle"></i>
+						</div>
+					</div>
+				</div>
+				<!-- q6//-->
+
+				<!-- q7 標題說明 -->
+				<div data-type="qs-type-7">
+					<div class="form-group qs-type">
+						<div class="col-md-11">
+							<div class="form-group">
+								<div class="col-md-12">
+									問題 - <span class="text-muted">標題說明</span>
+									<a href="#" class="qs-type-del">(刪除)</a>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-md-12">
+									<input type="text" class="form-control">
+								</div>
+							</div>
+						</div>
+						<div class="col-md-1">
+							<i class="fa fa-bars fa-2x text-muted handle"></i>
+						</div>
+					</div>
+				</div>
+				<!-- q7//-->
+
+			</div>
+			<!-- 問卷題型，複製用//-->
+			
+			<!-- 新增問卷題型區塊 -->
+			<div id="questions_sortable">
+				
+			</div>
+			<!-- 新增問卷題型區塊//-->
+
+		</div>
+	</form>
+</div>

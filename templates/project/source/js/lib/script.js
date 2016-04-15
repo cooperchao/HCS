@@ -889,11 +889,11 @@ $(window).load(function(){
 
 
 // $(document).ready(function() {
-    // $('#example').DataTable( {
-        // "processing": true,
-        // "serverSide": true,
-        
-    // } );
+	// $('#example').DataTable( {
+		// "processing": true,
+		// "serverSide": true,
+		
+	// } );
 // } );
 
 
@@ -1056,8 +1056,8 @@ $(function(){
 	// 本年度周期性假日設定
 	$("#btn_filter_weeks_holiday").click(function() {
 
-	 	var $daytype     = $("#holiday_type").find("option:selected").val(),
-	 		$weekdays    = $(".rc-Week-days"),
+		var $daytype     = $("#holiday_type").find("option:selected").val(),
+			$weekdays    = $(".rc-Week-days"),
 			$chose_weeks = $("#filter_weeks_holiday").find("input[type='checkbox']:checked"),
 			$weeks_array = [];
 
@@ -1150,4 +1150,155 @@ $(function(){
 
 	// 回傳預設日期
 	// console.log(PagingCalendar.getInitialState("2015-01-01"));
+
+	// 系統設定 / 評鑑訪問 / 新增問卷
+	// 第一層題型
+	$("#questions_sortable").sortable({
+		handle: ".handle",
+		// revert: 'invalid',
+		placeholder: "span2 well placeholder tile",
+		start: function(e, ui) {
+			ui.placeholder.height(ui.item.height());
+		}
+	});
+
+	// 第二層題目元件
+	$(".questions_sortable_child").sortable({
+		items: ".qs-child-item",
+		placeholder: "ui-state-highlight",
+		start: function(e, ui) {
+			ui.placeholder.height(ui.item.height());
+		}
+	});
+
+	// 新增radio元件
+	$("body").on("click",".qs-added-radio-item",function(){
+		var _item_len = $(this).parents(".questions_sortable_child").find(".qs-child-item").length,
+			_item_del = "";
+
+		if(_item_len > 1){
+			_item_del = '<i class="col-md-1 fa fa-close fa-2x text-right text-muted"></i>'
+		}
+
+		var _radio = 
+		'<div class="row form-group qs-child-item">' +
+			'<i class="col-md-1 fa fa-bars fa-2x text-muted"></i>' +
+			'<div class="col-md-10">'+
+				'<div class="input-group">' +
+					'<span class="input-group-addon">' +
+						'<input type="radio" class="qs-component">' +
+					'</span>' +
+					'<input type="text" class="form-control" placeholder="選項文字">' +
+				'</div>' +
+			'</div>' +
+			_item_del +
+		'</div>';
+		$(this).parents(".questions_sortable_child>div>div").before(_radio);
+		$(this).parents(".qs-type").find(".qs-component").attr("name", $(this).parents(".qs-type").parent().attr("class"));
+	});
+
+	// 新增checkbox元件
+	$("body").on("click",".qs-added-checkbox-item",function(){
+
+		var _item_len = $(this).parents(".questions_sortable_child").find(".qs-child-item").length,
+			_item_del = "";
+
+		if(_item_len > 1){
+			_item_del = '<i class="col-md-1 fa fa-close fa-2x text-right text-muted"></i>'
+		}
+
+		var _checkbox = 
+		'<div class="row form-group qs-child-item">' +
+			'<i class="col-md-1 fa fa-bars fa-2x text-muted"></i>' +
+			'<div class="col-md-10">'+
+				'<div class="input-group">' +
+					'<span class="input-group-addon">' +
+						'<input type="checkbox" class="qs-component">' +
+					'</span>' +
+					'<input type="text" class="form-control" placeholder="選項文字">' +
+				'</div>' +
+			'</div>' +
+			_item_del +
+		'</div>';
+		$(this).parents(".questions_sortable_child>div>div").before(_checkbox);
+		$(this).parents(".qs-type").find(".qs-component").attr("name", $(this).parents(".qs-type").parent().attr("class"));
+	});
+
+	// 新增說明元件
+	$("body").on("click",".qs-added-child-text",function(){
+		var _textarea = 
+		'<div class="row form-group qs-child-item">' +
+			'<i class="col-md-1 fa fa-bars fa-2x text-muted"></i>' +
+			'<label class="col-md-10">'+
+				'<textarea class="form-control" rows="1" placeholder="說明文字輸入框"></textarea>' +
+			'</label>' +
+			'<i class="col-md-1 fa fa-close fa-2x text-right text-muted"></i>' +
+		'</div>';
+		$(this).parents(".questions_sortable_child>div>div").before(_textarea);
+	});
+
+	// 刪除題目元件
+	$("body").on("click",".qs-child-item .fa-close",function(){
+		$(this).parents(".qs-child-item").remove();
+	});
+
+	// 刪除題型
+	$("body").on("click",".qs-type-del", function(){
+		$(this).parents(".qs-type").remove();
+	});
+
+	// 新增題型
+	$("#btn-add-qs-type").click(function(){
+
+		var $type = $("#add-qs-type").val(),
+			$tmp_class = "qs" + Math.floor(Math.random() * 100001),
+			$tmp_name  = $("#questions_example").find(".qs-component").attr("name", $tmp_class);
+			$html = $("#questions_example").find('div[data-type="'+ $type + '"]').addClass($tmp_class).clone();
+
+
+		$("#questions_example>div").removeClass();
+		$("#questions_sortable").append($html);
+
+		if($type == "qs-type-3" || $type == "qs-type-4") {
+			$(".questions_sortable_child").sortable({
+				items: ".qs-child-item",
+				placeholder: "ui-state-highlight",
+				start: function(e, ui) {
+					ui.placeholder.height(ui.item.height());
+				}
+			});			
+		}
+		if($type == "qs-type-5"){
+			$(".datepicker").datepicker({
+				format: 'yyyy-mm-dd'
+			});
+		}
+		if($type == "qs-type-6"){
+			$('.timepicker').datetimepicker({
+				format: 'LT'
+			})
+		}
+	});
+
+	// 題目必填
+	$("body").on("click",".qs-required",function(){
+
+		var _t_wrap   = $(this).parents("div[data-type]")
+			_type     = _t_wrap.data("type"),
+			_checkbox = _t_wrap.find("input[type='checkbox']"),
+			_textarea = _t_wrap.find("textarea");
+
+		if($(this).prop("checked")){
+			_textarea.prop("required", true);
+			if(_type == "qs-type-4"){
+				_checkbox.prop("required", true);
+			}
+		} else {
+			_textarea.prop("required", false);
+			if(_type == "qs-type-4"){
+				_checkbox.prop("required", false);
+			}
+		}
+
+	});
 });
