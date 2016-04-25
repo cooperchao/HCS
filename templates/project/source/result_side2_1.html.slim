@@ -1,0 +1,14 @@
+//main
+aside
+	.sidebar-wrapper
+		// sidebar
+		.sidebar
+			== render :partial => "layout/sidebar" , :locals => {:s => "mainnav8"}
+			
+// main-content
+section.main
+	.container-fluid
+		== render "layout/cont_head_logo"
+		== render "layout/page_tab_wrapper--secondary"
+		== render "page/result/side2_1.html.erb"
+	== render "layout/footer"
