@@ -995,6 +995,7 @@ $(function(){
 			{"data": 'd11'},
 			{"data": 'd12'},
 			{"data": 'd13'},
+			{"data": 'd14'}
 		],
 
 		// "columns": [
