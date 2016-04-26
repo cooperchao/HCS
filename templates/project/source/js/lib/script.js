@@ -82,8 +82,7 @@ hcs_calendar = {
 					_e_sign           = "電子簽名",
 					_e_sign_state_y   = "檢視",
 					_e_sign_state_n   = "無電子簽名",
-					_save             = "儲存",
-					_case_detail      = "顯示更多資訊...";
+					_save             = "儲存";
 				
 				if (event.className[0] == 'eventTask'){
 
@@ -139,13 +138,7 @@ hcs_calendar = {
 					} else {
 						e_sing_link = '<span class="text-danger">'+ _e_sign_state_n +'</span>'
 					}
-
-					// 顯示更多資訊按鈕
-					$(document).on("click",".case_detail_btn", function(){
-						$(".case_detail_btn").empty("");
-						$(".case_detail").removeClass("hidden");
-					});
-
+					
 					var fancyContent = (
 						'<div class="modal-header">' +
 							'<h4 class="modal-title">'+ _titleTask + task_state +'</h4>' +
@@ -157,36 +150,35 @@ hcs_calendar = {
 								'<label class="col-md-2">'+ _topicTask +'</label>' +
 								'<div class="col-md-10">' +
 									event.case_name +
-									'<a href="javascript:;" class="text-info col-md-offset-1 case_detail_btn">'+ _case_detail + '</a>' +
 								'</div>' +
 							'</div>' +
 
 							// 電話 
-							'<div class="row form-group case_detail hidden">'+
+							'<div class="row form-group case_detail">'+
 								'<label class="col-md-2">'+ _case_phone +'</label>' +
 								'<div class="col-md-10">'+ cp_item +'</div>' +
 							'</div>' +
 
 							// 緊急聯絡
-							'<div class="row form-group case_detail hidden">'+
+							'<div class="row form-group case_detail">'+
 								'<label class="col-md-2">'+ _eme_name +'</label>' +
 								'<div class="col-md-10">'+ eme_item +'</div>' +
 							'</div>' +
 
 							// 費用類別
-							'<div class="row case_detail hidden">'+
+							'<div class="row case_detail">'+
 								'<label class="col-md-2">'+ _cost_type +'</label>' +
 								'<div class="col-md-10">'+ event.cost_type +'</div>' +
 							'</div>' +
 
 							// 行政計次
-							'<div class="row case_detail hidden">'+
+							'<div class="row case_detail">'+
 								'<label class="col-md-2">'+ _admin_pp +'</label>' +
 								'<div class="col-md-10">'+ event.admin_pp +'</div>' +
 							'</div>' +
 
 							// 車程計次
-							'<div class="row case_detail hidden">'+
+							'<div class="row case_detail">'+
 								'<label class="col-md-2">'+ _drive_pp +'</label>' +
 								'<div class="col-md-10">'+ event.drive_pp +'</div>' +
 							'</div>' +
@@ -244,7 +236,7 @@ hcs_calendar = {
 							'</div>' +
 
 							// 電子簽名
-							'<div class="row case_detail hidden">'+
+							'<div class="row case_detail">'+
 								'<label class="col-md-2">'+ _e_sign +'</label>' +
 								'<div class="col-md-10">'+ e_sing_link +'</div>' +
 							'</div>' +
