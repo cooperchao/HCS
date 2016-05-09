@@ -1,9 +1,21 @@
 <div class="row top-buffer form-horizontal well clearfix">
     <div class="col-md-8">
         <form class="form-inline" role="form">
-            <div class="form-group"> 時間區間 
-                <input type="text" class="form-control datepicker" placeholder=""> ~ 
-                <input type="text" class="form-control datepicker" placeholder="">
+            <div class="form-group">
+                <label>時間區間</label>
+                <select class="form-control">
+                    <option>年度</option>
+                    <option selected>月份</option>
+                </select>
+                <!-- 年度
+                <input type="text" class="form-control datepicker-years" placeholder="">
+                 -->
+                <input type="text" class="form-control datepicker-months" placeholder="">
+                <select class="form-control">
+                    <option>老人科</option>
+                    <option>身障科</option>
+                    <option>身障科 ICF</option>
+                </select>
                 <button class="btn btn-default">查詢</button>
             </div>
         </form>

@@ -87,6 +87,11 @@ $ ->
 		minViewMode: "months"
 		format: 'yyyy-mm'
 
+	$('.datepicker-years').datepicker
+		viewMode: "years"
+		minViewMode: "years"
+		format: 'yyyy'
+
 	$('.timepicker').datetimepicker format: 'LT'
 
 	$radio = $('.case_new_check').find('input[type="radio"]')
