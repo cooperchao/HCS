@@ -79,10 +79,12 @@ hcs_calendar = {
 					_checkin_distance = "打卡距離",
 					_checkin_note     = "增加打卡距離備註",
 					_checkin_df_text  = "正常",
+					_attendant_sign   = "出勤簽到",
 					_e_sign           = "電子簽名",
 					_e_sign_state_y   = "檢視",
 					_e_sign_state_n   = "無電子簽名",
-					_save             = "儲存";
+					_save             = "儲存",
+					_qr_sing          = "QRCode";
 				
 				if (event.className[0] == 'eventTask'){
 
@@ -119,9 +121,57 @@ hcs_calendar = {
 
 					// 居服人員
 					var wai_item = "";
+
 					for (var k in event.wai) {
-						wai_item += event.wai[k].name + "<sapn class='text-info'> " + _wai_arrive + " </sapn>" +  event.wai[k].arrive + "<sapn class='text-info'> " + _wai_leave + " </sapn>" + event.wai[k].leave;
-						if((k * 1) + 1 != event.wai.length) wai_item += "<br>";
+						
+						var arrive_sign = "",
+							leave_sign = "";
+
+						// 依arrive & leave_token判別使用簽到方式，(1)電子簽名(2)QRCode(0)預設為空
+						switch ( event.wai[k].arrive_token ) {
+							case 1:
+								arrive_sign = '<span><a href=' + event.wai[k].arrive_sign + ' target="_blank">'+ _e_sign +'</a></span>';
+								break;
+							case 2:
+								arrive_sign = '<span>'+ _qr_sing +'</span>';
+								break;
+							default:
+								arrive_sign = "";
+								break;
+						}
+						switch ( event.wai[k].leave_token ){
+							case 1:
+								leave_sign = '<span><a href=' + event.wai[k].leave_sign + ' target="_blank">'+ _e_sign +'</a></span>';
+								break;
+							case 2:
+								leave_sign = '<span>'+ _qr_sing +'</span>';
+								break;
+							default:
+								leave_sign = "";
+								break;
+						}
+
+						wai_item +=
+						'<div class="row">' +
+							'<div class="col-md-10">'+
+								'<div class="row">'+
+									'<div class="col-md-3">'+ event.wai[k].name +'</div>'+
+									'<div class="col-md-3"><span class="text-info">'+ _wai_arrive +'</span> '+ event.wai[k].arrive +'</div>'+
+									'<div class="col-md-3"><span class="text-info">'+ _wai_leave +'</span> '+ event.wai[k].leave +'</div>'+
+									'<div class="col-md-3">&nbsp;</div>'+
+
+									'<div class="col-md-3">&nbsp;</div>'+
+									'<div class="col-md-3">'+ arrive_sign +'</div>'+
+									'<div class="col-md-3">'+ leave_sign +'</div>'+
+									'<div class="col-md-3">&nbsp;</div>'+
+								'</div>'+
+							'</div>'+
+						'</div>'+
+						'<hr style="margin-top:8px">';
+
+						// wai_item += event.wai[k].name + "<sapn class='text-info'> " + _wai_arrive + " </sapn>" +  event.wai[k].arrive + "<sapn class='text-info'> " + _wai_leave + " </sapn>" + event.wai[k].leave;
+						// if((k * 1) + 1 != event.wai.length) wai_item += "<br>";
+
 					}
 
 					// 打卡距離
@@ -132,12 +182,12 @@ hcs_calendar = {
 					}
 
 					// 電子簽名
-					var e_sing_link = "";
-					if ( event.e_sign != "" ) {
-						e_sing_link = '<a href="'+ event.e_sign +'" class="text-info" target="_blank">'+ _e_sign_state_y +'</a>'
-					} else {
-						e_sing_link = '<span class="text-danger">'+ _e_sign_state_n +'</span>'
-					}
+					// var e_sing_link = "";
+					// if ( event.e_sign != "" ) {
+					// 	e_sing_link = '<a href="'+ event.e_sign +'" class="text-info" target="_blank">'+ _e_sign_state_y +'</a>'
+					// } else {
+					// 	e_sing_link = '<span class="text-danger">'+ _e_sign_state_n +'</span>'
+					// }
 					
 					var fancyContent = (
 						'<div class="modal-header">' +
@@ -209,8 +259,14 @@ hcs_calendar = {
 
 							// 服務人員
 							'<div class="row form-group">'+
-								'<label class="col-md-2">'+ _attendant +'</label>' +
+								'<label class="col-md-2">'+ _attendant +'<br>'+ _attendant_sign +'</label>' +
 								'<div class="col-md-10">'+ wai_item +'</div>' +
+							'</div>' +
+
+							// 督導人員
+							'<div class="row">'+
+								'<label class="col-md-2">'+ _supervisor +'</label>' +
+								'<div class="col-md-10">'+ event.war_name +'</div>' +
 							'</div>' +
 
 							// 打卡距離
@@ -229,17 +285,11 @@ hcs_calendar = {
 								'</div>' +
 							'</div>' +
 
-							// 督導人員
-							'<div class="row">'+
-								'<label class="col-md-2">'+ _supervisor +'</label>' +
-								'<div class="col-md-10">'+ event.war_name +'</div>' +
-							'</div>' +
-
 							// 電子簽名
-							'<div class="row case_detail">'+
-								'<label class="col-md-2">'+ _e_sign +'</label>' +
-								'<div class="col-md-10">'+ e_sing_link +'</div>' +
-							'</div>' +
+							// '<div class="row case_detail">'+
+							// 	'<label class="col-md-2">'+ _e_sign +'</label>' +
+							// 	'<div class="col-md-10">'+ e_sing_link +'</div>' +
+							// '</div>' +
 
 							// 其它備註
 							'<div class="row">'+
