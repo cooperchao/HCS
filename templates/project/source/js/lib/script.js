@@ -1344,4 +1344,21 @@ $(function(){
 		}
 
 	});
+	
+	// 行事曆表頭 blur-easing
+	$(".main").scroll(function(){
+		var $scrollTop = $(this).scrollTop(),
+			opacityVal = ($scrollTop / 72),
+			max_blur = 2.3;
+		if(opacityVal < max_blur){
+			$(".blur-easing").css({
+				'filter': 'blur('+ opacityVal +'px)',
+				'-webkit-filter': 'blur('+ opacityVal +'px)',
+				'-moz-filter': 'blur('+ opacityVal +'px)',
+				'-o-filter': 'blur('+ opacityVal +'px)',
+				'-ms-filter': 'blur('+ opacityVal +'px)'		
+			});
+		}
+	});
+
 });

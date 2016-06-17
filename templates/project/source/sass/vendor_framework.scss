@@ -224,24 +224,45 @@ table.dataTable.display tbody tr.selected > .sorting_3 {
 
 	/* datatable dataTables_processing */
 	.dataTables_processing {
-		position: absolute;
-		left: calc(50% - 150px);
-		top: calc(50% - 50px);
-		width: 300px;
-		height: 100px;
-		border-radius: 6px;
-		border: 1px solid rgba(0,0,0,0.2);
-		box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-		line-height: 100px;
+		// position: absolute;
+		// left: calc(50% - 150px);
+		// top: calc(50% - 50px);
+		// width: 300px;
+		// height: 100px;
+		// border-radius: 6px;
+		// border: 1px solid rgba(0,0,0,0.2);
+		// box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+		// background-color: #fff;
+
+		// position: fixed;
+		// top:0;
+		// right:0;
+		// bottom:0;
+		// left:0;
+		// line-height: 100vh;
+		// text-align: center;
+		// background-color: rgba(0,0,0,0.1);
+	}
+	.dataTables_processing {
+		position: fixed;
+		top:0;
+		right:0;
+		bottom:0;
+		left:0;
+		line-height: 100vh;
 		text-align: center;
-		background-color: #fff;
+		background: url("../images/loading-background.png") no-repeat 0 0;
 	}
 
 	/* head_logo & tab-page-wrapper */
 	.p-a-z-0,
 	.fc-toolbar .fc-state-active,
-	.fc-toolbar .ui-state-active {
+	.fc-toolbar .ui-state-active{
 		z-index: 0;
+	}
+	.p-a-z-0,
+	.bg-secondary.p-a-z-0{
+		right:15px;
 	}
 
 /* 2016-03-28 */
