@@ -494,6 +494,9 @@ hcs_calendar = {
 				});
 			},
 			events: data_events
+			
+			//  ajax 介接用
+
 			// events: function(start, end, timezone, callback) {
 			// 	$.ajax({
 			// 		url: "http://175.98.112.14:8000/api/calendar_out/list",
@@ -929,26 +932,15 @@ $(window).load(function(){
 	
 });
 
-
-// $(document).ready(function() {
-	// $('#example').DataTable( {
-		// "processing": true,
-		// "serverSide": true,
-		
-	// } );
-// } );
-
-
 // 串接datatable ajax用
 $(function(){
 
-	// iiii = 1;
 	$(".datatables_list").DataTable({
 		'bLengthChange': false,
 		'bInfo': false,
 		'order': [[ 3, "desc" ]],
 		'oLanguage': {
-			'sProcessing': '處理中...',
+			'sProcessing': '資料處理中，敬請耐心等待!',
 			'sLengthMenu': '顯示 _MENU_ 項結果',
 			'sZeroRecords': '沒有匹配結果',
 			'sInfo': '共 _TOTAL_ 筆資料。',
@@ -973,10 +965,8 @@ $(function(){
 		// "sPaginationType": "full_numbers", // 完整頁數
 		// "iDisplayLength": 10,   // 筆數	
 
-
 		"ajax": {
 			"type": "post",
-			// "url": "http://175.98.112.14:8000/api/task_record/serach_by_name_time_type_area",
 			"url": "http://localhost:1337/api/capi/capi",
 			"dataType": "jsonp",
 			"async": "false",
@@ -988,48 +978,34 @@ $(function(){
 				"area_num": ""
 			},
 			"dataSrc": function ( data ) {
-				// var obj={};
-				// obj.draw=iiii++;
-				// obj.recordsTotal=15;
-				// obj.recordsFiltered=15;
-				// obj.data=data;
-				// console.log("data~~~~~~~~~~~~~~~",obj);
-				// return obj;
-				console.log(data);
 				return data.data;
 			},
 		},
 		"data": function(){
 			var info = $('#datatables_list').DataTable().page.info();
-			console.log(info);
-			// $('#datatables_list').DataTable().ajax.url(
-			// 	"${contextPath}/admin/getNextPageData/" + (info.page + 1) + "/" + 10
-			// );
 		},
-		// "columns": [
-		// 	{"data": 'unit_id'},
-		// 	{"data": 'task_id'},
-		// 	{"data": 'id'},
-		// 	{"data": 'case_name'},
-		// 	{"data": 'start'},
-		// 	{"data": 'wai_name'},
-		// 	{"data": 'service_item[].item_name'},
-		// 	{"data": 'miss_note'},
-		// 	{"data": 'average_note'},
-		// 	{"data": 'note'}
-		// ],
-		// "fnInitComplete": function(oSettings, json) {
-		// 	alert('DataTables has finished its initialisation.');
-		// },
-
 		"columns": [
-			{"data": 'd0'},
-			{"data": 'd1'},
+			{
+				"data": 'd0'
+			},
+			{
+				"data": 'd1',
+				render: function(data, type, row, meta){
+					return '<a href="javascript:;">'+ data + '</div>'
+				}
+			},
 			{"data": 'd2'},
 			{"data": 'd3'},
-			{"data": 'd4'},
-			{"data": 'd5'},
-			{"data": 'd6[5]'},
+			{
+				"data": 'd4',
+				render: function(data, type, row, meta){
+					return '<span>' + data.start + ' ~ </span><br>' + '<span>' + data.end + '</span>'  
+				}
+			},
+			{
+				"data": 'd5'
+			},
+			{"data": 'd6'},
 			{"data": 'd7'},
 			{"data": 'd8'},
 			{"data": 'd9'},
@@ -1037,24 +1013,12 @@ $(function(){
 			{"data": 'd11'},
 			{"data": 'd12'},
 			{"data": 'd13'},
-			{"data": 'd14'}
+			{"data": 'd14'},
+			{"data": 'd15'},
+			{"data": 'd16'},
+			{"data": 'd17'},
 		],
 
-		// "columns": [
-		// 	{"data": 'data.unit_id'},
-		// 	{"data": 'data.task_id'},
-		// 	{"data": 'data.id'},
-		// 	{"data": 'data.case_name'},
-		// 	{"data": 'data.start'},
-		// 	{"data": 'data.wai_name'},
-		// 	{"data": 'data.service_item[].item_name'},
-		// 	{"data": 'data.miss_note'},
-		// 	{"data": 'data.average_note'},
-		// 	{"data": 'data.note'}
-		// ],
-
-
-	
 	});
 
 });
@@ -1177,22 +1141,8 @@ $(function(){
 
 	// 載入完成
 	$(window).load(function(){
-		// re_added_class("2017");
 		holiday_import.datas_import(holiday_import.datas);
 	});
-
-	// 點擊上一年，覆蓋非當年度但顯示樣式
-	// $(".prevYear").click(function(){
-	// 	re_added_class( parseInt($(".rc-Calendar-header").text()) - 2 );
-	// });
-
-	// 點擊下一年，覆蓋非當年度但顯示樣式
-	// $(".nextYear").click(function(){
-	// 	re_added_class( parseInt($(".rc-Calendar-header").text()) + 2 );
-	// });
-
-	// 回傳預設日期
-	// console.log(PagingCalendar.getInitialState("2015-01-01"));
 
 	// 系統設定 / 評鑑訪問 / 新增問卷
 	// 第一層題型
