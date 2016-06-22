@@ -235,6 +235,7 @@ table.dataTable.display tbody tr.selected > .sorting_3 {
 		color:white;
 		z-index: 300; //aside→310
 		background: url("../images/loading-background.png") no-repeat center center;
+		background-size: cover;
 	}
 
 	/* head_logo & tab-page-wrapper */
