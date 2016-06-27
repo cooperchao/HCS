@@ -30,6 +30,7 @@ var bower = {
     bootstrapvalidator: config.vendor + '/bootstrap-validator',
     datatables: config.vendor + '/datatables/media',
     nicescroll: config.vendor + '/jquery.nicescroll/dist',
+    chartjs: config.vendor + '/Chart.js/dist',
 }
 
 var vendor = {
@@ -58,7 +59,8 @@ var vendor = {
     datatablesjs:             bower.datatables + '/js' + all_files,
     datatablescss:            bower.datatables + '/css' + all_files,
     datatablesimg:            bower.datatables + '/images' + all_files,
-    jQueryNiceScrolljs:       bower.nicescroll + '/jquery.nicescroll.min.js'
+    jQueryNiceScrolljs:       bower.nicescroll + '/jquery.nicescroll.min.js',
+    chartjs:                  bower.chartjs + '/Chart.min.js',
 
     // font:
     // [
@@ -96,6 +98,7 @@ var vendor = {
     datatablescss:            config.project + '/styles/vendor/datatables',
     datatablesimg:            config.project + '/styles/vendor/images/',
     jQueryNiceScrolljs:       config.project + '/js/vendor/jquery.nicescroll/',
+    chartjs:                  config.project + '/js/vendor/chartjs/',
   }
 }
 
@@ -185,6 +188,9 @@ gulp.task('vendor', function() {
   gulp.src(vendor.source.jQueryNiceScrolljs)
     .pipe(gulp.dest(vendor.dist.jQueryNiceScrolljs))
     // .pipe(gulp.dest('./templates/project/source/js/'))
+    ;
+  gulp.src(vendor.source.chartjs)
+    .pipe(gulp.dest(vendor.dist.chartjs))
     ;
 });
 

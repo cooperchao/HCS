@@ -1,0 +1,155 @@
+<div class="row top-buffer form-horizontal well clearfix">
+	<div class="col-md-8">
+		<form class="form-inline" role="form">
+			<div class="form-group"> 時間區間 
+				<input type="text" class="form-control datepicker-years" placeholder=""> 年度
+				<button class="btn btn-default">查詢
+					<i class="fa fa-search fa-fw"></i>
+				</button>
+			</div>
+		</form>
+	</div>
+	<div class="col-md-4 text-right">
+		<button class="btn btn-primary pull-right"><i class="fa fa-fw fa-table"></i>匯出 excel</button>
+	</div>
+</div>
+<hr>
+
+<div class="row top-buffer">
+	<h5>服務時數統計</h5>
+	<canvas id="result_analytics_chart"></canvas>
+</div>
+
+<div class="row top-buffer">
+	<table class="table align-middle-table custom-table-01 reset-list-style" id="aaa">
+		<thead>
+			<tr>
+				<th rowspan="2">服務項目</th>
+				<th colspan="12">2015年</th>
+			</tr>
+			<tr>
+				<th>一月</th>
+				<th>二月</th>
+				<th>三月</th>
+				<th>四月</th>
+				<th>五月</th>
+				<th>六月</th>
+				<th>七月</th>
+				<th>八月</th>
+				<th>九月</th>
+				<th>十月</th>
+				<th>十一月</th>
+				<th>十二月</th>
+			</tr>
+		</thead>
+		<tfoot class="GridviewScrollHeader">
+			<tr>
+				<th colspan="13" class="text-right">單位：小時</th>
+			</tr>
+		</tfoot>
+		<tbody id="result_analytics_item">
+		</tbody>
+	</table>
+</div>
+
+<!-- 此處引入jquery.min.js 為展示用, backend套用時務必移除, 否則會產生重複引入錯誤 -->
+<script src="../../js/vendor/jquery/jquery.min.js"></script>
+<script src="../../js/vendor/chartjs/Chart.min.js"></script>
+
+<script>
+$(function(){
+	// 圖表物件標籤
+	var ctx = document.getElementById("result_analytics_chart");
+
+	function bgcolor_array(){
+		
+		// 動態產生16進制色碼
+		var number = parseInt((Math.random() * 9999999)).toString(16);
+		
+		// 不足 6 碼者前面補 0
+		if(number.length < 6){
+			var zero = "";
+			for(var max_count = 6; number.length < max_count; max_count--){
+				zero += "0";
+			}
+			number = zero + number;
+		}
+		return "#" + number;
+	};
+
+	//  動態項目資料內容
+	var item_obj = [
+		{
+			item_text: "服務項目1",
+			item_data: [65.5, 59, 80, 81, 56, 55, 40, 65, 12, 69, 12, 58]
+		},
+		{
+			item_text: "服務項目2",
+			item_data: [115, 129, 50, 181, 156, 95, 45, 200, 20, 58, 12, 86]
+		},
+		{
+			item_text: "服務項目3",
+			item_data: [15, 89, 30, 121, 66, 75, 35, 87, 78, 55, 68, 48]
+		},
+		{
+			item_text: "服務項目4",
+			item_data: [215, 189, 130, 11, 16, 15, 65, 77, 108, 155, 168, 148]
+		}
+	];
+
+	// 分析圖表
+	var init_obj = [];
+	function ra_chart( value ){
+
+		// 取動態產生色碼
+		var bgc_arr = bgcolor_array(),
+
+		// 圖表基本設定
+		init = {
+			label: value.item_text,       // 線段節點提示標題
+			fill: false,                  // 線段面積是否填滿
+			backgroundColor: bgc_arr,     // 項目標題顏色
+			borderColor: bgc_arr,         // 線段及標題框顏色
+			pointBackgroundColor: '#fff', // 線段節點顏色
+			data: value.item_data,        // 取動態值生成圖表項目
+		};
+		init_obj.push(init);
+	}
+
+	// 分析表格
+	function ra_table( value ){
+		// 取動態值生成表格tbody內容項目
+		var tr = `<tr><td>${value.item_text}</td>`;
+				for( var td in value.item_data ){
+					tr += `<td>${value.item_data[td]}</td>`
+				}
+			tr += `</tr>`;
+		return tr;
+	}
+
+	// 取值產生內容
+	var tr_items = "";
+	for(var i in item_obj ){
+		
+		// 生成圖表
+		ra_chart(item_obj[i]);
+		
+		// 生成表格內容
+		tr_items += ra_table(item_obj[i]);
+
+		// 最後一個項目時產出表格
+		if(i == item_obj.length - 1){
+			$("#result_analytics_item").html(tr_items);
+		}
+	};
+
+	// 產出圖表
+	var result_analytics_chart = new Chart(ctx, {
+		type: 'line',
+		data: {
+			labels: [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ],
+			datasets: init_obj
+		},
+	});
+});
+</script>
