@@ -78,24 +78,46 @@ $(function(){
 	};
 
 	//  動態項目資料內容
-	var item_obj = [
-		{
-			item_text: "服務項目1",
-			item_data: [65.5, 59, 80, 81, 56, 55, 40, 65, 12, 69, 12, 58]
-		},
-		{
-			item_text: "服務項目2",
-			item_data: [115, 129, 50, 181, 156, 95, 45, 200, 20, 58, 12, 86]
-		},
-		{
-			item_text: "服務項目3",
-			item_data: [15, 89, 30, 121, 66, 75, 35, 87, 78, 55, 68, 48]
-		},
-		{
-			item_text: "服務項目4",
-			item_data: [215, 189, 130, 11, 16, 15, 65, 77, 108, 155, 168, 148]
+	// var item_obj = [
+	// 	{
+	// 		item_text: "服務項目1",
+	// 		item_data: [65.5, 59, 80, 81, 56, 55, 40, 65, 12, 69, 12, 58]
+	// 	},
+	// 	{
+	// 		item_text: "服務項目2",
+	// 		item_data: [115, 129, 50, 181, 156, 95, 45, 200, 20, 58, 12, 86]
+	// 	},
+	// 	{
+	// 		item_text: "服務項目3",
+	// 		item_data: [15, 89, 30, 121, 66, 75, 35, 87, 78, 55, 68, 48]
+	// 	},
+	// 	{
+	// 		item_text: "服務項目4",
+	// 		item_data: [215, 189, 130, 11, 16, 15, 65, 77, 108, 155, 168, 148]
+	// 	}
+	// ];
+
+	// start
+	var item_obj = [],
+		title_text = "服務項目",
+		max_number = (24 * 30);
+
+	for(var k = 0; k < 6; k++){
+		var item_data_arr = [];
+
+		for(var i = 0; i < 12; i++){
+			var random_int = parseInt(Math.random() * max_number);
+			item_data_arr.push(random_int);
+		};
+
+		var temp_obj = {
+			item_text: title_text + (k + 1),
+			item_data: item_data_arr
 		}
-	];
+
+		item_obj.push(temp_obj);
+	}
+	// end
 
 	// 分析圖表
 	var init_obj = [];
@@ -147,9 +169,35 @@ $(function(){
 	var result_analytics_chart = new Chart(ctx, {
 		type: 'line',
 		data: {
-			labels: [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ],
+			// labels: [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ],
+			labels: [ "一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月" ],
 			datasets: init_obj
 		},
+		options: {
+			legend: {
+				display: true,
+				position: 'left',
+				labels: {
+					// fontColor: 'rgb(255, 99, 132)',
+					// fontSize: 12,
+					boxWidth: 12
+				}
+			},
+			tooltips: {
+				enabled: true,
+				// backgroundColor: 'rgba(0, 0, 0, 1)',
+				bodySpacing: 5,
+				callbacks: {
+					title: function (tooltipItem, data) {
+						return data.labels[tooltipItem[0].index];
+					},
+					label: function(tooltipItem, data) { 
+						var label = data.datasets[tooltipItem.datasetIndex].label + " ： ";
+						return label + tooltipItem.yLabel + ' 小時';
+					}
+				},
+			}
+		}
 	});
 });
 </script>
