@@ -1,44 +1,40 @@
 <div class="row top-buffer form-horizontal well clearfix">
 	<form class="form-horizontal" role="form">
-		<div class="col-md-9">
+		<div class="col-md-8">
 			<div class="form-group">
-				<div class="col-md-2">
-					<lable class="form-control-static">查詢條件</lable>
-				</div>
-				<div class="col-md-6">
-					<input type="text" class="form-control" placeholder="請輸入居服員、案號或個案姓名"></div>
-			</div>
-			<div class="form-group">
-				<div class="col-md-2">
-					<p class="form-control-static">日期區間</p>
-				</div>
-				<div class="col-md-6">
-					<div class="row">
-						<div class="col-md-5">
-							<input type="text" class="form-control datepicker" placeholder=""></div>
-						<div class="col-md-2">~</div>
-						<div class="col-md-5">
-							<input type="text" class="form-control datepicker" placeholder=""></div>
-					</div>
+				<div class="col-md-12 form-inline">
+					<lable> 查詢條件 </lable>
+					<input type="text" class="form-control" placeholder="請輸入督導員名稱">
+					<lable> 查詢區別 </lable>
+					<select class="form-control">
+						<option>全部地區</option>
+						<option>松山</option>
+						<option>信義</option>
+						<option>大安</option>
+						<option>文山</option>
+					</select>
 				</div>
 			</div>
 			<div class="form-group">
-				<div class="col-md-2">
-					<p class="form-control-static">填表名稱</p>
+				<div class="col-md-12 form-inline">
+					<label>日期區間</label>
+					<input type="text" class="form-control datepicker" placeholder="">
 				</div>
-				<div class="col-md-6">
-					<div class="row">
-						<div class="col-md-5">
-							<select class="form-control">
-								<option>填表名稱</option>
-								<option>填表名稱(停用)</option>
-							</select>
-						</div>
-					</div>
+			</div>
+			<div class="form-group">
+				<div class="col-md-12 form-inline">
+					<label>填表名稱</label>
+					<select class="form-control">
+						<option>填表名稱1</option>
+						<option>填表名稱2</option>
+						<option>填表名稱3</option>
+						<option>填表名稱4</option>
+						<option>填表名稱5</option>
+					</select>
 				</div>
 			</div>
 		</div>
-		<div class="col-md-1">
+		<div class="col-md-2">
 			<button class="btn btn-default">
 				查詢 <i class="fa fa-search fa-fw"></i>
 			</button>
@@ -60,6 +56,7 @@
 				<th rowspan="2">長照案號</th>
 				<th rowspan="2">照護者</th>
 				<th rowspan="2">居服員</th>
+				<th rowspan="2">督導員</th>
 				<th rowspan="2">身分別</th>
 				<th rowspan="2">縣市</th>
 				<th rowspan="2">區別</th>
@@ -69,7 +66,7 @@
 				<th rowspan="2">性質</th>
 				<th rowspan="2">訪談對象</th>
 				<th colspan="11">訪談與處遇</th>
-				<th colspan="2" class="hidden">簽章</th>
+				<th colspan="2" class="bg-danger hidden">簽章</th>
 			</tr>
 			<tr>
 				<th>生理狀況</th>
@@ -83,8 +80,8 @@
 				<th>具體建議事項</th>
 				<th>其他狀況</th>
 				<th>處遇</th>
-				<th class="hidden">單位主管</th>
-				<th class="hidden">督導員</th>
+				<th class="bg-danger hidden">單位主管</th>
+				<th class="bg-danger hidden">督導員</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -94,12 +91,13 @@
 				<td>WXJW44498</td>
 				<td>張大春</td>
 				<td>王小明</td>
+				<td>陳大偉</td>
 				<td>長十</td>
 				<td>新北市</td>
 				<td>淡水區</td>
 				<td>竿蓁里</td>
 				<td>2015-10-01</td>
-				<td>下午 04:00-06:00</td>
+				<td>hh:mm</td>
 				<td>例行電訪</td>
 				<td>家人, 案女</td>
 				<td>穩定, (說明)</td>
@@ -113,8 +111,8 @@
 				<td>無, (說明)</td>
 				<td></td>
 				<td></td>
-				<td class="hidden"></td>
-				<td class="hidden">楊雅惠</td>
+				<td class="bg-danger hidden"></td>
+				<td class="bg-danger hidden">楊雅惠</td>
 			</tr>
 		</tbody>
 	</table>
