@@ -1217,6 +1217,19 @@ $(function(){
 		$(this).parents(".qs-type").find(".qs-component").attr("name", $(this).parents(".qs-type").parent().attr("class"));
 	});
 
+	// 新增選項說明元件
+	$("body").on("click",".qs-added-child-itemtext",function(){
+		var _itemtext = 
+		'<div class="row form-group qs-child-item">' +
+			'<i class="col-md-1 fa fa-bars fa-2x text-muted"></i>' +
+			'<label class="col-md-10">'+
+				'<input type="text" class="form-control" placeholder="選項文字">' +
+			'</label>' +
+			'<i class="col-md-1 fa fa-close fa-2x text-right text-muted"></i>' +
+		'</div>';
+		$(this).parents(".questions_sortable_child>div>div").before(_itemtext);
+	});
+
 	// 新增說明元件
 	$("body").on("click",".qs-added-child-text",function(){
 		var _textarea = 
@@ -1260,16 +1273,6 @@ $(function(){
 					ui.placeholder.height(ui.item.height());
 				}
 			});			
-		}
-		if($type == "qs-type-5"){
-			$(".datepicker").datepicker({
-				format: 'yyyy-mm-dd'
-			});
-		}
-		if($type == "qs-type-6"){
-			$('.timepicker').datetimepicker({
-				format: 'LT'
-			})
 		}
 	});
 

@@ -1,5 +1,6 @@
 <div class="row top-buffer">
 	<a class="btn btn-default" href='javascript:;'><i class='fa fa-user-plus'></i> 新增帳號</a>
+	<a class="btn btn-primary" href="javascript:;" data-toggle="modal" data-target="#input_dialog">帳號匯入</a>
 </div>
 
 <div class="row top-buffer">
@@ -95,3 +96,32 @@
 		</tr>
 	</table>
 </div>
+
+<!-- 帳號匯入dialog -->
+<div id="input_dialog" class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">
+					<span class="sr-only">Close</span>
+				</button>
+				<h4 class="modal-title">資料匯入</h4>
+			</div>
+			<div class="modal-body">
+				<div class="form-group">
+					<button class="btn btn-default" type="file">選擇檔案</button>
+				</div>
+				<div class="form-group">
+					<a class="btn btn-default" href='javascript:;' data-toggle="modal" data-target="#input_dialog">下載匯入表格</a>
+					<span>若無匯入表格請先下載</span>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default pull-left" data-dismiss="modal">取消</button>
+				<button type="button" class="btn btn-danger">匯入異常</button>
+				<button type="button" class="btn btn-primary">匯入成功</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 帳號匯入dialog -->
