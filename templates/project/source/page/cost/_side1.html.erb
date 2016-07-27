@@ -5,23 +5,24 @@
 	<div class="col-md-8">
 		<form class="form-inline" role="form">
 			<div class="form-group col-md-12">時間區間
-				<input type="text" class="form-control datepicker" placeholder="">~
+				<input type="text" class="form-control datepicker" placeholder=""> ~
 				<input type="text" class="form-control datepicker" placeholder="">
-				<select class="form-control">
-					<option>新制</option>
-					<option>舊制</option>
-				</select>
 				<button class="btn btn-default">查詢</button>
 			</div>
 		</form>
 		<br>
 		<br>
 		<form class="form-inline" role="form">
-			<div class="form-group col-md-12">福利身份
+			<div class="form-group col-md-12">
+				<label>福利身份</label>
 				<select class="form-control">
 					<option>身心障礙IC</option>
 					<option>老人科</option>
 					<option>身障科</option>
+				</select>
+				<label>地區別</label>
+				<select class="form-control">
+					<option>全部地區</option>
 				</select>
 			</div>
 		</form>
@@ -39,7 +40,7 @@
 			<th rowspan="2">序號</th>
 			<th rowspan="2">長照案號</th>
 			<th rowspan="2">案號</th>
-			<th rowspan="2">性名</th>
+			<th rowspan="2">姓名</th>
 			<th rowspan="2">性別</th>
 			<th rowspan="2">區別</th>
 			<th rowspan="2">福利身份別</th>
@@ -54,11 +55,13 @@
 			<th colspan="2">本月補助時數</th>
 			<th colspan="2">每小時單價</th>
 			<th colspan="2">居家服務次數</th>
-			<th rowspan="2">行政費</th>
+			<th colspan="2">行政費</th>
 			<th colspan="2">督導費</th>
 			<th colspan="2">服務費</th>
 		</tr>
 		<tr class="GridviewScrollHeader">
+			<th>平日</th>
+			<th>國定假日</th>
 			<th>平日</th>
 			<th>國定假日</th>
 			<th>平日</th>
@@ -96,93 +99,6 @@
 			<td>8</td>
 			<td>2</td>
 			<td>1000</td>
-			<td>0</td>
-			<td>550</td>
-			<td>0</td>
-			<td>5040</td>
-		</tr>
-		<tr class="GridviewScrollItem">
-			<td>2</td>
-			<td>2420762</td>
-			<td></td>
-			<td>王爺爺</td>
-			<td>男</td>
-			<td>新莊</td>
-			<td>低收入戶</td>
-			<td>未滿50歲身障者</td>
-			<td>100%</td>
-			<td>否</td>
-			<td>輕度失能</td>
-			<td>25</td>
-			<td>104-02-10</td>
-			<td>3、5、10、12、17、24、26</td>
-			<td>28</td>
-			<td>8</td>
-			<td>17.5</td>
-			<td>3</td>
-			<td>200</td>
-			<td>400</td>
-			<td>8</td>
-			<td>2</td>
-			<td>1000</td>
-			<td>0</td>
-			<td>550</td>
-			<td>0</td>
-			<td>5040</td>
-		</tr>
-		<tr class="GridviewScrollItem">
-			<td>3</td>
-			<td>2420762</td>
-			<td></td>
-			<td>王爺爺</td>
-			<td>男</td>
-			<td>新莊</td>
-			<td>低收入戶</td>
-			<td>未滿50歲身障者</td>
-			<td>100%</td>
-			<td>否</td>
-			<td>輕度失能</td>
-			<td>25</td>
-			<td>104-02-10</td>
-			<td>3、5、10、12、17、24、26</td>
-			<td>28</td>
-			<td>8</td>
-			<td>17.5</td>
-			<td>3</td>
-			<td>200</td>
-			<td>400</td>
-			<td>8</td>
-			<td>2</td>
-			<td>1000</td>
-			<td>0</td>
-			<td>550</td>
-			<td>0</td>
-			<td>5040</td>
-		</tr>
-		</tr>
-			<tr class="GridviewScrollItem">
-			<td>5</td>
-			<td>2420762</td>
-			<td></td>
-			<td>王爺爺</td>
-			<td>男</td>
-			<td>新莊</td>
-			<td>低收入戶</td>
-			<td>未滿50歲身障者</td>
-			<td>100%</td>
-			<td>否</td>
-			<td>輕度失能</td>
-			<td>25</td>
-			<td>104-02-10</td>
-			<td>3、5、10、12、17、24、26</td>
-			<td>28</td>
-			<td>8</td>
-			<td>17.5</td>
-			<td>3</td>
-			<td>200</td>
-			<td>400</td>
-			<td>8</td>
-			<td>2</td>
 			<td>1000</td>
 			<td>0</td>
 			<td>550</td>
@@ -198,7 +114,7 @@
 			<th rowspan="2">序號</th>
 			<th rowspan="2">長照案號</th>
 			<th rowspan="2">案號</th>
-			<th rowspan="2">性名</th>
+			<th rowspan="2">姓名</th>
 			<th rowspan="2">性別</th>
 			<th rowspan="2">區別</th>
 			<th rowspan="2">福利身份別</th>
@@ -213,11 +129,13 @@
 			<th colspan="2">本月補助時數</th>
 			<th colspan="2">每小時單價</th>
 			<th colspan="2">居家服務次數</th>
-			<th rowspan="2">行政費</th>
+			<th colspan="2">行政費</th>
 			<th colspan="2">督導費</th>
 			<th colspan="2">服務費</th>
 		</tr>
 		<tr class="GridviewScrollHeader">
+			<th>平日</th>
+			<th>國定假日</th>
 			<th>平日</th>
 			<th>國定假日</th>
 			<th>平日</th>
@@ -255,93 +173,6 @@
 			<td>8</td>
 			<td>2</td>
 			<td>1000</td>
-			<td>0</td>
-			<td>550</td>
-			<td>0</td>
-			<td>5040</td>
-		</tr>
-		<tr class="GridviewScrollItem">
-			<td>2</td>
-			<td>2420762</td>
-			<td></td>
-			<td>王爺爺</td>
-			<td>男</td>
-			<td>新莊</td>
-			<td>低收入戶</td>
-			<td>未滿50歲身障者</td>
-			<td>100%</td>
-			<td>否</td>
-			<td>輕度失能</td>
-			<td>25</td>
-			<td>104-02-10</td>
-			<td>3、5、10、12、17、24、26</td>
-			<td>28</td>
-			<td>8</td>
-			<td>17.5</td>
-			<td>3</td>
-			<td>200</td>
-			<td>400</td>
-			<td>8</td>
-			<td>2</td>
-			<td>1000</td>
-			<td>0</td>
-			<td>550</td>
-			<td>0</td>
-			<td>5040</td>
-		</tr>
-		<tr class="GridviewScrollItem">
-			<td>3</td>
-			<td>2420762</td>
-			<td></td>
-			<td>王爺爺</td>
-			<td>男</td>
-			<td>新莊</td>
-			<td>低收入戶</td>
-			<td>未滿50歲身障者</td>
-			<td>100%</td>
-			<td>否</td>
-			<td>輕度失能</td>
-			<td>25</td>
-			<td>104-02-10</td>
-			<td>3、5、10、12、17、24、26</td>
-			<td>28</td>
-			<td>8</td>
-			<td>17.5</td>
-			<td>3</td>
-			<td>200</td>
-			<td>400</td>
-			<td>8</td>
-			<td>2</td>
-			<td>1000</td>
-			<td>0</td>
-			<td>550</td>
-			<td>0</td>
-			<td>5040</td>
-		</tr>
-		</tr>
-			<tr class="GridviewScrollItem">
-			<td>5</td>
-			<td>2420762</td>
-			<td></td>
-			<td>王爺爺</td>
-			<td>男</td>
-			<td>新莊</td>
-			<td>低收入戶</td>
-			<td>未滿50歲身障者</td>
-			<td>100%</td>
-			<td>否</td>
-			<td>輕度失能</td>
-			<td>25</td>
-			<td>104-02-10</td>
-			<td>3、5、10、12、17、24、26</td>
-			<td>28</td>
-			<td>8</td>
-			<td>17.5</td>
-			<td>3</td>
-			<td>200</td>
-			<td>400</td>
-			<td>8</td>
-			<td>2</td>
 			<td>1000</td>
 			<td>0</td>
 			<td>550</td>
