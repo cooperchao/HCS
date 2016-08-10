@@ -1,0 +1,707 @@
+<div class="row top-buffer">
+	<div class="col-md-6 text-left">
+		<ol class="breadcrumb">
+			<li>
+				<a href="#">系統設定</a>
+			</li>
+			<li class="active">評鑑訪問</li>
+		</ol>
+	</div>
+	<div class="col-md-6 text-right">
+		<input class="btn btn-default" type="button" value="取消">
+		<input class="btn btn-default" type="submit" value="儲存">
+	</div>
+</div>
+<hr>
+<div class="row">
+	<form class="form-horizontal col-md-8 col-md-offset-2" role="form">
+		<div class="row">
+			<h4>單次評鑑設定</h4>
+			<hr>
+			<div class="form-group">
+				<div class="col-md-12">
+					<label class="control-label">有效期限</label>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-md-12">
+					<label class="control-label form-inline">
+						<span>服務完成後</span>
+						<input type="text" class="form-control">
+						<span>天內有效</span>
+					</label>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-md-12">
+					<label class="control-label">評鑑提醒起始時間計算  *(不可小於單次評鑑有效期限)</label>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-md-12">
+					<label class="control-label form-inline">
+						<span>服務完成後</span>
+						<input type="text" class="form-control">
+						<span>天內提醒</span>
+					</label>
+				</div>
+			</div>
+		</div>
+		<div class="row top-buffer">
+			<h4>例行訪問設定</h4>
+			<hr>
+			<div class="form-group">
+				<div class="col-md-12">
+					<label class="control-label">訪問頻率</label>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-md-12">
+					<label class="control-label form-inline">
+						<span>家訪每</span>
+						<input type="text" class="form-control">
+						<span>月 / 1次</span>
+					</label>
+				</div>
+				<div class="col-md-12">
+					<label class="control-label form-inline">
+						<span>電訪每</span>
+						<input type="text" class="form-control">
+						<span>月 / 1次</span>
+					</label>
+				</div>
+			</div>
+			<div class="form-group top-buffer">
+				<div class="col-md-12">
+					<label class="control-label">訪問提醒起始時間計算</label>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-md-12">
+					<label class="control-label form-inline">
+						<span>下次家訪前</span>
+						<input type="text" class="form-control">
+						<span>天</span>
+					</label>
+				</div>
+				<div class="col-md-12">
+					<label class="control-label form-inline">
+						<span>下次電訪前</span>
+						<input type="text" class="form-control">
+						<span>天</span>
+					</label>
+				</div>
+			</div>
+		</div>
+		<div class="row top-buffer">
+			<h4>年度服務滿意度調查設定</h4>
+			<hr>
+			<div class="form-group">
+				<div class="col-md-12">
+					<label class="control-label">填寫日期限制</label>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-md-12">
+					<label class="control-label form-inline">
+						<span>次年度</span>
+						<input type="text" class="form-control datepicker">
+						<span>之前</span>
+					</label>
+				</div>
+			</div>
+		</div>
+		<div class="row top-buffer">
+			<h4>問卷內容 <button class="btn btn-primary">新增表格</button></h4>
+			<hr>
+			
+			<div class="form-group">
+				<div class="col-md-12">
+					<label class="control-label">選擇問卷</label>
+					<div class="form-inline">
+						<select class="form-control">
+							<option>滿意度調查</option>
+							<option>電訪電訪</option>
+						</select>
+						<select class="form-control">
+							<option>問卷名稱1(預設值)</option>
+							<option>問卷名稱2</option>
+							<option>問卷名稱3</option>
+							<option>問卷名稱4</option>
+						</select>
+						<input class="btn btn-default" type="button" value="選擇">
+						<input class="btn btn-default pull-right" type="button" value="編輯">
+					</div>
+				</div>
+			</div>
+
+			<!-- 問卷內容範例 1 - 無題號 -->
+			<div class="top-buffer tab-pane">
+
+				<table class="table align-middle-table custom-table-01 reset-list-style">
+					<tbody>
+						<tr class="info">
+							<td colspan="2"> <strong>基本資料</strong></td>
+						</tr>
+						<tr>
+							
+							<td width="20%"><strong>身份別</strong></td>
+							<td width="80%">
+								<li>
+									<label>
+										<input name="questionnaire12" type="radio">長十</label>
+								</li>
+								<li>
+									<label>
+										<input name="questionnaire12" type="radio">非長十</label>
+								</li>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<strong>訪談對象</strong>
+							</td>
+							<td>
+								<div class="form-group">
+									<label class="col-md-2">
+										<input checked="checked" class="interview_radio" name="questionnaire13" type="radio">本人</label>
+									<div class="col-md-8"></div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-2">
+										<input class="interview_radio" name="questionnaire13" type="radio">家屬</label>
+									<div class="col-md-8">
+										<input class="interview_input form-control" disabled="true" placeholder="" type="text"></div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-2">
+										<input class="interview_radio" name="questionnaire13" type="radio">親戚</label>
+									<div class="col-md-8">
+										<input class="interview_input form-control" disabled="true" placeholder="" type="text"></div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-2">
+										<input class="interview_radio" name="questionnaire13" type="radio">朋友</label>
+									<div class="col-md-8">
+										<input class="interview_input form-control" disabled="true" placeholder="" type="text"></div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-2">
+										<input class="interview_radio" name="questionnaire13" type="radio">鄰居</label>
+									<div class="col-md-8">
+										<input class="interview_input form-control" disabled="true" placeholder="" type="text"></div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-2">
+										<input class="interview_radio" name="questionnaire13" type="radio">其他</label>
+									<div class="col-md-8">
+										<input class="interview_input form-control" disabled="true" placeholder="" type="text"></div>
+								</div>
+							</td>
+						</tr>
+						<tr class="info">
+							<td colspan="2">
+								<strong>訪談與處遇</strong>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<strong>生理狀況</strong>
+							</td>
+							<td>
+								<div class="form-inline">
+									<label class="col-md-4">
+										<input name="questionnaire14" type="radio">穩定</label>
+									<label class="col-md-4">
+										<input name="questionnaire14" type="radio">尚可</label>
+									<label class="col-md-4">
+										<input name="questionnaire14" type="radio">差</label>
+								</div>
+								<div class="form-group">
+									<div class="col-md-12">
+										<label class="control-label">說明：</label>
+										<textarea class="form-control" rows="3"></textarea>
+									</div>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<strong>心理狀況</strong>
+							</td>
+							<td>
+								<div class="form-inline">
+									<label class="col-md-4">
+										<input name="questionnaire15" type="radio">穩定</label>
+									<label class="col-md-4">
+										<input name="questionnaire15" type="radio">尚可</label>
+									<label class="col-md-4">
+										<input name="questionnaire15" type="radio">差</label>
+								</div>
+								<div class="form-group">
+									<div class="col-md-12">
+										<label class="control-label">說明：</label>
+										<textarea class="form-control" rows="3"></textarea>
+									</div>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<strong>家庭狀況</strong>
+							</td>
+							<td>
+								<div class="form-inline">
+									<label class="col-md-4">
+										<input name="questionnaire16" type="radio">穩定</label>
+									<label class="col-md-4">
+										<input name="questionnaire16" type="radio">尚可</label>
+									<label class="col-md-4">
+										<input name="questionnaire16" type="radio">差</label>
+								</div>
+								<div class="form-group">
+									<div class="col-md-12">
+										<label class="control-label">說明：</label>
+										<textarea class="form-control" rows="3"></textarea>
+									</div>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<strong>其他狀況</strong>
+							</td>
+							<td>
+								<div class="form-group">
+									<div class="col-md-12">
+										<label class="control-label">說明：</label>
+										<textarea class="form-control" rows="3"></textarea>
+									</div>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<strong>居服員服務內容執行情形</strong>
+							</td>
+							<td>
+								<div class="form-group">
+									<label class="col-md-12">
+										<input name="questionnaire17" type="radio">良好、皆執行</label>
+								</div>
+								<div class="form-group">
+									<label class="col-md-12">
+										<input name="questionnaire17" type="radio">部分執行</label>
+								</div>
+								<div class="form-group">
+									<label class="col-md-12">
+										<input name="questionnaire17" type="radio">未確實執行</label>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<strong>居服員出勤狀況</strong>
+							</td>
+							<td>
+								<div class="form-group">
+									<label class="col-md-12">
+										<input name="questionnaire18" type="radio">皆準時</label>
+								</div>
+								<div class="form-group">
+									<label class="col-md-12">
+										<input name="questionnaire18" type="radio">偶爾未準時但會補足時數</label>
+								</div>
+								<div class="form-group">
+									<label class="col-md-12">
+										<input name="questionnaire18" type="radio">經常遲到、早退</label>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<strong>居服員服務提供狀況</strong>
+							</td>
+							<td>
+								<div class="form-inline">
+									<label class="col-md-4">
+										<input name="questionnaire19" type="radio">良好、滿意</label>
+									<label class="col-md-4">
+										<input name="questionnaire19" type="radio">尚可</label>
+									<label class="col-md-4">
+										<input name="questionnaire19" type="radio">差</label>
+								</div>
+								<div class="form-group">
+									<div class="col-md-12">
+										<label class="control-label">說明：</label>
+										<textarea class="form-control" rows="3"></textarea>
+									</div>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<strong>服務待調整改善事項</strong>
+							</td>
+							<td>
+								<div class="form-inline">
+									<label class="col-md-4">
+										<input name="questionnaire19" type="radio">無</label>
+									<label class="col-md-4">
+										<input name="questionnaire19" type="radio">有</label>
+								</div>
+								<div class="form-group">
+									<div class="col-md-12">
+										<label class="control-label">說明：</label>
+										<textarea class="form-control" rows="3"></textarea>
+									</div>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<strong>具體建議事項</strong>
+							</td>
+							<td>
+								<div class="form-inline">
+									<label class="col-md-4">
+										<input name="questionnaire19" type="radio">無</label>
+									<label class="col-md-4">
+										<input name="questionnaire19" type="radio">有</label>
+								</div>
+								<div class="form-group">
+									<div class="col-md-12">
+										<label class="control-label">說明：</label>
+										<textarea class="form-control" rows="3"></textarea>
+									</div>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<strong>其他狀況</strong>
+							</td>
+							<td>
+								<div class="form-group">
+									<div class="col-md-12">
+										<label class="control-label">說明：</label>
+										<textarea class="form-control" rows="3"></textarea>
+									</div>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<strong>處遇</strong>
+							</td>
+							<td>
+								<div class="form-group">
+									<div class="col-md-12">
+										<label class="control-label">說明：</label>
+										<textarea class="form-control" rows="3"></textarea>
+									</div>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+
+			</div>
+			<!-- 問卷內容範例 1 - 無題號 //-->
+
+			<hr>
+
+			<!-- 問卷內容範例 2 - 無題號 -->
+			<div class="top-buffer tab-pane">
+
+				<table class="table align-middle-table custom-table-01 reset-list-style">
+					<tbody>
+						<tr class="info">
+							<td></td>
+							<td colspan="2"> <strong>基本資料</strong>
+							</td>
+						</tr>
+						<tr>
+							<td class="text-center" width="2%">1</td>
+							<td width="18%"> <strong>身份別</strong>
+							</td>
+							<td width="80%">
+								<li>
+									<label>
+										<input name="questionnaire12" type="radio">長十</label>
+								</li>
+								<li>
+									<label>
+										<input name="questionnaire12" type="radio">非長十</label>
+								</li>
+							</td>
+						</tr>
+						<tr>
+							<td class="text-center">2</td>
+							<td>
+								<strong>訪談對象</strong>
+							</td>
+							<td>
+								<div class="form-group">
+									<label class="col-md-2">
+										<input checked="checked" class="interview_radio" name="questionnaire13" type="radio">本人</label>
+									<div class="col-md-8"></div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-2">
+										<input class="interview_radio" name="questionnaire13" type="radio">家屬</label>
+									<div class="col-md-8">
+										<input class="interview_input form-control" disabled="true" placeholder="" type="text"></div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-2">
+										<input class="interview_radio" name="questionnaire13" type="radio">親戚</label>
+									<div class="col-md-8">
+										<input class="interview_input form-control" disabled="true" placeholder="" type="text"></div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-2">
+										<input class="interview_radio" name="questionnaire13" type="radio">朋友</label>
+									<div class="col-md-8">
+										<input class="interview_input form-control" disabled="true" placeholder="" type="text"></div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-2">
+										<input class="interview_radio" name="questionnaire13" type="radio">鄰居</label>
+									<div class="col-md-8">
+										<input class="interview_input form-control" disabled="true" placeholder="" type="text"></div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-2">
+										<input class="interview_radio" name="questionnaire13" type="radio">其他</label>
+									<div class="col-md-8">
+										<input class="interview_input form-control" disabled="true" placeholder="" type="text"></div>
+								</div>
+							</td>
+						</tr>
+						<tr class="info">
+							<td></td>
+							<td colspan="2">
+								<strong>訪談與處遇</strong>
+							</td>
+						</tr>
+						<tr>
+							<td class="text-center">3</td>
+							<td>
+								<strong>生理狀況</strong>
+							</td>
+							<td>
+								<div class="form-inline">
+									<label class="col-md-4">
+										<input name="questionnaire14" type="radio">穩定</label>
+									<label class="col-md-4">
+										<input name="questionnaire14" type="radio">尚可</label>
+									<label class="col-md-4">
+										<input name="questionnaire14" type="radio">差</label>
+								</div>
+								<div class="form-group">
+									<div class="col-md-12">
+										<label class="control-label">說明：</label>
+										<textarea class="form-control" rows="3"></textarea>
+									</div>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="text-center">4</td>
+							<td>
+								<strong>心理狀況</strong>
+							</td>
+							<td>
+								<div class="form-inline">
+									<label class="col-md-4">
+										<input name="questionnaire15" type="radio">穩定</label>
+									<label class="col-md-4">
+										<input name="questionnaire15" type="radio">尚可</label>
+									<label class="col-md-4">
+										<input name="questionnaire15" type="radio">差</label>
+								</div>
+								<div class="form-group">
+									<div class="col-md-12">
+										<label class="control-label">說明：</label>
+										<textarea class="form-control" rows="3"></textarea>
+									</div>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="text-center">5</td>
+							<td>
+								<strong>家庭狀況</strong>
+							</td>
+							<td>
+								<div class="form-inline">
+									<label class="col-md-4">
+										<input name="questionnaire16" type="radio">穩定</label>
+									<label class="col-md-4">
+										<input name="questionnaire16" type="radio">尚可</label>
+									<label class="col-md-4">
+										<input name="questionnaire16" type="radio">差</label>
+								</div>
+								<div class="form-group">
+									<div class="col-md-12">
+										<label class="control-label">說明：</label>
+										<textarea class="form-control" rows="3"></textarea>
+									</div>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="text-center">6</td>
+							<td>
+								<strong>其他狀況</strong>
+							</td>
+							<td>
+								<div class="form-group">
+									<div class="col-md-12">
+										<label class="control-label">說明：</label>
+										<textarea class="form-control" rows="3"></textarea>
+									</div>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="text-center">7</td>
+							<td>
+								<strong>居服員服務內容執行情形</strong>
+							</td>
+							<td>
+								<div class="form-group">
+									<label class="col-md-12">
+										<input name="questionnaire17" type="radio">良好、皆執行</label>
+								</div>
+								<div class="form-group">
+									<label class="col-md-12">
+										<input name="questionnaire17" type="radio">部分執行</label>
+								</div>
+								<div class="form-group">
+									<label class="col-md-12">
+										<input name="questionnaire17" type="radio">未確實執行</label>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="text-center">8</td>
+							<td>
+								<strong>居服員出勤狀況</strong>
+							</td>
+							<td>
+								<div class="form-group">
+									<label class="col-md-12">
+										<input name="questionnaire18" type="radio">皆準時</label>
+								</div>
+								<div class="form-group">
+									<label class="col-md-12">
+										<input name="questionnaire18" type="radio">偶爾未準時但會補足時數</label>
+								</div>
+								<div class="form-group">
+									<label class="col-md-12">
+										<input name="questionnaire18" type="radio">經常遲到、早退</label>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="text-center">9</td>
+							<td>
+								<strong>居服員服務提供狀況</strong>
+							</td>
+							<td>
+								<div class="form-inline">
+									<label class="col-md-4">
+										<input name="questionnaire19" type="radio">良好、滿意</label>
+									<label class="col-md-4">
+										<input name="questionnaire19" type="radio">尚可</label>
+									<label class="col-md-4">
+										<input name="questionnaire19" type="radio">差</label>
+								</div>
+								<div class="form-group">
+									<div class="col-md-12">
+										<label class="control-label">說明：</label>
+										<textarea class="form-control" rows="3"></textarea>
+									</div>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="text-center">10</td>
+							<td>
+								<strong>服務待調整改善事項</strong>
+							</td>
+							<td>
+								<div class="form-inline">
+									<label class="col-md-4">
+										<input name="questionnaire19" type="radio">無</label>
+									<label class="col-md-4">
+										<input name="questionnaire19" type="radio">有</label>
+								</div>
+								<div class="form-group">
+									<div class="col-md-12">
+										<label class="control-label">說明：</label>
+										<textarea class="form-control" rows="3"></textarea>
+									</div>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="text-center">11</td>
+							<td>
+								<strong>具體建議事項</strong>
+							</td>
+							<td>
+								<div class="form-inline">
+									<label class="col-md-4">
+										<input name="questionnaire19" type="radio">無</label>
+									<label class="col-md-4">
+										<input name="questionnaire19" type="radio">有</label>
+								</div>
+								<div class="form-group">
+									<div class="col-md-12">
+										<label class="control-label">說明：</label>
+										<textarea class="form-control" rows="3"></textarea>
+									</div>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="text-center">12</td>
+							<td>
+								<strong>其他狀況</strong>
+							</td>
+							<td>
+								<div class="form-group">
+									<div class="col-md-12">
+										<label class="control-label">說明：</label>
+										<textarea class="form-control" rows="3"></textarea>
+									</div>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="text-center">13</td>
+							<td>
+								<strong>處遇</strong>
+							</td>
+							<td>
+								<div class="form-group">
+									<div class="col-md-12">
+										<label class="control-label">說明：</label>
+										<textarea class="form-control" rows="3"></textarea>
+									</div>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+
+			</div>
+			<!-- 問卷內容範例 2 - 有題號 //-->
+
+
+		</div>		
+	</form>
+</div>
