@@ -82,6 +82,10 @@ $ ->
 	$('.datepicker').datepicker
 		format: 'yyyy-mm-dd'
 
+	$('.datepicker_tomorrow').datepicker
+		startDate: '+1d'
+		format: 'yyyy-mm-dd'
+
 	$('.datepicker-months').datepicker
 		viewMode: "months"
 		minViewMode: "months"
@@ -218,6 +222,12 @@ $ ->
 				$('#d_cost_staff').hide()
 				$('#d_cost_date').show()
 				break
+
+	# 平台管理 > 系統設定 > 服務項目 / 填寫服務項目之實際工作時間 radio 顯示 or 隱藏
+	$('.d_t_radio_wrap').find('input[type=radio]').click ->
+		$('.datepicker_tomorrow').parent('div').addClass 'hidden'
+		$(this).parents('.d_t_radio_wrap').find('.datepicker_tomorrow').val('').parent('div').removeClass 'hidden'
+		return
 
 #turn to inline mode
 $.fn.editable.defaults.mode = 'popup'

@@ -17,8 +17,28 @@
     <div class="col-md-12">
         <div class="form-group">
             <h5>填寫服務項目之實際工作時間</h5>
-            <label class="radio-inline"><input type="radio" name="inlineRadioOptions">否(預設值)</label>
-            <label class="radio-inline"><input type="radio" name="inlineRadioOptions">是</label>
+            <div class="row form-group form-inline d_t_radio_wrap">
+                <div class="col-md-2 d_t_radio">
+                    <label class="radio-inline">
+                        <input type="radio" name="inlineRadioOptions" checked> 否(預設值)
+                    </label>
+                </div>
+                <div class="col-md-2">
+                    <label>生效日期</label>
+                    <input type="text" class="form-control datepicker_tomorrow">
+                </div>
+            </div>
+            <div class="row form-group form-inline d_t_radio_wrap">
+                <div class="col-md-2">
+                    <label class="radio-inline">
+                        <input type="radio" name="inlineRadioOptions"> 是
+                    </label>
+                </div>
+                <div class="col-md-2 hidden">
+                    <label>生效日期</label>
+                    <input type="text" class="form-control datepicker_tomorrow">
+                </div>
+            </div>
         </div>
     </div>
 </div>
