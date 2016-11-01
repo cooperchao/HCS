@@ -1370,4 +1370,16 @@ $(function(){
 			});
 		}
 	});
+
+	// 單次評鑑 - 督導員評分
+	$('.editable_select_result').editable({
+		value: 5,
+		source: [
+			{value: 5, text: '5分 非常滿意'},
+			{value: 4, text: '4分 滿意'},
+			{value: 3, text: '3分 尚可'},
+			{value: 2, text: '2分 不滿意'},
+			{value: 1, text: '1分 非常不滿意'}
+		]
+	});
 });

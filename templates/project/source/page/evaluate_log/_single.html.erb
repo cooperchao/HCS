@@ -40,30 +40,19 @@
 	<table class="table align-middle-table custom-table-01 reset-list-style">
 		<thead>
 			<tr>
-				<th rowspan="2">序號</th>
-				<th rowspan="2">案號</th>
-				<th rowspan="2">姓名</th>
-				<th rowspan="7">服務時間</th>
-				<th rowspan="2">服務員</th>
-				<th rowspan="2">督導員</th>
-				<th rowspan="2">服務項目</th>
-				<th rowspan="2">單項服務評分</th>
-				<th rowspan="2">所有項目平均</th>
-				<th colspan="9">單次服務評分</th>
-				<th rowspan="2">督導員評分(編輯)</th>
-				<th rowspan="2">個案備註</th>
-				<th rowspan="2">督導備註</th>
-			</tr>
-			<tr>
-				<th>電話問安</th>
-				<th>到家探訪</th>
-				<th>送餐服務</th>
-				<th>買菜煮飯打掃</th>
-				<th>洗澡</th>
-				<th>整理家務</th>
-				<th>帶出門看醫生</th>
-				<th>陪聊天散步</th>
-				<th>到宅沐浴</th>
+				<th>序號</th>
+				<th>案號</th>
+				<th>姓名</th>
+				<th>服務時間</th>
+				<th>服務員</th>
+				<th>服務員打卡時間</th>
+				<th>督導員</th>
+				<th colspan="2">單項服務評分</th>
+				<th>所有項目平均</th>
+				<th>整體服務評分</th>
+				<th>督導員評分(編輯)</th>
+				<th>個案備註</th>
+				<th>督導備註</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -73,28 +62,37 @@
 				<td>王</td>
 				<td>103.01.18</td>
 				<td>陳小明</td>
+				<td>
+					103.01.18<br>
+					16:30-18:00<br>
+					(早到/早退/晚到)
+				</td>
 				<td>林督導</td>
-				<td>整理家務 / 帶出門看醫生 / 陪聊天散步 / 買菜煮飯打掃 / 洗澡</td>
-				<td>5</td>
-				<td>4</td>
-				<td>5</td>
-				<td>1</td>
-				<td>3</td>
-				<td>2</td>
-				<td>4</td>
-				<td>3</td>
-				<td>2</td>
+				<td>
+					<li>電話問安</li>
+					<li>到家探訪</li>
+					<li>送餐服務</li>
+					<li>買菜煮飯打掃</li>
+					<li>洗澡</li>
+					<li>整理家務</li>
+					<li>帶出門看醫生</li>
+					<li>陪聊天散步</li>
+					<li>到宅沐浴</li>
+				</td>
+				<td>
+					<li>5</li>
+					<li>4</li>
+					<li>5</li>
+					<li>1</li>
+					<li>3</li>
+					<li>2</li>
+					<li>4</li>
+					<li>3</li>
+					<li>2</li>
+				</td>
 				<td>3.22</td>
 				<td>4</td>
-				<td>
-					<select class="form-control">
-						<option>5分 非常滿意</option>
-						<option>4分 湳意</option>
-						<option>3分 尚可</option>
-						<option>2分 不滿意</option>
-						<option>1分 非常不滿意</option>
-					</select>
-				</td>
+				<td><a href="#" class="editable_select_result editable editable-click" data-type="select"></a></td>
 				<td></td>
 				<td contenteditable="true">
 					<a href="javascript:;" data-type="textarea" class="editable_textarea editable editable-pre-wrapped editable-click" data-original-title="">無</a>
@@ -106,61 +104,27 @@
 				<td>王</td>
 				<td>103.01.18</td>
 				<td>陳小明</td>
-				<td>林督導</td>
-				<td>買菜煮飯打掃 / 洗澡</td>
-				<td>5</td>
-				<td>4</td>
-				<td>5</td>
-				<td>1</td>
-				<td>3</td>
-				<td>2</td>
-				<td>4</td>
-				<td>3</td>
-				<td>2</td>
-				<td>3.22</td>
-				<td>4</td>
 				<td>
-					<select class="form-control">
-						<option>5分 非常滿意</option>
-						<option>4分 湳意</option>
-						<option>3分 尚可</option>
-						<option>2分 不滿意</option>
-						<option>1分 非常不滿意</option>
-					</select>
+					103.01.18<br>
+					16:30-18:00<br>
+					{異常狀態}
 				</td>
-				<td>逾期未評</td>
-				<td contenteditable="true">
-					<a href="javascript:;" data-type="textarea" class="editable_textarea editable editable-pre-wrapped editable-click" data-original-title="">無</a>
-				</td>
-			</tr>
-			<tr>
-				<td draggable="true">3</td>
-				<td>淡001</td>
-				<td>王</td>
-				<td>103.01.18</td>
-				<td>陳小明</td>
 				<td>林督導</td>
-				<td>整理家務 / 陪聊天散步</td>
-				<td>5</td>
-				<td>4</td>
-				<td>5</td>
-				<td>1</td>
-				<td>3</td>
-				<td>2</td>
-				<td>4</td>
-				<td>3</td>
-				<td>2</td>
-				<td>3.22</td>
-				<td>4</td>
 				<td>
-					<select class="form-control">
-						<option>5分 非常滿意</option>
-						<option>4分 湳意</option>
-						<option>3分 尚可</option>
-						<option>2分 不滿意</option>
-						<option>1分 非常不滿意</option>
-					</select>
+					<li>電話問安</li>
+					<li>到家探訪</li>
+					<li>送餐服務</li>
+					<li>買菜煮飯打掃</li>
+					<li>洗澡</li>
+					<li>整理家務</li>
+					<li>帶出門看醫生</li>
+					<li>陪聊天散步</li>
+					<li>到宅沐浴</li>
 				</td>
+				<td></td>
+				<td><span class="text-danger">逾期未評</span></td>
+				<td>4</td>
+				<td><a href="#" class="editable_select_result editable editable-click" data-type="select"></a></td>
 				<td></td>
 				<td contenteditable="true">
 					<a href="javascript:;" data-type="textarea" class="editable_textarea editable editable-pre-wrapped editable-click" data-original-title="">無</a>
