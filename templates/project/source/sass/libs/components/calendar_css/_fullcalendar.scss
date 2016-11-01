@@ -1165,3 +1165,8 @@ div.fc-toolbar{margin-left:10px}
 div.fc-toolbar button.fc-prev-button{margin-right:5px}
 
 #exportExcel{top:9px;right:260px;display:none}
+
+/* ###2016/10/13 added */
+.wai_item_row .btn{visibility:hidden}
+.wai_item_row:hover .btn{visibility:visible}
+.btn.punch{margin-right:5px}

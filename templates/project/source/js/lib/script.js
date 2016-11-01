@@ -34,8 +34,6 @@ hcs_calendar = {
 				}
 			},
 			eventClick: function(event,element){
-
-
 				var $start            = event.start.format("YYYY-MM-DD HH:mm"),
 					$end              = event.end.format("YYYY-MM-DD HH:mm"),
 					$body             = $("body"),
@@ -77,6 +75,7 @@ hcs_calendar = {
 					_admin_pp         = "行政計次",
 					_drive_pp         = "車程計次",
 					_checkin_distance = "打卡距離",
+					_checkin_label    = "距離備註",
 					_checkin_note     = "增加打卡距離備註",
 					_checkin_df_text  = "正常",
 					_attendant_sign   = "出勤簽到",
@@ -84,7 +83,8 @@ hcs_calendar = {
 					_e_sign_state_y   = "檢視",
 					_e_sign_state_n   = "無電子簽名",
 					_save             = "儲存",
-					_qr_sing          = "QRCode";
+					_qr_sing          = "QRCode",
+					_attendant_note   = "居服員備註";
 				
 				if (event.className[0] == 'eventTask'){
 
@@ -119,7 +119,7 @@ hcs_calendar = {
 						if((j * 1) + 1 != event.eme.length) eme_item += "<br>";	
 					}
 
-					// 居服人員
+					// 居服人員 > 出勤簽到
 					var wai_item = "";
 
 					for (var k in event.wai) {
@@ -151,19 +151,45 @@ hcs_calendar = {
 								break;
 						}
 
+						// 打卡距離
+						var arrive_checkin_distance_txt = "",
+							leave_checkin_distance_txt = "";
+
+							// json值為空傳回預設文字 "正常", 有值傳入其值 
+							function checkin_distance( obj ){
+
+								if( obj.maps == '' ){
+									return _checkin_df_text;
+								} else {
+									return '<a href="'+ obj.maps +'" class="text-danger" target="_blank">'+ obj.distance +'</a>';
+								}
+							}
+
+							arrive_checkin_distance_txt = checkin_distance( event.wai[k].checkin_arrive );
+							leave_checkin_distance_txt = checkin_distance( event.wai[k].checkin_leave );
+
 						wai_item +=
 						'<div class="row">' +
 							'<div class="col-md-10">'+
-								'<div class="row">'+
-									'<div class="col-md-3">'+ event.wai[k].name +'</div>'+
+								'<div class="row wai_item_row">'+
+									'<div class="col-md-2">'+ event.wai[k].name +'</div>'+
 									'<div class="col-md-3"><span class="text-info">'+ _wai_arrive +'</span> '+ event.wai[k].arrive +'</div>'+
 									'<div class="col-md-3"><span class="text-info">'+ _wai_leave +'</span> '+ event.wai[k].leave +'</div>'+
-									'<div class="col-md-3">&nbsp;</div>'+
+									'<div class="col-md-4">'+
+										'<a href="#" class="btn btn-default punch">'+ _punch +'</a>' +
+										'<a href="#" class="btn btn-default nonarrival">'+ _nonarrival +'</a>' +
+									'</div>'+
 
-									'<div class="col-md-3">&nbsp;</div>'+
+									'<div class="col-md-2">&nbsp;</div>'+
 									'<div class="col-md-3">'+ arrive_sign +'</div>'+
 									'<div class="col-md-3">'+ leave_sign +'</div>'+
-									'<div class="col-md-3">&nbsp;</div>'+
+									'<div class="col-md-4">&nbsp;</div>'+
+
+									'<div class="col-md-2">&nbsp;</div>'+
+									'<div class="col-md-3">'+ arrive_checkin_distance_txt +'</div>'+
+									'<div class="col-md-3">'+ leave_checkin_distance_txt +'</div>'+
+									'<div class="col-md-4">&nbsp;</div>'+
+
 								'</div>'+
 							'</div>'+
 						'</div>'+
@@ -174,21 +200,33 @@ hcs_calendar = {
 
 					}
 
-					// 打卡距離
-					var checkin_distance_txt = "";
-					for (var d in event.checkin) {
-						checkin_distance_txt += '<a href="'+ event.checkin[0].maps +'" class="text-danger" target="_blank">'+ event.checkin[0].distance +'</a>';
-						if ( event.checkin[0].maps == '') checkin_distance_txt = '<span>' + _checkin_df_text + '</span>';
+					// 電子簽名
+					var e_sing_link = "";
+					if ( event.e_sign != "" ) {
+						e_sing_link = '<a href="'+ event.e_sign +'" class="text-info" target="_blank">'+ _e_sign_state_y +'</a>'
+					} else {
+						e_sing_link = '<span class="text-danger">'+ _e_sign_state_n +'</span>'
 					}
 
-					// 電子簽名
-					// var e_sing_link = "";
-					// if ( event.e_sign != "" ) {
-					// 	e_sing_link = '<a href="'+ event.e_sign +'" class="text-info" target="_blank">'+ _e_sign_state_y +'</a>'
-					// } else {
-					// 	e_sing_link = '<span class="text-danger">'+ _e_sign_state_n +'</span>'
-					// }
-					
+					// 居服員備註
+					var sp_note_row = "";
+					for (var e in event.sp_note) {
+						var sp_picture = "",
+							sp_text = "";
+
+						// 備註圖片
+						for( var k in event.sp_note[e].picture) {
+							sp_picture += '<a href="'+ event.sp_note[e].picture[k] +'" target="_brank"><img src="' + event.sp_note[e].picture[k] + '" width="64" style="margin-right:10px"></a>';
+						}
+
+						// 備註文字
+						sp_text = '<textarea class="form-control" rows="3" disabled>' + event.sp_note[e].text + '</textarea>';
+
+						// 圖+文
+						sp_note_row += '<div class="form-group">' + sp_picture + '</div>' + 
+									   '<div class="form-group">' + sp_text + '</div>';
+					}
+
 					var fancyContent = (
 						'<div class="modal-header">' +
 							'<h4 class="modal-title">'+ _titleTask + task_state +'</h4>' +
@@ -257,60 +295,51 @@ hcs_calendar = {
 								'<div class="col-md-10">'+ event.taskItem +'</div>' +
 							'</div>' +
 
-							// 服務人員
-							'<div class="row form-group">'+
-								'<label class="col-md-2">'+ _attendant +'<br>'+ _attendant_sign +'</label>' +
-								'<div class="col-md-10">'+ wai_item +'</div>' +
-							'</div>' +
-
 							// 督導人員
 							'<div class="row">'+
 								'<label class="col-md-2">'+ _supervisor +'</label>' +
 								'<div class="col-md-10">'+ event.war_name +'</div>' +
 							'</div>' +
 
-							// 打卡距離
+							// 服務人員
 							'<div class="row form-group">'+
-								'<label class="col-md-2">'+ _checkin_distance +'</label>' +
-								'<div class="row col-md-10">'+
-									'<div class="col-md-2">'+
-										checkin_distance_txt +
-									'</div>'+
-									'<div class="col-md-8">'+
-										'<input type="text" class="form-control" placeholder="'+ _checkin_note +'">' +
-									'</div>'+
-									'<div class="col-md-2">'+
-										'<a href="#" class="btn btn-primary">'+ _save +'</a>' +
-									'</div>' +
+								'<label class="col-md-2">'+ _attendant +'<br>'+ _attendant_sign +'<br>'+ _checkin_distance +'</label>' +
+								'<div class="col-md-10">'+ wai_item +'</div>' +
+							'</div>' +
+
+							// 距離備註
+							'<div class="row form-group">'+
+								'<label class="col-md-2">'+ _checkin_label +'</label>' +
+								'<div class="col-md-8">'+
+									'<input type="text" class="form-control" placeholder="'+ _checkin_note +'" value="'+ event.checkin_note +'">' +
 								'</div>' +
 							'</div>' +
 
-							// 電子簽名
-							// '<div class="row case_detail">'+
-							// 	'<label class="col-md-2">'+ _e_sign +'</label>' +
-							// 	'<div class="col-md-10">'+ e_sing_link +'</div>' +
-							// '</div>' +
-
 							// 其它備註
-							'<div class="row">'+
+							'<div class="row form-group">'+
 								'<label class="col-md-2">'+ _note +'</label>' +
 								'<div class="row col-md-10">' +
 									'<div class="col-md-10">'+
 										'<textarea class="form-control" rows="3">'+ event.task_note +'</textarea>' +
 									'</div>'+
-									'<div class="col-md-2">'+
-										'<a href="#" class="btn btn-primary">'+ _save +'</a>' +
-									'</div>' +
 								'</div>' +
 							'</div>' +
+
+							// 居服員備註
+							'<div class="row">'+
+								'<label class="col-md-2">'+ _attendant_note +'</label>' +
+								'<div class="col-md-8">'+ sp_note_row + '</div>'+
+							'</div>' +
+
 						'</div>'+
 						'<div class="modal-footer">'+
 							'<div class="row">' +
 								'<div class="col-md-12">' +
-									'<a href="#" class="btn btn-default">'+ _editEvent +'</a>' +
-									'<a href="#" class="btn btn-default miss">'+ _miss +'</a>' +
-									'<a href="#" class="btn btn-default punch">'+ _punch +'</a>' +
-									'<a href="#" class="btn btn-default nonarrival">'+ _nonarrival +'</a>' +
+									'<a href="#" class="btn btn-default pull-left">'+ _editEvent +'</a>' +
+									'<a href="#" class="btn btn-default pull-left miss">'+ _miss +'</a>' +
+									// '<a href="#" class="btn btn-default punch">'+ _punch +'</a>' +
+									// '<a href="#" class="btn btn-default nonarrival">'+ _nonarrival +'</a>' +
+									'<a href="#" class="btn btn-primary nonarrival">'+ _save +'</a>' +
 								'</div>' +
 							'</div>' +
 						'</div>');
@@ -338,7 +367,6 @@ hcs_calendar = {
 						});
 
 						// btn-missTask
-
 						$body.on("click", ".miss", function() {
 							var fancyContent = (
 								'<div class="modal-header">' +
@@ -933,95 +961,95 @@ $(window).load(function(){
 });
 
 // 串接datatable ajax用
-$(function(){
+// $(function(){
 
-	$(".datatables_list").DataTable({
-		'bLengthChange': false,
-		'bInfo': false,
-		'order': [[ 3, "desc" ]],
-		'oLanguage': {
-			'sProcessing': '資料處理中，敬請耐心等待!',
-			'sLengthMenu': '顯示 _MENU_ 項結果',
-			'sZeroRecords': '沒有匹配結果',
-			'sInfo': '共 _TOTAL_ 筆資料。',
-			'sInfoEmpty': '顯示第 0 至 0 項結果，共 0 項',
-			'sInfoFiltered': '(從 _MAX_ 項結果過濾)',
-			'sSearch': '搜索: ',
-			'oPaginate': {
-				'sFirst': '首頁',
-				'sPrevious': '上頁',
-				'sNext': '下頁',
-				'sLast': '尾頁',
-			},
-		},
-		"processing": true,
-		"serverSide": true,
+// 	$(".datatables_list").DataTable({
+// 		'bLengthChange': false,
+// 		'bInfo': false,
+// 		'order': [[ 3, "desc" ]],
+// 		'oLanguage': {
+// 			'sProcessing': '資料處理中，敬請耐心等待!',
+// 			'sLengthMenu': '顯示 _MENU_ 項結果',
+// 			'sZeroRecords': '沒有匹配結果',
+// 			'sInfo': '共 _TOTAL_ 筆資料。',
+// 			'sInfoEmpty': '顯示第 0 至 0 項結果，共 0 項',
+// 			'sInfoFiltered': '(從 _MAX_ 項結果過濾)',
+// 			'sSearch': '搜索: ',
+// 			'oPaginate': {
+// 				'sFirst': '首頁',
+// 				'sPrevious': '上頁',
+// 				'sNext': '下頁',
+// 				'sLast': '尾頁',
+// 			},
+// 		},
+// 		"processing": true,
+// 		"serverSide": true,
 
-		// "deferRender": true,    // 延載 
+// 		// "deferRender": true,    // 延載 
 
-		// "deferLoading": 10,     // 預載筆數
-		// "bLengthChange": false, // 筆數切換
+// 		// "deferLoading": 10,     // 預載筆數
+// 		// "bLengthChange": false, // 筆數切換
 
-		// "sPaginationType": "full_numbers", // 完整頁數
-		// "iDisplayLength": 10,   // 筆數	
+// 		// "sPaginationType": "full_numbers", // 完整頁數
+// 		// "iDisplayLength": 10,   // 筆數	
 
-		"ajax": {
-			"type": "post",
-			"url": "http://localhost:1337/api/capi/capi",
-			"dataType": "jsonp",
-			"async": "false",
-			"data": {
-				"case_val": "",
-				"start_date": "",
-				"finish_date": "",
-				"serv_type": "",
-				"area_num": ""
-			},
-			"dataSrc": function ( data ) {
-				return data.data;
-			},
-		},
-		"data": function(){
-			var info = $('#datatables_list').DataTable().page.info();
-		},
-		"columns": [
-			{
-				"data": 'd0'
-			},
-			{
-				"data": 'd1',
-				render: function(data, type, row, meta){
-					return '<a href="javascript:;">'+ data + '</div>'
-				}
-			},
-			{"data": 'd2'},
-			{"data": 'd3'},
-			{
-				"data": 'd4',
-				render: function(data, type, row, meta){
-					return '<span>' + data.start + ' ~ </span><br>' + '<span>' + data.end + '</span>'  
-				}
-			},
-			{
-				"data": 'd5'
-			},
-			{"data": 'd6'},
-			{"data": 'd7'},
-			{"data": 'd8'},
-			{"data": 'd9'},
-			{"data": 'd10'},
-			{"data": 'd11'},
-			{"data": 'd12'},
-			{"data": 'd13'},
-			{"data": 'd14'},
-			{"data": 'd15'},
-			{"data": 'd16'},
-			{"data": 'd17'},
-		],
+// 		"ajax": {
+// 			"type": "post",
+// 			"url": "http://localhost:1337/api/capi/capi",
+// 			"dataType": "jsonp",
+// 			"async": "false",
+// 			"data": {
+// 				"case_val": "",
+// 				"start_date": "",
+// 				"finish_date": "",
+// 				"serv_type": "",
+// 				"area_num": ""
+// 			},
+// 			"dataSrc": function ( data ) {
+// 				return data.data;
+// 			},
+// 		},
+// 		"data": function(){
+// 			var info = $('#datatables_list').DataTable().page.info();
+// 		},
+// 		"columns": [
+// 			{
+// 				"data": 'd0'
+// 			},
+// 			{
+// 				"data": 'd1',
+// 				render: function(data, type, row, meta){
+// 					return '<a href="javascript:;">'+ data + '</div>'
+// 				}
+// 			},
+// 			{"data": 'd2'},
+// 			{"data": 'd3'},
+// 			{
+// 				"data": 'd4',
+// 				render: function(data, type, row, meta){
+// 					return '<span>' + data.start + ' ~ </span><br>' + '<span>' + data.end + '</span>'  
+// 				}
+// 			},
+// 			{
+// 				"data": 'd5'
+// 			},
+// 			{"data": 'd6'},
+// 			{"data": 'd7'},
+// 			{"data": 'd8'},
+// 			{"data": 'd9'},
+// 			{"data": 'd10'},
+// 			{"data": 'd11'},
+// 			{"data": 'd12'},
+// 			{"data": 'd13'},
+// 			{"data": 'd14'},
+// 			{"data": 'd15'},
+// 			{"data": 'd16'},
+// 			{"data": 'd17'},
+// 		],
 
-	});
+// 	});
 
-});
+// });
 
 
 // 設定國定假日用
@@ -1217,26 +1245,55 @@ $(function(){
 		$(this).parents(".qs-type").find(".qs-component").attr("name", $(this).parents(".qs-type").parent().attr("class"));
 	});
 
-	// 新增選項說明元件
-	$("body").on("click",".qs-added-child-itemtext",function(){
+	// 單選 - 新增選項說明元件
+	$("body").on("click",".qs-added-child-itemtext1",function(){
 		var _itemtext = 
 		'<div class="row form-group qs-child-item">' +
 			'<i class="col-md-1 fa fa-bars fa-2x text-muted"></i>' +
-			'<label class="col-md-10">'+
-				'<input type="text" class="form-control" placeholder="選項文字">' +
+			'<label class="col-md-5">'+
+				'<div class="input-group">' +
+					'<span class="input-group-addon">' +
+						'<input type="radio" class="qs-component">' +
+					'</span>' +
+					'<input type="text" class="form-control" placeholder="選項文字">' +
+				'</div>' + 
+			'</label>' +
+			'<label class="col-md-5">'+
+				'<input type="text" class="form-control" placeholder="說明文字" disabled>' +
 			'</label>' +
 			'<i class="col-md-1 fa fa-close fa-2x text-right text-muted"></i>' +
 		'</div>';
 		$(this).parents(".questions_sortable_child>div>div").before(_itemtext);
 	});
 
-	// 新增說明元件
+	// 複選 - 新增選項說明元件
+	$("body").on("click",".qs-added-child-itemtext2",function(){
+		var _itemtext = 
+		'<div class="row form-group qs-child-item">' +
+			'<i class="col-md-1 fa fa-bars fa-2x text-muted"></i>' +
+			'<label class="col-md-5">'+
+				'<div class="input-group">' +
+					'<span class="input-group-addon">' +
+						'<input type="checkbox" class="qs-component">' +
+					'</span>' +
+					'<input type="text" class="form-control" placeholder="選項文字">' +
+				'</div>' + 
+			'</label>' +
+			'<label class="col-md-5">'+
+				'<input type="text" class="form-control" placeholder="說明文字" disabled>' +
+			'</label>' +
+			'<i class="col-md-1 fa fa-close fa-2x text-right text-muted"></i>' +
+		'</div>';
+		$(this).parents(".questions_sortable_child>div>div").before(_itemtext);
+	});
+
+	// 新增描述元件
 	$("body").on("click",".qs-added-child-text",function(){
 		var _textarea = 
 		'<div class="row form-group qs-child-item">' +
 			'<i class="col-md-1 fa fa-bars fa-2x text-muted"></i>' +
 			'<label class="col-md-10">'+
-				'<textarea class="form-control" rows="1" placeholder="說明文字輸入框"></textarea>' +
+				'<textarea class="form-control" rows="1" placeholder="描述標題"></textarea>' +
 			'</label>' +
 			'<i class="col-md-1 fa fa-close fa-2x text-right text-muted"></i>' +
 		'</div>';
@@ -1313,5 +1370,4 @@ $(function(){
 			});
 		}
 	});
-
 });
