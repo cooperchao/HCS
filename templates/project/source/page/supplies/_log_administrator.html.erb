@@ -1,0 +1,286 @@
+<div class="row top-buffer form-horizontal well clearfix">
+	<form class="form-horizontal" role="form">
+		<div class="col-md-9">
+			<div class="form-group">
+				<div class="col-md-2">
+					<lable class="form-control-static">查詢條件</lable>
+				</div>
+				<div class="col-md-6">
+					<div class="row">
+						<div class="col-md-5">
+							<input type="text" class="form-control datepicker" placeholder=""></div>
+						<div class="col-md-2">~</div>
+						<div class="col-md-5">
+							<input type="text" class="form-control datepicker" placeholder=""></div>
+					</div>
+				</div>
+				<div class="col-md-2">
+					<p class="form-control-static">用途</p>
+				</div>
+				<div class="col-md-2">
+					<select class="form-control">
+						<option>全部用途</option>
+						<option>自用</option>
+						<option>送人</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-md-2">
+					<p class="form-control-static">申請項目</p>
+				</div>
+				<div class="col-md-6">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="col-md-14">
+								<select class="form-control">
+									<option>全部項目</option>
+									<option>中衛檢驗手套(無粉/PVC) - M</option>
+									<option>中衛檢驗手套(無粉/PVC) - L</option>
+									<option>不織布平面口罩</option>
+									<option>單色乳膠手套8.5</option>
+									<option>雙色乳膠手套7.5</option>
+									<option>雙色乳膠手套8</option>
+									<option>雙色乳膠手套8.5</option>
+								</select>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-2">
+					<p class="form-control-static">申請狀態</p>
+				</div>
+				<div class="col-md-2">
+					<select class="form-control">
+						<option>全部狀態</option>
+						<option>已核定</option>
+						<option>未核定</option>
+						<option>部份核定</option>
+					</select>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-1">
+			<button class="btn btn-default">
+				查詢 <i class="fa fa-search fa-fw"></i>
+			</button>
+		</div>
+		<div class="col-md-2 text-right">
+			<button class="btn btn-primary"> <i class="fa fa-fw fa-table"></i>
+				匯出 excel
+			</button>
+		</div>
+	</form>
+</div>
+<hr>
+<div class="row top-buffer">
+	<table class="table align-middle-table custom-table-01 reset-list-style">
+		<thead>
+			<tr>
+				<th>序號</th>
+				<th>申請人員</th>
+				<th>身份別</th>
+				<th>申請日期</th>
+				<th>用途</th>
+				<th>申請項目</th>
+				<th>申請數量</th>
+				<th>實際領取數量</th>
+				<th>核準人員</th>
+				<th>派發人員</th>
+				<th class="text-center">申請狀態</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1</td>
+				<td>王小明</td>
+				<td>居服員</td>
+				<td>2015-05-20</td>
+				<td>自用</td>
+				<td>
+					<ul>
+						<li>中衛檢驗手套 (無粉/PVC) - M</li>
+						<li class="text-danger">中衛檢驗手套 (無粉/PVC) - L</li>
+						<li>不織布平面口罩</li>
+						<li class="text-danger">單色乳膠手套 8.5</li>
+						<li>雙色乳膠手套 8</li>
+					</ul>
+				</td>
+				<td>
+					<ul>
+						<li>100</li>
+						<li>5</li>
+						<li>20</li>
+						<li>20</li>
+						<li>20</li>
+					</ul>
+				</td>
+				<td>
+					<ul>
+						<li>100</li>
+						<li class="text-danger">數量不足</li>
+						<li>20</li>
+						<li class="text-danger">項目不存在</li>
+						<li>20</li>
+					</ul>
+				</td>
+				<td>李小明</td>
+				<td>王大明</td>
+				<td class="text-center">成功</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>王小明</td>
+				<td>居服員</td>
+				<td>2015-05-20</td>
+				<td>自用</td>
+				<td>
+					<ul>
+						<li>中衛檢驗手套 (無粉/PVC) - M</li>
+						<li>不織布平面口罩</li>
+						<li>雙色乳膠手套 8</li>
+					</ul>
+				</td>
+				<td>
+					<ul>
+						<li>100</li>
+						<li>20</li>
+						<li>20</li>
+					</ul>
+				</td>
+				<td>
+					<ul>
+						<li>0</li>
+						<li>0</li>
+						<li>0</li>
+					</ul>
+				</td>
+				<td>李小明</td>
+				<td>王大明</td>
+				<td class="text-center">駁回，重複申請次數過多，故不核可申請</td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td>王小明</td>
+				<td>居服員</td>
+				<td>2015-05-20</td>
+				<td>自用</td>
+				<td>
+					<ul>
+						<li>中衛檢驗手套 (無粉/PVC) - M</li>
+						<li>不織布平面口罩</li>
+						<li>雙色乳膠手套 8</li>
+					</ul>
+				</td>
+				<td>
+					<ul>
+						<li>100</li>
+						<li>20</li>
+						<li>20</li>
+					</ul>
+				</td>
+				<td>
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</td>
+				<td>李小明</td>
+				<td>王大明</td>
+				<td class="text-center">
+					<button class="btn btn-default" type="button" data-toggle="modal" data-target="#supplies_dialog2">駁回</button>
+					<button class="btn btn-primary" type="button" data-toggle="modal" data-target="#supplies_dialog">核准</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<!-- 耗材管理申請核準dialog -->
+<div class="modal fade" id="supplies_dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"></button>
+				<h4 class="modal-title">核準</h4>
+			</div>
+			<div class="modal-body">
+				<div class="row form-group">
+					<div class="col-md-12">
+						<h4 class="text-info">派發人員</h4>
+						<select class="form-control">
+							<option value="">選擇派發人員</option>
+							<option value="">李xx 督導員</option>
+							<option value="">王xx 行政</option>
+						</select>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<h4 class="text-info">實際領取數量</h4>
+					</div>
+				</div>
+				<div class="row form-group">
+					<div class="col-md-8">
+						<label for="">中衛檢驗手套 (無粉/PVC) - M {顯示庫存量}</label>
+					</div>
+					<div class="col-md-4">
+						<input class="form-control" type="text" value="100" placeholder="100"></div>
+				</div>
+				<div class="row form-group">
+					<div class="col-md-8">
+						<label for="">不織布平面口罩 {顯示庫存量}</label>
+					</div>
+					<div class="col-md-4">
+						<input class="form-control" type="text" value="20" placeholder="20"></div>
+				</div>
+				<div class="row form-group">
+					<div class="col-md-8">
+						<label for="">單色乳膠手套 8.5 {顯示庫存量}</label>
+					</div>
+					<div class="col-md-4">
+						<input class="form-control" type="text" value="20" placeholder="20"></div>
+				</div>
+				<div class="row form-group">
+					<div class="col-md-8">
+						<label for="">雙色乳膠手套 8 {顯示庫存量}</label>
+					</div>
+					<div class="col-md-4">
+						<span class="text-danger">項目{變更}{不存在}</span>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+				<button type="button" class="btn btn-primary">核准</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 耗材管理申請核準dialog//-->
+
+<!-- 耗材管理申請駁回dialog -->
+<div class="modal fade" id="supplies_dialog2">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"></button>
+				<h4 class="modal-title">駁回</h4>
+			</div>
+			<div class="modal-body">
+				<div class="row form-group">
+					<div class="col-md-12">
+						<h4 class="text-muted">駁回理由</h4>
+						<textarea name="" id="" rows="3" class="form-control"></textarea>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+				<button type="button" class="btn btn-primary">駁回</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 耗材管理申請駁回dialog//-->

@@ -1,0 +1,15 @@
+//main
+aside
+	.sidebar-wrapper
+		// sidebar
+		.sidebar
+			== render :partial => "layout/sidebar" , :locals => {:s => "mainnav17"}
+			
+// main-content
+section.main
+	.container-fluid
+		== render "layout/cont_head_logo"
+		/ == render :partial => "layout/page_tab_supplies" , :locals => {:f => "menu2"}
+		== render "layout/page_tab_wrapper--primary"
+		== render "page/supplies/log_administrator.html.erb"
+	== render "layout/footer"
