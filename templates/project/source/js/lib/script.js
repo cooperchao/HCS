@@ -1382,4 +1382,10 @@ $(function(){
 			{value: 1, text: '1分 非常不滿意'}
 		]
 	});
+
+	// 特殊訪問輸入理由 顯示/隱藏
+	$("#select_interview").change(function(){
+		$("#interview_sp_text").toggleClass("hidden");
+	});
+
 });
