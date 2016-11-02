@@ -3,12 +3,12 @@ aside
 	.sidebar-wrapper
 		// sidebar
 		.sidebar
-			== render :partial => "layout/sidebar" , :locals => {:s => "mainnav25"}
+			== render :partial => "layout/sidebar" , :locals => {:s => "mainnav24"}
 			
 // main-content
 section.main
 	.container-fluid
 		== render "layout/cont_head_logo"
-		== render "layout/page_tab_wrapper"
+		== render :partial => "page/interview/page_tabs" , :locals => {:f => "tab2"}
 		== render "page/result/interview_log.html.erb"
 	== render "layout/footer"
