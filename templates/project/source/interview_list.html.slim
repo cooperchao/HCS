@@ -9,6 +9,6 @@ aside
 section.main
 	.container-fluid
 		== render "layout/cont_head_logo"
-		== render "layout/page_tab_wrapper--primary"
+		== render :partial => "page/interview/page_tabs" , :locals => {:f => "tab1"}
 		== render "page/interview/list.html.erb"
 	== render "layout/footer"
