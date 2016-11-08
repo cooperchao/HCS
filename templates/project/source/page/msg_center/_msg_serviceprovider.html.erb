@@ -1,0 +1,96 @@
+<div class="row top-buffer">
+	<div class="col-md-6 text-left form-inline">
+		<label>訊息類別</label>
+		<select class="form-control">
+			<option>全部訊息</option>
+			<option>服務行程</option>
+			<option>耗材申請</option>
+			<option>費用收取</option>
+		</select>
+	</div>
+	<div class="col-md-6 text-right">
+		<label class="control-label">顯示區間</label>
+		<label class="radio-inline">
+			<input type="radio" value="" name="vrange" checked="">一個月</label>
+		<label class="radio-inline">
+			<input type="radio" value="" name="vrange">三個月</label>
+		<label class="radio-inline">
+			<input type="radio" value="" name="vrange">半年</label>
+		<label class="radio-inline">
+			<input type="radio" value="" name="vrange">全部</label>
+	</div>
+</div>
+<hr>
+<div class="row">
+	<div class="form-group col-md-12">
+		<h4>服務行程</h4>
+		<ul>
+			<li class="setting_item">
+				<div class="col-md-8">{MM-DD hh:mm} - {個案姓名}(簽派人：{簽派人姓名})</div>
+				<div class="col-md-4 text-right">2015-04-20 10：00</div>
+			</li>
+			<li class="setting_item">
+				<div class="col-md-8">行程取消－{MM-DD hh:mm} {個案姓名} (簽派人：{簽派人姓名})</div>
+				<div class="col-md-4 text-right">2015-04-20 10：00</div>
+			</li>
+			<li class="setting_item">
+				<div class="col-md-8">行程調整 - {調整後時間MM-DD hh:mm}~{hh:mm} -  {個案姓名} ( 簽派人：{簽派人姓名} )</div>
+				<div class="col-md-4 text-right">2015-04-20 10：00</div>
+			</li>
+			<li class="setting_item">
+				<div class="col-md-8">服務未遇取消 - {MM-DD hh:mm} {個案姓名} ( 簽派人：{簽派人姓名} )</div>
+				<div class="col-md-4 text-right">2015-04-20 10：00</div>
+			</li>
+			<li class="setting_item">
+				<div class="col-md-8">服務未遇確定 - {MM-DD hh:mm}} {個案姓名} ( 簽派人：{簽派人姓名} )</div>
+				<div class="col-md-4 text-right">2015-04-20 10：00</div>
+			</li>
+			<li class="setting_item">
+				<div class="col-md-8">{MM-DD hh:mm} - <{會議標題}></div>
+				<div class="col-md-4 text-right">2015-04-20 10：00</div>
+			</li>
+			<li class="setting_item">
+				<div class="col-md-8">會議職訓取消 - {MM-DD hh:mm} - <{會議標題}>( 簽派人：{簽派人姓名} )</div>
+				<div class="col-md-4 text-right">2015-04-20 10：00</div>
+			</li>
+			<li class="setting_item">
+				<div class="col-md-8">會議職訓調整 - {調整後時間MM-DD hh:mm} - <{會議標題}>( 簽派人：{簽派人姓名} )</div>
+				<div class="col-md-4 text-right">2015-04-20 10：00</div>
+			</li>
+		</ul>
+		<h4 class="top-buffer">費用收取</h4>
+		<ul>
+			<li class="setting_item">
+				<div class="col-md-8">等待收費 - 請向  {個案姓名}  收取{ 收費項目 } 費用，金額 { 金額 } 元整。</div>
+				<div class="col-md-4 text-right">2015-04-20 10：00</div>
+			</li>
+			<li class="setting_item">
+				<div class="col-md-8">取消收費 - {個案姓名} { 收費項目 } 收費任務已取消，請勿向個案收費。</div>
+				<div class="col-md-4 text-right">2015-04-20 10：00</div>
+			</li>
+			<li class="setting_item">
+				<div class="col-md-8">
+					收費確認 - YYYY} 年 {MM} 月居家照顧服務費 (  {個案姓名} ) ( {收費方式} ) ( 經手人：{被指派收費人之姓名} )
+				</div>
+				<div class="col-md-4 text-right">2015-04-20 10：00</div>
+			</li>
+			<li class="setting_item">
+				<div class="col-md-8">逾期未收 - 請速向  {個案姓名}  收取{ 收費項目 } 費用，金額 { 金額 } 元整。</div>
+				<div class="col-md-4 text-right">2015-04-20 10：00</div>
+			</li>
+		</ul>
+		<h4 class="top-buffer">耗材申請</h4>
+		<ul>
+			<li class="setting_item">
+				<div class="col-md-8">
+					{YYYY-MM-DD} 的耗材申請審核已通過，派發人員為 {派發人身分} {派發人姓名}
+					<br>{舊耗材名稱} 項目名稱已變更為 {新耗材名稱}, {舊耗材名稱} 項目名稱已變更為 {新耗材名稱}</div>
+				<div class="col-md-4 text-right">2015-05-22 14：30</div>
+			</li>
+			<li class="setting_item">
+				<div class="col-md-8">{YYYY-MM-DD}  的耗材申請審核已被駁回 - {理由}</div>
+				<div class="col-md-4 text-right">2015-05-22 14：30</div>
+			</li>
+		</ul>
+	</div>
+</div>
