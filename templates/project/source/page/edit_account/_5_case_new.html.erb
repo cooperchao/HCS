@@ -6,7 +6,7 @@
 		<li class="active">編輯帳號</li>
 	</ol>
 </div>
-<form class="row top-buffer" data-toggle="validator" role="form">
+<form class="row top-buffer bootstrap-validator" data-toggle="validator" role="form">
 	<div class="row">
 		<div class="col-md-6">
 			<input class="btn btn-primary" type="button" value="操作紀錄" data-toggle="modal" data-target="#operate_log">
@@ -31,11 +31,13 @@
 			<div class="col-md-7 col-md-offset-1">
 				<label class="form-control-static">日期</label>
 				<input type="text" class="form-control datepicker" placeholder="">
+				<label class="form-control-static">原因</label>
+				<input type="text" class="form-control">
 			</div>
 		</div>
 		<div class="form-group form-inline">
 			<div class="col-md-1 col-md-offset-2">
-				<label class="radio-inline"><input type="radio" value="" name="">停用</label>
+				<label class="radio-inline"><input type="radio" value="" name="">結案</label>
 			</div>
 			<div class="col-md-7 col-md-offset-1">
 				<label class="form-control-static">日期</label>
@@ -43,7 +45,7 @@
 				<label class="form-control-static">原因</label>
 				<select class="form-control">
 					<option></option>
-					<option>個案資料</option>
+					<option>個案死亡</option>
 					<option>請外籍看護照顧</option>
 					<option>個案遷出本單位服務區域</option>
 					<option>表示無服務需求</option>
@@ -54,6 +56,17 @@
 				</select>
 			</div>
 		</div>
+
+		<div class="form-group form-inline">
+			<label class="col-md-2 control-label">個案備註</label>
+			<div class="col-md-10">
+				<textarea class="form-control" rows="3" placeholder="請填入個案備註">案子告知個案送醫治療，醫生提醒血壓偏高,需特別注意</textarea>
+				<div><span class="text-info">上次編輯時間2014/04/17 08:58</span></div>
+				<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+				<span class="help-block with-errors"></span>
+			</div>
+		</div>
+
 		<div class="form-group form-inline">
 			<label class="col-md-2 control-label">個人相片</label>
 			<div class="col-md-10">
@@ -64,84 +77,164 @@
 		<div class="form-group form-inline">
 			<label class="col-md-2 control-label">帳號 Email</label>
 			<div class="col-md-10">
-				<input type="email" class="form-control" placeholder="">
+				<input type="email" class="form-control" placeholder="" maxlength="64" data-error="請填入正確的Email" required>
+				<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+				<span class="help-block with-errors"></span>
 			</div>
 		</div>
 		<div class="form-group form-inline">
 			<label class="col-md-2 control-label">密碼</label>
 			<div class="col-md-10">
-				<!-- <input type="password" class="form-control" placeholder=""> -->
-				<a class="btn btn-default js__chang_input_pw" href="javascript:;" ><i class="fa fa-edit fa-lg"></i>&nbsp;修改密碼</a>
+				<input type="password" class="form-control" placeholder="" data-minlength="8" maxlength="24" data-error="請填入8-24位英數密碼，含特殊符號" required>
+				<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+				<span class="help-block with-errors"></span>
 			</div>
 		</div>
 		<div class="form-group form-inline">
 			<label class="col-md-2 control-label">案號</label>
 			<div class="col-md-10">
-				<input type="password" class="form-control" placeholder="">
+				<input type="text" class="form-control" placeholder="不可修改" value="不可修改" disabled>
 			</div>
 		</div>
 		<div class="form-group form-inline">
 			<label class="col-md-2 control-label">長照案號</label>
 			<div class="col-md-10">
-				<input type="password" class="form-control" placeholder="">
+				<input type="password" class="form-control" placeholder="" required>
+				<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+				<span class="help-block with-errors"></span>
 			</div>
 		</div>
 		<div class="form-group form-inline">
 			<label class="col-md-2 control-label">姓名</label>
 			<div class="col-md-10">
-				<input type="text" class="form-control" placeholder="">
+				<input type="text" class="form-control" placeholder="" maxlength="15" data-error="請填入正確的姓名" required>
+				<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+				<span class="help-block with-errors"></span>
 			</div>
 		</div>
 		<div class="form-group form-inline">
 			<label class="col-md-2 control-label">督導員</label>
 			<div class="col-md-10">
-				<select class="form-control">
+				<select class="form-control" required>
 					<option></option>
 					<option>木督導</option>
 					<option>子督導</option>
 					<option>李督導</option>
 				</select>
+				<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+				<span class="help-block with-errors"></span>
 			</div>
 		</div>
 		<div class="form-group form-inline">
-			<label class="col-md-2 control-label">手機電話</label>
+			<label class="col-md-2 control-label">聯絡電話一</label>
 			<div class="col-md-10">
-				<input type="tel" class="form-control" placeholder="">
+				<input type="tel" class="form-control" placeholder="" pattern="^[0]{1}[- #0-9]+" data-minlength="8" maxlength="20" data-error="格式錯誤: 數字第一碼為0，且電話號碼不得少於8碼" required>
+				<span>請輸入連字號"-"，手機 : 09XX-XXXXXX，市話 : 0X-XXXXXXXX，分機請加"#"</span>
+				<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+				<span class="help-block with-errors"></span>
 			</div>
 		</div>
 		<div class="form-group form-inline">
-			<label class="col-md-2 control-label">市內電話</label>
+			<label class="col-md-2 control-label">聯絡電話二</label>
 			<div class="col-md-10">
-				<input type="tel" class="form-control" placeholder="">
+				<input type="tel" class="form-control" placeholder="" pattern="^[0]{1}[- #0-9]+" data-minlength="8" maxlength="20" data-error="格式錯誤: 數字第一碼為0，且電話號碼不得少於8碼" required>
+				<span>請輸入連字號"-"，手機 : 09XX-XXXXXX，市話 : 0X-XXXXXXXX，分機請加"#"</span>
+				<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+				<span class="help-block with-errors"></span>
 			</div>
 		</div>
 		<div class="form-group form-inline">
 			<label class="control-label col-md-2">緊急聯絡人</label>
 			<div class="col-md-10">
 				<label class="form-control-static">姓名</label>
-				<input type="text" class="form-control" placeholder="">
+				<input type="text" class="form-control" placeholder="" maxlength="15">
 				<label class="form-control-static">關係</label>
 				<input type="text" class="form-control" placeholder="">
 				<label class="form-control-static">電話</label>
-				<input type="text" class="form-control" placeholder="">
+				<input type="tel" class="form-control" placeholder="" pattern="^[0]{1}[- #0-9]+" data-minlength="8" maxlength="20" data-error="格式錯誤: 數字第一碼為0，且電話號碼不得少於8碼">
+				<span>請輸入連字號"-"，手機 : 09XX-XXXXXX，市話 : 0X-XXXXXXXX，分機請加"#"</span>
+				<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+				<span class="help-block with-errors"></span>
 			</div>
 		</div>
+		
+		<div class="form-group form-inline">
+			<label class="control-label col-md-2"></label>
+			<div class="col-md-10">
+				<label class="form-control-static">姓名</label>
+				<input type="text" class="form-control" placeholder="" maxlength="15">
+				<label class="form-control-static">關係</label>
+				<input type="text" class="form-control" placeholder="">
+				<label class="form-control-static">電話</label>
+				<input type="tel" class="form-control" placeholder="" pattern="^[0]{1}[- #0-9]+" data-minlength="8" maxlength="20" data-error="格式錯誤: 數字第一碼為0，且電話號碼不得少於8碼">
+				<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+				<span class="help-block with-errors"></span>
+			</div>
+		</div>
+		
+		<div class="form-group form-inline">
+			<label class="control-label col-md-2"></label>
+			<div class="col-md-10">
+				<label class="form-control-static">姓名</label>
+				<input type="text" class="form-control" placeholder="" maxlength="15">
+				<label class="form-control-static">關係</label>
+				<input type="text" class="form-control" placeholder="">
+				<label class="form-control-static">電話</label>
+				<input type="tel" class="form-control" placeholder="" pattern="^[0]{1}[- #0-9]+" data-minlength="8" maxlength="20" data-error="格式錯誤: 數字第一碼為0，且電話號碼不得少於8碼">
+				<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+				<span class="help-block with-errors"></span>
+			</div>
+		</div>
+		
+		<div class="form-group form-inline">
+			<label class="control-label col-md-2"></label>
+			<div class="col-md-10">
+				<label class="form-control-static">姓名</label>
+				<input type="text" class="form-control" placeholder="" maxlength="15">
+				<label class="form-control-static">關係</label>
+				<input type="text" class="form-control" placeholder="">
+				<label class="form-control-static">電話</label>
+				<input type="tel" class="form-control" placeholder="" pattern="^[0]{1}[- #0-9]+" data-minlength="8" maxlength="20" data-error="格式錯誤: 數字第一碼為0，且電話號碼不得少於8碼">
+				<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+				<span class="help-block with-errors"></span>
+			</div>
+		</div>
+		
+		<div class="form-group form-inline">
+			<label class="control-label col-md-2"></label>
+			<div class="col-md-10">
+				<label class="form-control-static">姓名</label>
+				<input type="text" class="form-control" placeholder="" maxlength="15">
+				<label class="form-control-static">關係</label>
+				<input type="text" class="form-control" placeholder="">
+				<label class="form-control-static">電話</label>
+				<input type="tel" class="form-control" placeholder="" pattern="^[0]{1}[- #0-9]+" data-minlength="8" maxlength="20" data-error="格式錯誤: 數字第一碼為0，且電話號碼不得少於8碼">
+				<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+				<span class="help-block with-errors"></span>
+			</div>
+		</div>
+		
 		<div class="form-group form-inline">
 			<label class="control-label col-md-2">出生年月日</label>
 			<div class="col-md-10">
-				<input type="text" class="form-control datepicker" placeholder="">
+				<input type="text" class="form-control datepicker" placeholder="" required>
+				<span>民國年 + 1911 = 西元年</span>
+				<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+				<span class="help-block with-errors"></span>
 			</div>
 		</div>
 		<div class="form-group form-inline">
 			<label class="control-label col-md-2">年齡</label>
 			<div class="col-md-10">
-				<label class="form-control-static">99</label>
+				<input type="text" class="form-control" placeholder="系統計算" value="系統計算" disabled>
 			</div>
 		</div>
 		<div class="form-group form-inline">
 			<label class="control-label col-md-2">身份證字號</label>
 			<div class="col-md-10">
-				<input type="text" class="form-control" placeholder="">
+				<input type="text" class="form-control" placeholder="" pattern="^[A-z]{1}[1-2]{1}[0-9]{8}$" data-error="請填入正確的身分證字號" required>
+				<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+				<span class="help-block with-errors"></span>
 			</div>
 		</div>
 		<div class="form-group form-inline">
@@ -153,61 +246,65 @@
 		<div class="form-group form-inline">
 			<label class="col-md-2 control-label">稱謂</label>
 			<div class="col-md-10">
-				<label class="radio-inline"><input type="radio" value="" name="SexRadios">稱謂</label>
-				<label class="radio-inline"><input type="radio" value="" name="SexRadios">稱謂</label>
+				<label class="radio-inline"><input type="radio" value="" name="" checked>爺爺</label>
+				<label class="radio-inline"><input type="radio" value="" name="">奶奶</label>
 			</div>
 		</div>
 		<div class="form-group form-inline">
 			<label class="col-md-2 control-label">性別</label>
 			<div class="col-md-10">
-				<label class="radio-inline"><input type="radio" value="" name="SexRadios">男性</label>
+				<label class="radio-inline"><input type="radio" value="" name="SexRadios" checked>男性</label>
 				<label class="radio-inline"><input type="radio" value="" name="SexRadios">女性</label>
 			</div>
 		</div>
 		<div class="form-group form-inline">
 			<label class="col-md-2 control-label">信仰</label>
 			<div class="col-md-10">
-				<label class="checkbox-inline"><input type="checkbox" value="">道教</label>
-				<label class="checkbox-inline"><input type="checkbox" value="">佛教</label>
-				<label class="checkbox-inline"><input type="checkbox" value="">基督教</label>
-				<label class="checkbox-inline"><input type="checkbox" value="">天主教</label>
-				<label class="checkbox-inline"><input type="checkbox" value="">一貫道</label>
-				<label class="checkbox-inline"><input type="checkbox" value="">其他</label>
+				<label class="checkbox-inline"><input type="checkbox" value="" required>道教</label>
+				<label class="checkbox-inline"><input type="checkbox" value="" required>佛教</label>
+				<label class="checkbox-inline"><input type="checkbox" value="" required>基督教</label>
+				<label class="checkbox-inline"><input type="checkbox" value="" required>天主教</label>
+				<label class="checkbox-inline"><input type="checkbox" value="" required>一貫道</label>
+				<label class="checkbox-inline"><input type="checkbox" value="" required>回教</label>
+				<label class="checkbox-inline"><input type="checkbox" value="" required>其他</label>
 				<input type="text" class="form-control" placeholder="">
+				<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
 			</div>
 		</div>
 		<div class="form-group form-inline">
 			<label class="col-md-2 control-label">婚姻狀況</label>
 			<div class="col-md-10">
-				<label class="radio-inline"><input type="radio" value="" name="">已婚</label>
-				<label class="radio-inline"><input type="radio" value="" name="">未婚</label>
-				<label class="radio-inline"><input type="radio" value="" name="">喪偶</label>
-				<label class="radio-inline"><input type="radio" value="" name="">離婚</label>
-				<label class="radio-inline"><input type="radio" value="" name="">分居</label>
-				<label class="radio-inline"><input type="radio" value="" name="">其他</label>
+				<label class="radio-inline"><input type="radio" value="" name="" required>未婚</label>
+				<label class="radio-inline"><input type="radio" value="" name="" required>已婚</label>
+				<label class="radio-inline"><input type="radio" value="" name="" required>離婚</label>
+				<label class="radio-inline"><input type="radio" value="" name="" required>分居</label>
+				<label class="radio-inline"><input type="radio" value="" name="" required>喪偶</label>
+				<label class="radio-inline"><input type="radio" value="" name="" required>其他</label>
+				<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
 			</div>
 		</div>
 		<div class="form-group form-inline">
 			<label class="col-md-2 control-label">教育程度</label>
 			<div class="col-md-10">
-				<label class="radio-inline"><input type="radio" value="" name="EduRadios">不識字</label>
-				<label class="radio-inline"><input type="radio" value="" name="EduRadios">識字未就學</label>
-				<label class="radio-inline"><input type="radio" value="" name="EduRadios">特教-國小</label>
-				<label class="radio-inline"><input type="radio" value="" name="EduRadios">特教-國中</label>
-				<label class="radio-inline"><input type="radio" value="" name="EduRadios">特教-高中</label>
-				<label class="radio-inline"><input type="radio" value="" name="EduRadios">國小</label>
-				<label class="radio-inline"><input type="radio" value="" name="EduRadios">國中</label>
-				<label class="radio-inline"><input type="radio" value="" name="EduRadios">高中</label>
-				<label class="radio-inline"><input type="radio" value="" name="EduRadios">大專</label>
-				<label class="radio-inline"><input type="radio" value="" name="EduRadios">研究所以上</label>
-				<label class="radio-inline"><input type="radio" value="" name="EduRadios">其他</label>
+				<label class="radio-inline"><input type="radio" value="" name="EduRadios" required>不識字</label>
+				<label class="radio-inline"><input type="radio" value="" name="EduRadios" required>識字未就學</label>
+				<label class="radio-inline"><input type="radio" value="" name="EduRadios" required>特教-國小</label>
+				<label class="radio-inline"><input type="radio" value="" name="EduRadios" required>特教-國中</label>
+				<label class="radio-inline"><input type="radio" value="" name="EduRadios" required>特教-高中</label>
+				<label class="radio-inline"><input type="radio" value="" name="EduRadios" required>國小</label>
+				<label class="radio-inline"><input type="radio" value="" name="EduRadios" required>國中</label>
+				<label class="radio-inline"><input type="radio" value="" name="EduRadios" required>高中</label>
+				<label class="radio-inline"><input type="radio" value="" name="EduRadios" required>大專</label>
+				<label class="radio-inline"><input type="radio" value="" name="EduRadios" required>研究所以上</label>
+				<label class="radio-inline"><input type="radio" value="" name="EduRadios" required>其他</label>
 				<input type="text" class="form-control" placeholder="">
+				<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
 			</div>
 		</div>
 		<div class="form-group form-inline">
 			<label class="col-md-2 control-label">居住地址</label>
 			<div class="col-md-10">
-				<select class="form-control">
+				<select class="form-control" required>
 					<option>縣市</option>
 					<option>台北市</option>
 					<option>苗栗市</option>
@@ -215,7 +312,7 @@
 					<option>台南市</option>
 					<option>高雄市</option>
 				</select>
-				<select class="form-control">
+				<select class="form-control" required>
 					<option>區</option>
 					<option>新店區</option>
 					<option>永和區</option>
@@ -223,7 +320,7 @@
 					<option>三重區</option>
 					<option>板橋區</option>
 				</select>
-				<select class="form-control">
+				<select class="form-control" required>
 					<option>里</option>
 					<option>中正里</option>
 					<option>三民里</option>
@@ -232,11 +329,13 @@
 					<option>永安里</option>
 				</select>
 				<input type="text" class="form-control" placeholder="地址">
+				<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
 			</div>
 		</div>
 		<div class="form-group form-inline">
 			<label class="col-md-2 control-label">戶籍地址</label>
 			<div class="col-md-10">
+				<label class="checkbox-inline"><input type="checkbox" value="">同居住地址</label>
 				<select class="form-control">
 					<option>縣市</option>
 					<option>台北市</option>
@@ -276,35 +375,38 @@
 		<div class="form-group form-inline">
 			<label class="col-md-2 control-label">慣用語言</label>
 			<div class="col-md-10">
-				<label class="checkbox-inline"><input type="checkbox" value="">國語</label>
-				<label class="checkbox-inline"><input type="checkbox" value="">台語</label>
-				<label class="checkbox-inline"><input type="checkbox" value="">客家語</label>
-				<label class="checkbox-inline"><input type="checkbox" value="">原住民語</label>
-				<label class="checkbox-inline"><input type="checkbox" value="">其他</label>
-				<input type="text" class="form-control" placeholder="">
+				<label class="checkbox-inline"><input type="checkbox" value="" required>國語</label>
+				<label class="checkbox-inline"><input type="checkbox" value="" required>台語</label>
+				<label class="checkbox-inline"><input type="checkbox" value="" required>客家語</label>
+				<label class="checkbox-inline"><input type="checkbox" value="" required>原住民語</label>
+				<label class="checkbox-inline"><input type="checkbox" value="" required>其他</label>
+				<input type="text" class="form-control" placeholder="" required>
+				<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
 			</div>
 		</div>
 		<div class="form-group form-inline">
-			<label class="col-md-2 control-label">身份別（一）</label>
+			<label class="col-md-2 control-label">身份別(一)</label>
 			<div class="col-md-10">
-				<label class="radio-inline"><input type="radio" value="" name="IDRadios">一般戶</label>
-				<label class="radio-inline"><input type="radio" value="" name="IDRadios">中低 2.5 倍</label>
-				<label class="radio-inline"><input type="radio" value="" name="IDRadios">中低 1.5 倍</label>
-				<label class="radio-inline"><input type="radio" value="" name="IDRadios">低收入戶</label>
-				<input type="text" class="form-control" placeholder="">
+				<label class="radio-inline"><input type="radio" value="" name="IDRadios" required>一般戶</label>
+				<label class="radio-inline"><input type="radio" value="" name="IDRadios" required>中低 2.5 倍</label>
+				<label class="radio-inline"><input type="radio" value="" name="IDRadios" required>中低 1.5 倍</label>
+				<label class="radio-inline"><input type="radio" value="" name="IDRadios" required>低收入戶</label>
+				<input type="text" class="form-control" placeholder="" required>
+				<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
 			</div>
 		</div>
 		<div class="form-group form-inline">
-			<label class="col-md-2 control-label">身份別（二）</label>
+			<label class="col-md-2 control-label">身份別(二)</label>
 			<div class="col-md-10">
-				<label class="checkbox-inline"><input type="checkbox" value="">榮民、榮眷</label>
-				<label class="checkbox-inline"><input type="checkbox" value="">原住民</label>
-				<label class="checkbox-inline"><input type="checkbox" value="">其他</label>
-				<input type="text" class="form-control" placeholder="">
+				<label class="checkbox-inline"><input type="checkbox" value="" required>榮民、榮眷</label>
+				<label class="checkbox-inline"><input type="checkbox" value="" required>原住民</label>
+				<label class="checkbox-inline"><input type="checkbox" value="" required>其他</label>
+				<input type="text" class="form-control" placeholder="" required>
+				<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
 			</div>
 		</div>
 		<div class="form-group form-inline">
-			<label class="col-md-2 control-label">身份別（三）</label>
+			<label class="col-md-2 control-label">身份別(三)</label>
 			<div class="col-md-10 case_new_check">
 				<label class="radio-inline"><input type="radio" value="" name="IDRadios1" checked>老人科</label>
 				<label class="radio-inline"><input type="radio" value="" name="IDRadios1">身障 ICF</label>
@@ -312,77 +414,85 @@
 		</div>
 		<div class="case_new_checkcont1">
 			<div class="form-group form-inline">
-				<label class="col-md-2 control-label">身份別（四）</label>
+				<label class="col-md-2 control-label">身份別(四)</label>
 				<div class="col-md-10">
 					<label class="radio-inline"><input type="radio" value="" name="IDRadios2" checked>長十</label>
 				</div>
 			</div>
 			<div class="form-group form-inline">
-				<label class="col-md-2 control-label">身份別（五）</label>
+				<label class="col-md-2 control-label">身份別(五)</label>
 				<div class="col-md-10">
 					<label class="radio-inline"><input type="radio" value="" name="IDRadios3" checked>新制</label>
+					<input class="btn btn-default" type="button" value="切換舊制" data-toggle="modal" data-target="#switch_system">
 				</div>
 			</div>
 			<div class="form-group form-inline">
 				<label class="col-md-2 control-label">補助類別</label>
 				<div class="col-md-10">
-					<label class="radio-inline"><input type="radio" value="" name="IDRadios">65 歲老人</label><br>
-					<label class="radio-inline"><input type="radio" value="" name="IDRadios">50 歲以上身心障礙者</label><br>
-					<label class="radio-inline"><input type="radio" value="" name="IDRadios">55 歲以上山地原住民</label><br>
-					<label class="radio-inline"><input type="radio" value="" name="IDRadios">僅 IADL 失能獨居老人</label><br>
+					<label class="radio-inline"><input type="radio" value="" name="IDRadios" required>65 歲老人</label><br>
+					<label class="radio-inline"><input type="radio" value="" name="IDRadios" required>50 歲以上身心障礙者</label><br>
+					<label class="radio-inline"><input type="radio" value="" name="IDRadios" required>55 歲以上山地原住民</label><br>
+					<label class="radio-inline"><input type="radio" value="" name="IDRadios" required>僅 IADL 失能獨居老人</label><br>
+					<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
 				</div>
 			</div>
 		</div>
 		<div class="case_new_checkcont2">
 			<div class="form-group form-inline">
-				<label class="col-md-2 control-label">身份別（四）</label>
+				<label class="col-md-2 control-label">身份別(四)</label>
 				<div class="col-md-10">
 					<label class="radio-inline"><input type="radio" value="" name="IDRadios4" checked>非長十</label>
 				</div>
 			</div>
 			<div class="form-group form-inline">
-				<label class="col-md-2 control-label">身份別（五）</label>
+				<label class="col-md-2 control-label">身份別(五)</label>
 				<div class="col-md-10">
 					<label class="radio-inline"><input type="radio" value="" name="IDRadios5" checked>新制</label>
+					<input class="btn btn-default" type="button" value="切換舊制" data-toggle="modal" data-target="#switch_system">
 				</div>
 			</div>
 			<div class="form-group form-inline">
 				<label class="col-md-2 control-label">補助類別</label>
 				<div class="col-md-10">
-					<label class="radio-inline"><input type="radio" value="" name="IDRadios">未滿 50 歲身障者</label><br>
-					<label class="radio-inline"><input type="radio" value="" name="IDRadios">64 歲以下未領有手冊之失能者</label><br>
-					<label class="radio-inline"><input type="radio" value="" name="IDRadios">50 歲以上失智者、慢性精神病患、智能障礙者及自閉症者</label><br>
-					<label class="radio-inline"><input type="radio" value="" name="IDRadios">未達常照十年計畫失能標準而適用本補助者</label><br>
+					<label class="radio-inline"><input type="radio" value="" name="IDRadios" required>未滿 50 歲身障者</label><br>
+					<label class="radio-inline"><input type="radio" value="" name="IDRadios" required>64 歲以下未領有手冊之失能者</label><br>
+					<label class="radio-inline"><input type="radio" value="" name="IDRadios" required>50 歲以上失智者、慢性精神病患、智能障礙者及自閉症者</label><br>
+					<label class="radio-inline"><input type="radio" value="" name="IDRadios" required>未達常照十年計畫失能標準而適用本補助者</label><br>
+					<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
 				</div>
 			</div>
 		</div>
 		<div class="form-group form-inline">
 			<label class="col-md-2 control-label">領取身心障礙手冊</label>
 			<div class="col-md-10">
-				<label class="radio-inline"><input type="radio" value="" name="DLicenseRadios" checked="">無</label>
-				<label class="radio-inline"><input type="radio" value="" name="DLicenseRadios" class="fm-ctrl" data-show-id="ctr_check" >有</label>
+				<label class="radio-inline"><input type="radio" value="" name="DLicenseRadios" checked="" required>無</label>
+				<label class="radio-inline"><input type="radio" value="" name="DLicenseRadios" class="fm-ctrl" data-show-id="ctr_check" required>有</label>
+				<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
 			</div>
 		</div>
 		<div id="ctr_check" class="hiddenbox">
 			<div class="form-group form-inline">
 				<label class="col-md-2 control-label">障別</label>
 				<div class="col-md-10">
-					<input type="text" class="form-control" placeholder="">
+					<input type="text" class="form-control" placeholder="" required>
+					<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
 				</div>
 			</div>
 			<div class="form-group form-inline">
 				<label class="col-md-2 control-label">障別等級</label>
 				<div class="col-md-10">
-					<label class="radio-inline"><input type="radio" value="" name="aa">輕度</label>
-					<label class="radio-inline"><input type="radio" value="" name="aa">中度</label>
-					<label class="radio-inline"><input type="radio" value="" name="aa">重度</label>
+					<label class="radio-inline"><input type="radio" value="" name="aa" required>極重度</label>
+					<label class="radio-inline"><input type="radio" value="" name="aa" required>重度</label>
+					<label class="radio-inline"><input type="radio" value="" name="aa" required>中度</label>
+					<label class="radio-inline"><input type="radio" value="" name="aa" required>輕度</label>
+					<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
 				</div>
 			</div>
 		</div>
 		<div class="form-group form-inline">
 			<label class="col-md-2 control-label">障礙狀況</label>
 			<div class="col-md-10">
-				<select class="form-control">
+				<select class="form-control" required>
 					<option></option>
 					<option>失智症者</option>
 					<option>慢性精神病患</option>
@@ -394,22 +504,25 @@
 					<option>其他類身心障礙</option>
 					<option>一般失能者</option>
 				</select>
+				<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
 			</div>
 		</div>
 		<div class="form-group form-inline">
 			<label class="col-md-2 control-label">失能狀況</label>
 			<div class="col-md-10">
-				<label class="radio-inline"><input type="radio" value="" name="DLicenseRadios">輕度</label>
-				<label class="radio-inline"><input type="radio" value="" name="DLicenseRadios">中度</label>
-				<label class="radio-inline"><input type="radio" value="" name="DLicenseRadios">重度</label>
+				<label class="radio-inline"><input type="radio" value="" name="DLicenseRadios" required>重度</label>
+				<label class="radio-inline"><input type="radio" value="" name="DLicenseRadios" required>中度</label>
+				<label class="radio-inline"><input type="radio" value="" name="DLicenseRadios" required>輕度</label>
+				<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
 			</div>
 		</div>
 		<div class="form-group form-inline">
 			<label class="col-md-2 control-label">輔具</label>
 			<div class="col-md-10">
-				<label class="radio-inline"><input type="radio" value="" name="DLicenseRadios">無</label>
-				<label class="radio-inline"><input type="radio" value="" name="DLicenseRadios">有</label>
+				<label class="radio-inline"><input type="radio" value="" name="DLicenseRadios" required>無</label>
+				<label class="radio-inline"><input type="radio" value="" name="DLicenseRadios" required>有</label>
 				<input type="text" class="form-control" placeholder="">
+				<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
 			</div>
 		</div>
 		<div class="form-group form-inline">
@@ -436,20 +549,22 @@
 		<div class="form-group form-inline">
 			<label class="col-md-2 control-label">衛生環境</label>
 			<div class="col-md-10">
-				<label class="radio-inline"><input type="radio" value="" name="DLicenseRadios">無異常狀況</label>
-				<label class="radio-inline"><input type="radio" value="" name="DLicenseRadios">異常</label>
+				<label class="radio-inline"><input type="radio" value="" name="DLicenseRadios" required>無異常狀況</label>
+				<label class="radio-inline"><input type="radio" value="" name="DLicenseRadios" required>異常</label>
+				<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
 			</div>
 		</div>
 		<div class="form-group form-inline">
 			<label class="col-md-2 control-label">居住情形</label>
 			<div class="col-md-10">
-				<label class="checkbox-inline"><input type="checkbox" value="">獨居</label>
-				<label class="checkbox-inline"><input type="checkbox" value="">配偶同住</label>
-				<label class="checkbox-inline"><input type="checkbox" value="">子女同住</label>
-				<label class="checkbox-inline"><input type="checkbox" value="">子女家輪住</label>
-				<label class="checkbox-inline"><input type="checkbox" value="">親友或孫代子女同住</label>
-				<label class="checkbox-inline"><input type="checkbox" value="">其他</label>
+				<label class="checkbox-inline"><input type="checkbox" value="" required>獨居</label>
+				<label class="checkbox-inline"><input type="checkbox" value="" required>配偶同住</label>
+				<label class="checkbox-inline"><input type="checkbox" value="" required>子女同住</label>
+				<label class="checkbox-inline"><input type="checkbox" value="" required>子女家輪住</label>
+				<label class="checkbox-inline"><input type="checkbox" value="" required>親友或孫代子女同住</label>
+				<label class="checkbox-inline"><input type="checkbox" value="" required>其他</label>
 				<input type="text" class="form-control" placeholder="">
+				<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
 			</div>
 		</div>
 		<div class="form-group form-inline">
@@ -511,67 +626,72 @@
 		<div class="form-group form-inline">
 			<label class="col-md-2 control-label">家系圖</label>
 			<div class="col-md-10">
-				<img alt="" class="img-responsive img-thumbnail" src="http://placehold.it/800x600">
-				<br>
-				<br>
-				檔案格式：jpg, jpeg, png</p>
-				檔案尺寸：800 x 600</p>
-				<input class="help-block top-buffer" type="file" href="javascript:;">
+		        <img alt="" class="img-responsive img-thumbnail" src="http://placehold.it/800x600">
+		        <br>
+		        <br>
+		        檔案格式：jpg, jpeg, png</p>
+		        檔案尺寸：800 x 600</p>
+		        <input class="help-block top-buffer" type="file" href="javascript:;">
 			</div>
 		</div>
 		<div class="form-group form-inline">
 			<label class="col-md-2 control-label">生態圖</label>
 			<div class="col-md-10">
-				<img alt="" class="img-responsive img-thumbnail" src="http://placehold.it/800x600">
-				<br>
-				<br>
-				檔案格式：jpg, jpeg, png</p>
-				檔案尺寸：800 x 600</p>
-				<input class="help-block top-buffer" type="file" href="javascript:;">
+		        <img alt="" class="img-responsive img-thumbnail" src="http://placehold.it/800x600">
+		        <br>
+		        <br>
+		        檔案格式：jpg, jpeg, png</p>
+		        檔案尺寸：800 x 600</p>
+		        <input class="help-block top-buffer" type="file" href="javascript:;">
 			</div>
 		</div>
+
 		<div class="form-group form-inline">
 			<label class="col-md-2 control-label">服務申請人</label>
 			<div class="col-md-10">
-				<input type="text" class="form-control" placeholder="">
+				<input class="form-control" placeholder="" value="" required="">
+				<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
 			</div>
 		</div>
 		<div class="form-group form-inline">
 			<label class="col-md-2 control-label">服務申請緣由</label>
 			<div class="col-md-10">
-				<textarea class="form-control" rows="3"></textarea>
+				<textarea class="form-control" maxlength="140" rows="3"></textarea>
 			</div>
 		</div>
 		<div class="form-group form-inline">
 			<label class="col-md-2 control-label">個案對於需求與問題的看法</label>
 			<div class="col-md-10">
-				<textarea class="form-control" rows="3"></textarea>
+				<textarea class="form-control" maxlength="140" rows="3"></textarea>
 			</div>
 		</div>
 		<div class="form-group form-inline">
 			<label class="col-md-2 control-label">主要照顧者或其他家屬對於需求與問題的看法</label>
 			<div class="col-md-10">
-		<textarea class="form-control" rows="3"></textarea>
+				<textarea class="form-control" maxlength="140" rows="3"></textarea>
 			</div>
 		</div>
 		<div class="form-group form-inline">
 			<label class="col-md-2 control-label">初次需求評估</label>
 			<div class="col-md-10">
-				<textarea class="form-control" rows="3"></textarea>
+            	<textarea class="form-control" maxlength="140" rows="3" required></textarea>
+            	<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
 			</div>
 		</div>
 		<div class="form-group form-inline">
 			<label class="col-md-2 control-label">初次處遇計畫</label>
 			<div class="col-md-10">
-				<textarea class="form-control" rows="3"></textarea>
+            	<textarea class="form-control" maxlength="140" rows="3" required></textarea>
+            	<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
 			</div>
 		</div>
 		<div class="form-group form-inline">
 			<label class="col-md-2 control-label">個案或家屬對服務的反應</label>
 			<div class="col-md-10">
-		<textarea class="form-control" rows="3"></textarea>
+				<textarea class="form-control" maxlength="140" rows="3"></textarea>
 			</div>
 		</div>
+
 		<div class="form-group form-inline">
 			<label class="col-md-2 control-label">服務需求時數</label>
 			<div class="col-md-10">
@@ -582,14 +702,16 @@
 		<div class="form-group form-inline">
 			<label class="col-md-2 control-label">核定時數</label>
 			<div class="col-md-10">
-				<input type="text" class="form-control" placeholder="">
+				<input type="text" class="form-control" placeholder="" required>
+				<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
 				<label class="form-control-static">小時/月</label>
 			</div>
 		</div>
 		<div class="form-group form-inline">
-			<label class="col-md-2 control-label">補助比例（政府補助額度）</label>
+			<label class="col-md-2 control-label">補助比例(政府補助額度)</label>
 			<div class="col-md-10">
-				<input type="text" class="form-control" placeholder="">
+				<input type="text" class="form-control" placeholder="" required>
+				<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
 				<label class="form-control-static">%</label>
 			</div>
 		</div>
@@ -605,24 +727,45 @@
 				<label class="form-control-static">元</label>
 			</div>
 		</div>
+
+		<div class="form-group form-inline">
+			<label class="col-md-2 control-label">個案繳費方式</label>
+			<div class="col-md-10">
+				<select id="d_cost_payment" class="form-control" required>
+					<option value="居服員到府收費" data-payment="cash">居服員到府收費</option>
+					<option value="郵局劃撥">郵局劃撥</option>
+					<option value="銀行轉帳">銀行轉帳</option>
+					<option value="信用卡繳款">信用卡繳款</option>
+				</select>
+				<select id="d_cost_staff" class="form-control" required>
+					<option value="選擇居服員">選擇居服員</option>
+					<option value="居服員A">居服員A</option>
+					<option value="居服員B">居服員B</option>
+					<option value="居服員C">居服員C</option>
+				</select>
+				<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+			</div>
+		</div>
 		<div class="form-group form-inline">
 			<label class="col-md-2 control-label">服務項目</label>
 			<div class="col-md-10">
-				<label class="checkbox-inline"><input type="checkbox" value="">電話問安</label>
-				<label class="checkbox-inline"><input type="checkbox" value="">到家探訪</label>
-				<label class="checkbox-inline"><input type="checkbox" value="">送餐服務</label>
-				<label class="checkbox-inline"><input type="checkbox" value="">買菜煮飯打掃</label>
-				<label class="checkbox-inline"><input type="checkbox" value="">洗澡</label>
-				<label class="checkbox-inline"><input type="checkbox" value="">整理家務</label>
-				<label class="checkbox-inline"><input type="checkbox" value="">帶出門看醫生</label>
-				<label class="checkbox-inline"><input type="checkbox" value="">陪聊天散步</label>
-				<label class="checkbox-inline"><input type="checkbox" value="">到宅沐浴</label>
+				<label class="checkbox-inline"><input type="checkbox" value="" required>電話問安</label>
+				<label class="checkbox-inline"><input type="checkbox" value="" required>到家探訪</label>
+				<label class="checkbox-inline"><input type="checkbox" value="" required>送餐服務</label>
+				<label class="checkbox-inline"><input type="checkbox" value="" required>買菜煮飯打掃</label>
+				<label class="checkbox-inline"><input type="checkbox" value="" required>洗澡</label>
+				<label class="checkbox-inline"><input type="checkbox" value="" required>整理家務</label>
+				<label class="checkbox-inline"><input type="checkbox" value="" required>帶出門看醫生</label>
+				<label class="checkbox-inline"><input type="checkbox" value="" required>陪聊天散步</label>
+				<label class="checkbox-inline"><input type="checkbox" value="" required>到宅沐浴</label>
+				<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
 			</div>
 		</div>
 		<div class="form-group form-inline">
 			<label class="col-md-2 control-label">派案日期</label>
 			<div class="col-md-10">
-				<input type="text" class="form-control datepicker" placeholder="">
+				<input type="text" class="form-control datepicker" placeholder="" required>
+				<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
 			</div>
 		</div>
 		<div class="form-group form-inline">
@@ -664,6 +807,21 @@
 			<label class="col-md-2 control-label">上傳回覆單檔案</label>
 			<div class="col-md-10">
 				<input type="file" href="javascript:;">
+			</div>
+		</div>
+		<div class="form-group form-inline">
+			<label class="col-md-2 control-label">照管師</label>
+			<div class="col-md-10">
+				<input type="text" class="form-control" data-error="請填入正確的姓名" placeholder="" required>
+				<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+				<span class="help-block with-errors"></span>
+			</div>
+		</div>
+		<div class="form-group form-inline">
+			<label class="col-md-2 control-label">第一次照會日期</label>
+			<div class="col-md-10">
+				<input type="text" class="form-control datepicker" placeholder="" required>
+				<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
 			</div>
 		</div>
 	</div>
